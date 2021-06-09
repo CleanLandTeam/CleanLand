@@ -1,0 +1,20 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-cleanland-dev-203226-authRole",
+      "UnauthRoleArn": "arn:aws:iam::301210120197:role/amplify-cleanland-dev-203226-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::301210120197:role/amplify-cleanland-dev-203226-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-cleanland-dev-203226-deployment",
+      "UnauthRoleName": "amplify-cleanland-dev-203226-unauthRole",
+      "StackName": "amplify-cleanland-dev-203226",
+      "StackId": "arn:aws:cloudformation:us-east-1:301210120197:stack/amplify-cleanland-dev-203226/aa8b0d40-c948-11eb-962d-0e35b405c3d1",
+      "AmplifyAppId": "d1sbdlt1isimkq"
+    },
+    "categories": {
+      "auth": {
+        "cleanlandc57eb830": {}
+      }
+    }
+  }
+}
