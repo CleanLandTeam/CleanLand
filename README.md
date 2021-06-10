@@ -6,11 +6,11 @@
 
 **members:**
 
-1.Anas Sawalha
-2.Aya Barjawi
-3.Malek Esmail
-4.Abdalrahman Alhmouz
-5.Ahmad Alsabbagh
+1.Anas Sawalha : Strength: analsis, Coding 
+2.Aya Barjawi:  Strength: Managment 
+3.Malek Esmail:  Strength: Design  
+4.Abdalrahman Alhmouz:  Strength: Organizing 
+5.Ahmad Alsabbagh: Strength: Debugging 
 
  
 ## Tools Used:
