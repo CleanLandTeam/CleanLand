@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "733813197637",
+    "project_id": "cleanland-ee200",
+    "storage_bucket": "cleanland-ee200.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:733813197637:android:e297bddf6c9889e8c2cc2c",
+        "android_client_info": {
+          "package_name": "com.example.cleanland"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "733813197637-50pt26ruh8dndq7s9f78r7hlskmcti9t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC0ffzbQYecG-RVymlh0TBp_wywqgbOWQY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "733813197637-50pt26ruh8dndq7s9f78r7hlskmcti9t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
