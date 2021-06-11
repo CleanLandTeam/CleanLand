@@ -15,7 +15,7 @@ import com.amplifyframework.core.model.query.predicate.QueryField;
 
 import static com.amplifyframework.core.model.query.predicate.QueryField.field;
 
-/** This is an auto generated class representing the Donate type in your schema */
+/** This is an auto generated class representing the Donate type in your schemagit rm -r --cached .idea */
 @SuppressWarnings("all")
 @ModelConfig(pluralName = "Donates")
 public final class Donate implements Model {
