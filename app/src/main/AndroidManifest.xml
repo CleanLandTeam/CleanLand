@@ -14,11 +14,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CleanLand">
+
+        <activity android:name=".donate.Donate" />
+        <activity android:name=".condition.Condition" />
+        <activity android:name=".orders.Orders" />
+
         <activity android:name=".activities.confirmSignUpPage"></activity>
         <activity
             android:name=".activities.LoginActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".activities.SignUpActivity" />
+
         <activity android:name=".activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

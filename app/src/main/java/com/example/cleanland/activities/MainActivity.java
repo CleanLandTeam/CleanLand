@@ -4,12 +4,16 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-<<<<<<< HEAD
+
+import android.view.View;
+import android.widget.Button;
+
+
 import android.widget.TextView;
-=======
+
 import android.os.Handler;
 import android.util.Log;
->>>>>>> b5ddf997d3f5afaf9da81543b0069edfaf8125d1
+
 
 import com.amplifyframework.AmplifyException;
 import com.amplifyframework.auth.cognito.AWSCognitoAuthPlugin;
@@ -28,9 +32,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-<<<<<<< HEAD
+         }
+
+
+
         AmplifyInitializer amplifyInitializer= new AmplifyInitializer();
-=======
+
 
 
         //        initialize Amplify
@@ -57,6 +64,6 @@ public class MainActivity extends AppCompatActivity {
         }, SPLASH_DISPLAY_LENGTH);
 
 
->>>>>>> b5ddf997d3f5afaf9da81543b0069edfaf8125d1
     }
+
 }
