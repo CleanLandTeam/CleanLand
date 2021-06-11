@@ -44,7 +44,7 @@ public final class Orders implements Model {
   private final @ModelField(targetType="Int") Integer suitesQuantity;
   private final @ModelField(targetType="Int") Integer othersQuantity;
   private final @ModelField(targetType="String") String userId;
-  private final @ModelField(targetType="state") State state;
+  private final @ModelField(targetType="State") State state;
   public String getId() {
       return id;
   }

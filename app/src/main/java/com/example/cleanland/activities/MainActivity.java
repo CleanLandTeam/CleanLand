@@ -18,16 +18,26 @@ import com.example.cleanland.utils.UserAuthentication;
 
 public class MainActivity extends AppCompatActivity {
 
-
+    AmplifyInitializer amplifyInitializer;
     UserAuthentication userAuthentication =new UserAuthentication();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        AmplifyInitializer amplifyInitializer= new AmplifyInitializer();
+       this.amplifyInitializer= new AmplifyInitializer(getApplicationContext());
 
-        this.userAuthentication.checkForUserAuth();
+        Amplify.Auth.fetchAuthSession(
+                result -> {
+                    if (!result.isSignedIn()) {
+                      //  Log.d("ActivityContextlog", "inside userauth check"+ ActivityContext);
+                        Intent loginIntent = new Intent(this, LoginActivity.class);
+                       startActivity(loginIntent);
+                    }
+                },
+                error -> Log.e("failed user login", error.toString())
+        );
+        //this.userAuthentication.checkForUserAuth(getBaseContext());
 
 
 
@@ -37,8 +47,17 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-
-        this.userAuthentication.checkForUserAuth();
+        Amplify.Auth.fetchAuthSession(
+                result -> {
+                    if (!result.isSignedIn()) {
+                       // Log.d("ActivityContextlog", "inside userauth check"+ ActivityContext);
+                        Intent loginIntent = new Intent(this, LoginActivity.class);
+                        startActivity(loginIntent);
+                    }
+                },
+                error -> Log.e("failed user login", error.toString())
+        );
+       // this.userAuthentication.checkForUserAuth(this);
 
     }
 

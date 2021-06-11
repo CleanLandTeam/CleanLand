@@ -15,7 +15,7 @@ import com.amplifyframework.core.model.query.predicate.QueryField;
 
 import static com.amplifyframework.core.model.query.predicate.QueryField.field;
 
-/** This is an auto generated class representing the Donate type in your schemagit rm -r --cached .idea */
+/** This is an auto generated class representing the Donate type in your schema. */
 @SuppressWarnings("all")
 @ModelConfig(pluralName = "Donates")
 public final class Donate implements Model {
@@ -42,7 +42,7 @@ public final class Donate implements Model {
   private final @ModelField(targetType="Int") Integer suitesQuantity;
   private final @ModelField(targetType="Int") Integer othersQuantity;
   private final @ModelField(targetType="String") String userId;
-  private final @ModelField(targetType="condition") Condition condition;
+  private final @ModelField(targetType="Condition") Condition condition;
   public String getId() {
       return id;
   }
