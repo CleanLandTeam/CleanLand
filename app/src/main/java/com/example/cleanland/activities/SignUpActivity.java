@@ -9,13 +9,14 @@ import android.view.View;
 import android.widget.EditText;
 
 import com.amplifyframework.AmplifyException;
+import com.amplifyframework.auth.AuthUserAttribute;
 import com.amplifyframework.auth.AuthUserAttributeKey;
 import com.amplifyframework.auth.cognito.AWSCognitoAuthPlugin;
 import com.amplifyframework.auth.options.AuthSignUpOptions;
 import com.amplifyframework.core.Amplify;
-import com.amplifyframework.datastore.AWSDataStorePlugin;
-import com.amplifyframework.storage.s3.AWSS3StoragePlugin;
 import com.example.cleanland.R;
+
+import java.util.ArrayList;
 
 public class SignUpActivity extends AppCompatActivity{
 
@@ -44,32 +45,35 @@ public class SignUpActivity extends AppCompatActivity{
 
 
                 EditText user = findViewById(R.id.userName_signup);
-                String userName = user.getText().toString();
+                String username = user.getText().toString();
                 EditText userPass = findViewById(R.id.password_signup);
-                String passWord = userPass.getText().toString();
+                String password = userPass.getText().toString();
 
                 EditText userEmail = findViewById(R.id.email_signup);
                 String email = userEmail.getText().toString();
                 Log.i("email", "onClick: "+email);
-                AuthSignUpOptions options = AuthSignUpOptions.builder()
-                        .userAttribute(AuthUserAttributeKey.email(), email)
-                        .userAttribute(AuthUserAttributeKey.familyName(),"sabnagh")
-                        .userAttribute(AuthUserAttributeKey.middleName(),"sameer")
-                        .userAttribute(AuthUserAttributeKey.picture(),"src/main/res/drawable/login_bk.png")
-                        .userAttribute(AuthUserAttributeKey.gender(),"m")
-                        .userAttribute(AuthUserAttributeKey.birthdate(),"11/11/1999")
-                        .userAttribute(AuthUserAttributeKey.locale(),"amman")
-                        .userAttribute(AuthUserAttributeKey.phoneNumber(),"0000000000")
-                        .userAttribute(AuthUserAttributeKey.address(),"amman")
-                        .build();
-                Amplify.Auth.signUp(userName, passWord, options,
+                ArrayList<AuthUserAttribute> attributes = new ArrayList<>();
+                attributes.add(new AuthUserAttribute(AuthUserAttributeKey.name(),"null"));
+                attributes.add(new AuthUserAttribute(AuthUserAttributeKey.familyName(),"null"));
+                attributes.add(new AuthUserAttribute(AuthUserAttributeKey.middleName(),"null"));
+                attributes.add(new AuthUserAttribute(AuthUserAttributeKey.picture(),"null"));
+                attributes.add(new AuthUserAttribute(AuthUserAttributeKey.gender(),"null"));
+                attributes.add(new AuthUserAttribute(AuthUserAttributeKey.birthdate(),"02/01/1996"));
+                attributes.add(new AuthUserAttribute(AuthUserAttributeKey.locale(),"null"));
+                attributes.add(new AuthUserAttribute(AuthUserAttributeKey.phoneNumber(),"+96279923821"));
+                attributes.add(new AuthUserAttribute(AuthUserAttributeKey.address(),"null"));
+
+                Amplify.Auth.signUp(
+                        email,
+                        password,
+                        AuthSignUpOptions.builder().userAttributes(attributes).build(),
                         result -> Log.i("AuthQuickStart", "Result: " + result.toString()),
                         error -> Log.e("AuthQuickStart", "Sign up failed", error)
                 );
 
 
-                Intent intent = new Intent(v.getContext(), confirmSignUpPage.class);
-                intent.putExtra("userName2",userName);
+                Intent intent = new Intent(v.getContext(), confirmSignUpActivity.class);
+                intent.putExtra("userName2",username);
 
                 startActivity(intent);
             }

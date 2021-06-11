@@ -11,7 +11,7 @@ import android.widget.EditText;
 import com.amplifyframework.core.Amplify;
 import com.example.cleanland.R;
 
-public class confirmSignUpPage extends AppCompatActivity {
+public class confirmSignUpActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
