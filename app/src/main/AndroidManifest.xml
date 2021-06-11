@@ -21,6 +21,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".activities.confirmSignUpPage" />
+       <activity android:name=".donate.Donate" />
+        <activity android:name=".condition.Condition" />
+        <activity android:name=".orders.Orders" />
         <activity
             android:name=".activities.LoginActivity"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -30,5 +33,3 @@
 
         </activity>
     </application>
-
-</manifest>
