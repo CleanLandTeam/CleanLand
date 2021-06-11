@@ -1,5 +1,48 @@
-type Todo @model {
+enum Priority {
+  LOW
+  NORMAL
+  HIGH
+}
+enum state {
+  New
+  Pickup
+  Process
+  Ready
+  Delivered
+}
+enum condition{
+  A
+  B
+  C
+  D
+}
+type Orders @model {
   id: ID!
-  name: String!
-  description: String
+  pickupDate :String!
+  deliveryDate  :String!
+  longitude : Float!
+  latitude : Float!
+  shirtsQuantity  : Int
+  jacketsQuantity : Int
+  underWaresQuantity: Int
+  pantiesQuantity : Int
+  suitesQuantity :  Int
+  othersQuantity  :Int
+  userId:String
+  state:state
+}
+
+type Donate @model {
+  id: ID!
+  pickupDate :String!
+  longitude : Float!
+  latitude : Float!
+    shirtsQuantity  : Int
+    jacketsQuantity : Int
+    underWaresQuantity: Int
+    pantiesQuantity : Int
+    suitesQuantity :  Int
+    othersQuantity  :Int
+    userId: String
+    condition:condition
 }
