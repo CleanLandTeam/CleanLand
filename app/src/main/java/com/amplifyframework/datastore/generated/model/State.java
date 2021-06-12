@@ -1,7 +1,9 @@
 package com.amplifyframework.datastore.generated.model;
 /** Auto generated enum from GraphQL schema. */
 @SuppressWarnings("all")
-enum State {
+
+public enum State {
+
   New,
   Pickup,
   Process,

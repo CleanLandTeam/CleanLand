@@ -3,6 +3,7 @@ package com.amplifyframework.datastore.generated.model;
 @SuppressWarnings("all")
 public enum Condition {
 
+
   A,
   B,
   C,
