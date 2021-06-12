@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".activities.userDonations">
 
     <TextView
@@ -17,6 +18,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.078" />
+
+    <TableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TableRow>
+
+        </TableRow>
+
+    </TableLayout>
 
 
     <View
@@ -124,10 +134,10 @@
         android:id="@+id/SuitesDonatios"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="٠dp"
-        android:layout_marginEnd="٠dp"
-        android:layout_marginRight="٠dp"
-        android:layout_marginBottom="٠dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginRight="0dp"
+        android:layout_marginBottom="0dp"
         android:text="Suites"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/suitesDonationsQuantity"
@@ -140,8 +150,8 @@
         android:id="@+id/suitesDonationsQuantity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="٠dp"
-        android:layout_marginBottom="٠dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="0dp"
         android:text="TextView"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -154,12 +164,12 @@
         android:id="@+id/othersDonations"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="٠dp"
-        android:layout_marginLeft="٠dp"
-        android:layout_marginTop="٠dp"
-        android:layout_marginEnd="٠dp"
-        android:layout_marginRight="٠dp"
-        android:layout_marginBottom="٠dp"
+        android:layout_marginStart="0dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginRight="0dp"
+        android:layout_marginBottom="0dp"
         android:text="Others"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/othersDonationsQuantity"
@@ -172,8 +182,8 @@
         android:id="@+id/othersDonationsQuantity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="٠dp"
-        android:layout_marginBottom="٠dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="0dp"
         android:text="TextView"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -186,8 +196,8 @@
         android:id="@+id/totalPoints"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="٠dp"
-        android:layout_marginRight="٠dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginRight="0dp"
         android:text="TotalPoints:"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/totalDonationsPoint"
@@ -200,8 +210,8 @@
         android:id="@+id/totalDonationsPoint"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="٠dp"
-        android:layout_marginBottom="٠dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="0dp"
         android:text="TextView"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -211,4 +221,4 @@
         app:layout_constraintVertical_bias="0.353" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

@@ -153,16 +153,22 @@ public class MainActivity extends AppCompatActivity {
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_user_profile) {
             //Menu item pressed
+            Intent profileIntent = new Intent(this,ProfileActivity.class);
+            startActivity(profileIntent);
             Toast.makeText(this,"user profile pressed .", Toast.LENGTH_SHORT).show();
             return true; //Indicated menu press was handled
         }
         if (id == R.id.action_user_donations) {
             //Menu item pressed
+            Intent intent = new Intent(this,userDonations.class);
+            startActivity(intent);
             Toast.makeText(this,"user donations pressed .", Toast.LENGTH_SHORT).show();
             return true; //Indicated menu press was handled
         }
         if (id == R.id.action_user_orders) {
             //Menu item pressed
+            Intent intent = new Intent(this,OrderPage.class);
+            startActivity(intent);
             Toast.makeText(this,"user order  pressed .", Toast.LENGTH_SHORT).show();
             return true; //Indicated menu press was handled
         }

@@ -4,49 +4,46 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.room.Database;
-import androidx.room.Room;
 
 import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.cleanland.R;
-import com.example.cleanland.Table.OrdersTable;
-import com.example.cleanland.adapters.ViewAdapter;
+//import com.example.cleanland.adapters.ViewAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MyOrders extends AppCompatActivity implements ViewAdapter.OnInteractingWithTaskListener{
+public class MyOrders extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_orders);
 
-        List<OrdersTable> myOrder = new ArrayList<>();
+//        List<OrdersTable> myOrder = new ArrayList<>();
+//
+//        OrdersTable viewOne = new OrdersTable("hello","abd","alrahman","hello","abd","alrahman");
+//        OrdersTable ViewTow = new OrdersTable("hello","ahmad","kefak","hello","abd","alrahman");
+//        OrdersTable ViewThree = new OrdersTable("hello","ali","mohd","hello","abd","alrahman");
+//
+//        myOrder.add(viewOne);
+//        myOrder.add(ViewTow);
+//        myOrder.add(ViewThree);
+//
+//        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerview);
+//        ViewAdapter adapter = new ViewAdapter(myOrder,this);
+//        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
+//        recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, true));
+//        recyclerView.setItemAnimator(new DefaultItemAnimator());
+//        recyclerView.setAdapter(adapter);
+//        adapter.notifyDataSetChanged();
 
-        OrdersTable viewOne = new OrdersTable("hello","abd","alrahman","hello","abd","alrahman");
-        OrdersTable ViewTow = new OrdersTable("hello","ahmad","kefak","hello","abd","alrahman");
-        OrdersTable ViewThree = new OrdersTable("hello","ali","mohd","hello","abd","alrahman");
-
-        myOrder.add(viewOne);
-        myOrder.add(ViewTow);
-        myOrder.add(ViewThree);
-
-        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerview);
-        ViewAdapter adapter = new ViewAdapter(myOrder,this);
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
-        recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, true));
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
-        recyclerView.setAdapter(adapter);
-        adapter.notifyDataSetChanged();
-
-
-    }
-    @Override
-    public void taskListener(OrdersTable ordersTable) {
-        Intent intent = new Intent(MyOrders.this, OrderPage.class);
-        this.startActivity(intent);
 
     }
+//    @Override
+//    public void taskListener(OrdersTable ordersTable) {
+//        Intent intent = new Intent(MyOrders.this, OrderPage.class);
+//        this.startActivity(intent);
+//
+//    }
 }
