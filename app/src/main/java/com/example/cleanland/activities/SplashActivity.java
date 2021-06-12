@@ -1,5 +1,6 @@
 package com.example.cleanland.activities;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -9,7 +10,6 @@ import android.os.Handler;
 import com.example.cleanland.R;
 
 public class SplashActivity extends AppCompatActivity {
-    private final int SPLASH_DISPLAY_LENGTH = 3000; //splash screen will be shown for 2 seconds
 
     Handler handler;
     @Override
@@ -17,9 +17,13 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
+        setTitle("Welcome To Clean Land");
+
 
 
         handler=new Handler();
+
+
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -27,7 +31,7 @@ public class SplashActivity extends AppCompatActivity {
                 startActivity(intent);
                 finish();
             }
-        },SPLASH_DISPLAY_LENGTH);
+        }, 3000);
 
 
 
