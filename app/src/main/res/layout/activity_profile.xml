@@ -9,9 +9,17 @@
     >
 
 
+    <androidx.core.widget.NestedScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+
+        android:orientation="vertical"
+        android:padding="10dp"
+        android:fillViewport="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
     <LinearLayout android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="fill_parent"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="24dp"
         android:layout_marginStart="24dp"
@@ -27,19 +35,6 @@
             style="@style/loginHeader"
             android:text="Edit your information"
             android:layout_marginTop="@dimen/loginViewsMargin"/>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textInput_userName_profile"
-            style="@style/parent"
-            android:layout_marginTop="@dimen/loginViewsMargin">
-
-            <EditText
-                android:id="@+id/userName_profile"
-                style="@style/modifiedEditText"
-                android:hint="User name"
-                android:inputType="text"
-                android:maxLines="1" />
-        </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInput_name_profile"
@@ -136,20 +131,6 @@
         </com.google.android.material.textfield.TextInputLayout>
 
 
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textInput_password_profile"
-            style="@style/parent"
-            android:layout_marginTop="@dimen/loginViewsMargin">
-
-            <EditText
-                android:id="@+id/password_profile"
-                style="@style/modifiedEditText"
-                android:hint="@string/login_password_hint"
-                android:inputType="textPassword"
-                android:maxLines="1" />
-        </com.google.android.material.textfield.TextInputLayout>
-
         <Button
             android:id="@+id/edit_profile"
             style="@style/loginButton"
@@ -157,14 +138,8 @@
             android:layout_marginTop="@dimen/loginViewsMargin"
             android:text="Edit" />
 
-        <TextView
-            style="@style/parent"
-            android:textAlignment="textEnd"
-            android:textStyle="bold"
-            android:textColor="@color/primaryTextColor"
-            android:text="@string/login_signup_hint"
-            android:layout_marginTop="@dimen/loginViewsMargin"/>
-
     </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

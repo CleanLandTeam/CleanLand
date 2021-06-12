@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.amplifyframework.AmplifyException;
 import com.amplifyframework.auth.AuthUserAttribute;
@@ -41,6 +42,10 @@ public class SignUpActivity extends AppCompatActivity {
                 EditText userEmail = findViewById(R.id.email_signup);
                 String email = userEmail.getText().toString();
                 Log.i("email", "onClick: " + email);
+
+                Toast succeeded = Toast.makeText(getApplicationContext(), " signUp succeeded!", Toast.LENGTH_LONG);
+                Toast failed = Toast.makeText(getApplicationContext(), "please check the user name and email", Toast.LENGTH_LONG);
+
                 ArrayList<AuthUserAttribute> attributes = new ArrayList<>();
                 attributes.add(new AuthUserAttribute(AuthUserAttributeKey.name(), "null"));
                 attributes.add(new AuthUserAttribute(AuthUserAttributeKey.familyName(), "null"));
@@ -56,15 +61,16 @@ public class SignUpActivity extends AppCompatActivity {
                         email,
                         password,
                         AuthSignUpOptions.builder().userAttributes(attributes).build(),
-                        result -> Log.i("AuthQuickStart", "Result: " + result.toString()),
-                        error -> Log.e("AuthQuickStart", "Sign up failed", error)
+                        result -> succeeded.show(),
+                        error -> failed.show()
                 );
 
+                    Intent intent = new Intent(v.getContext(), confirmSignUpActivity.class);
+                    intent.putExtra("confirmEmail", email);
 
-                Intent intent = new Intent(v.getContext(), confirmSignUpActivity.class);
-                intent.putExtra("confirmEmail", email);
+                    startActivity(intent);
 
-                startActivity(intent);
+
             }
         });
 

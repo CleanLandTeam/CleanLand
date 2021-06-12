@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.amplifyframework.core.Amplify;
 import com.example.cleanland.R;
@@ -31,6 +32,9 @@ public class LoginActivity extends AppCompatActivity {
         });
 
 
+        Toast failed = Toast.makeText(getApplicationContext(), "Something want wrong try again!", Toast.LENGTH_LONG);
+        Toast succeeded = Toast.makeText(getApplicationContext(), "Sign in succeeded!", Toast.LENGTH_LONG);
+
         findViewById(R.id.signin).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -44,10 +48,12 @@ public class LoginActivity extends AppCompatActivity {
 
 
                 Amplify.Auth.signIn(
+
                         userName,
                         passWord,
-                        result -> Log.i("AuthQuickstart", result.isSignInComplete() ? "Sign in succeeded" : "Sign in not complete"),
-                        error -> Log.e("AuthQuickstart", error.toString())
+
+                        result -> succeeded.show(),
+                        error -> failed.show()
                 );
 
 
