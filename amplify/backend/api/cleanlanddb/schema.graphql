@@ -3,14 +3,14 @@ enum Priority {
   NORMAL
   HIGH
 }
-enum state {
+enum State {
   New
   Pickup
   Process
   Ready
   Delivered
 }
-enum condition{
+enum Condition{
   A
   B
   C
@@ -29,7 +29,7 @@ type Orders @model {
   suitesQuantity :  Int
   othersQuantity  :Int
   userId:String
-  state:state
+  state:State
 }
 
 type Donate @model {
@@ -44,5 +44,5 @@ type Donate @model {
     suitesQuantity :  Int
     othersQuantity  :Int
     userId: String
-    condition:condition
+    condition:Condition
 }
