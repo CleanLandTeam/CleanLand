@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.amplifyframework.core.Amplify;
 import com.example.cleanland.R;
@@ -20,25 +21,28 @@ public class confirmSignUpActivity extends AppCompatActivity {
 
 
 
+        Toast succeeded = Toast.makeText(getApplicationContext(), "Confirm signUp succeeded!", Toast.LENGTH_LONG);
+        Toast faild = Toast.makeText(getApplicationContext(), "Confirm signUp succeeded!", Toast.LENGTH_LONG);
+
 
         findViewById(R.id.confirm).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent getIntent = getIntent();
-                String userName = getIntent.getStringExtra("userName2");
+                String email = getIntent.getStringExtra("confirmEmail");
                 EditText userCode = findViewById(R.id.code_confirm);
                 String code = userCode.getText().toString();
 
 
                 Amplify.Auth.confirmSignUp(
-                        userName,
+                        email,
                         code,
-                        result -> Log.i("AuthQuickstart", result.isSignUpComplete() ? "Confirm signUp succeeded" : "Confirm sign up not complete"),
-                        error -> Log.e("AuthQuickstart", error.toString())
+                        result -> Toast.makeText(getApplicationContext(), "Confirm signUp succeeded!", Toast.LENGTH_LONG),
+                        error ->  Toast.makeText(getApplicationContext(), "Confirm code wrong!", Toast.LENGTH_LONG)
                 );
 
-                Intent intent = new Intent(v.getContext(), MainActivity.class);
-                startActivity(intent);
+//                Intent intent = new Intent(v.getContext(), MainActivity.class);
+//                startActivity(intent);
             }
         });
 
