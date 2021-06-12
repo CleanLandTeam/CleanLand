@@ -42,9 +42,25 @@ public class MainActivity extends AppCompatActivity {
         );
         //this.userAuthentication.checkForUserAuth(getBaseContext());
 
+        Button goToProfile = MainActivity.this.findViewById(R.id.profile);
+        goToProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
+                startActivity(intent);
+            }
+        });
 
 
 
+        Button goToLogin = MainActivity.this.findViewById(R.id.login);
+        goToLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
