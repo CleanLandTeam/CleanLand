@@ -11,11 +11,16 @@ import android.os.Bundle;
 
 import android.os.Handler;
 import android.util.Log;
+
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import android.view.View;
+import android.widget.Button;
+
 
 import com.amplifyframework.AmplifyException;
 import com.amplifyframework.auth.cognito.AWSCognitoAuthPlugin;
@@ -68,21 +73,19 @@ public class MainActivity extends AppCompatActivity {
 
        String ApiKey="AIzaSyBjDWuP1pscuJQIQCK0yUT3YZu2UYAygqA";
 
-        Places.initialize(getApplicationContext(), ApiKey);
-        mPlacesClient = Places.createClient(this);
-        mFusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
 
 
-//        Amplify.Auth.fetchAuthSession(
-//                result -> {
-//                    if (!result.isSignedIn()) {
-//                      //  Log.d("ActivityContextlog", "inside userauth check"+ ActivityContext);
-//                        Intent loginIntent = new Intent(this, LoginActivity.class);
-//                       startActivity(loginIntent);
-//                    }
-//                },
-//                error -> Log.e("failed user login", error.toString())
-//        );
+
+        Amplify.Auth.fetchAuthSession(
+                result -> {
+                    if (!result.isSignedIn()) {
+                      //  Log.d("ActivityContextlog", "inside userauth check"+ ActivityContext);
+                        Intent loginIntent = new Intent(this, LoginActivity.class);
+                       startActivity(loginIntent);
+                    }
+                },
+                error -> Log.e("failed user login", error.toString())
+        );
         //this.userAuthentication.checkForUserAuth(getBaseContext());
 
 
@@ -93,17 +96,26 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-//        Amplify.Auth.fetchAuthSession(
-//                result -> {
-//                    if (!result.isSignedIn()) {
-//                       // Log.d("ActivityContextlog", "inside userauth check"+ ActivityContext);
-//                        Intent loginIntent = new Intent(this, LoginActivity.class);
-//                        startActivity(loginIntent);
-//                    }
-//                },
-//                error -> Log.e("failed user login", error.toString())
-//        );
+        Amplify.Auth.fetchAuthSession(
+                result -> {
+                    if (!result.isSignedIn()) {
+                       // Log.d("ActivityContextlog", "inside userauth check"+ ActivityContext);
+                        Intent loginIntent = new Intent(this, LoginActivity.class);
+                        startActivity(loginIntent);
+                    }
+                },
+                error -> Log.e("failed user login", error.toString())
+        );
        // this.userAuthentication.checkForUserAuth(this);
+
+        Button goToOrderBtn = MainActivity.this.findViewById(R.id.AddOrderBtn);
+        goToOrderBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(MainActivity.this, OrderPage.class);
+                startActivity(i);
+            }
+        });
 
     }
 

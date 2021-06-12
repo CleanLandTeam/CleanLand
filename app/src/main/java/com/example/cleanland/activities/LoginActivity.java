@@ -13,11 +13,11 @@ import com.example.cleanland.R;
 
 public class LoginActivity extends AppCompatActivity {
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_login);
-
 
 
         findViewById(R.id.signUp_text).setOnClickListener(new View.OnClickListener() {
@@ -31,39 +31,33 @@ public class LoginActivity extends AppCompatActivity {
         });
 
 
+        findViewById(R.id.signin).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
-findViewById(R.id.signin).setOnClickListener(new View.OnClickListener() {
-    @Override
-    public void onClick(View v) {
+                EditText user = findViewById(R.id.username_signIn);
+                EditText userPass = findViewById(R.id.password_signIn);
 
+                String userName = user.getText().toString();
 
-        EditText user = findViewById(R.id.username_signIn);
-        String userName = user.getText().toString();
-
-        EditText userPass = findViewById(R.id.password_signIn);
-        String passWord = userPass.getText().toString();
-
-
-        Amplify.Auth.signIn(
-                userName,
-                passWord,
-                result -> Log.i("AuthQuickstart", result.isSignInComplete() ? "Sign in succeeded" : "Sign in not complete"),
-                error -> Log.e("AuthQuickstart", error.toString())
-        );
-        Amplify.Auth.fetchAuthSession(
-                result -> Log.i("AmplifyQuickstart", result.toString()),
-                error -> Log.e("AmplifyQuickstart", error.toString())
-        );
+                String passWord = userPass.getText().toString();
 
 
-        Intent intent = new Intent(v.getContext(), MainActivity.class);
-        intent.putExtra("userName1",userName);
-        startActivity(intent);
+                Amplify.Auth.signIn(
+                        userName,
+                        passWord,
+                        result -> Log.i("AuthQuickstart", result.isSignInComplete() ? "Sign in succeeded" : "Sign in not complete"),
+                        error -> Log.e("AuthQuickstart", error.toString())
+                );
 
 
-    }
-});
+                Intent intent = new Intent(v.getContext(), MainActivity.class);
+                intent.putExtra("userName1", userName);
+                startActivity(intent);
 
+
+            }
+        });
 
 
     }
