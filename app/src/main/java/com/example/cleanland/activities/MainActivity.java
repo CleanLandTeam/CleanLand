@@ -7,6 +7,9 @@ import android.os.Bundle;
 
 import android.os.Handler;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+
 import com.amplifyframework.AmplifyException;
 import com.amplifyframework.auth.cognito.AWSCognitoAuthPlugin;
 import com.amplifyframework.core.Amplify;
@@ -58,6 +61,15 @@ public class MainActivity extends AppCompatActivity {
                 error -> Log.e("failed user login", error.toString())
         );
        // this.userAuthentication.checkForUserAuth(this);
+
+        Button goToOrderBtn = MainActivity.this.findViewById(R.id.AddOrderBtn);
+        goToOrderBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(MainActivity.this, OrderPage.class);
+                startActivity(i);
+            }
+        });
 
     }
 
