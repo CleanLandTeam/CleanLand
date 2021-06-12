@@ -1,27 +1,129 @@
 # this is an auto generated file. This will be overwritten
-subscription OnCreateTodo {
-  onCreateTodo {
+subscription OnCreateOrders {
+  onCreateOrders {
     id
-    name
-    description
+    pickupDate
+    deliveryDate
+    longitude
+    latitude
+    shirtsQuantity
+    jacketsQuantity
+    underWaresQuantity
+    pantiesQuantity
+    suitesQuantity
+    othersQuantity
+    userId
+    state
+    _version
+    _deleted
+    _lastChangedAt
     createdAt
     updatedAt
   }
 }
-subscription OnUpdateTodo {
-  onUpdateTodo {
+subscription OnUpdateOrders {
+  onUpdateOrders {
     id
-    name
-    description
+    pickupDate
+    deliveryDate
+    longitude
+    latitude
+    shirtsQuantity
+    jacketsQuantity
+    underWaresQuantity
+    pantiesQuantity
+    suitesQuantity
+    othersQuantity
+    userId
+    state
+    _version
+    _deleted
+    _lastChangedAt
     createdAt
     updatedAt
   }
 }
-subscription OnDeleteTodo {
-  onDeleteTodo {
+subscription OnDeleteOrders {
+  onDeleteOrders {
     id
-    name
-    description
+    pickupDate
+    deliveryDate
+    longitude
+    latitude
+    shirtsQuantity
+    jacketsQuantity
+    underWaresQuantity
+    pantiesQuantity
+    suitesQuantity
+    othersQuantity
+    userId
+    state
+    _version
+    _deleted
+    _lastChangedAt
+    createdAt
+    updatedAt
+  }
+}
+subscription OnCreateDonate {
+  onCreateDonate {
+    id
+    pickupDate
+    longitude
+    latitude
+    shirtsQuantity
+    jacketsQuantity
+    underWaresQuantity
+    pantiesQuantity
+    suitesQuantity
+    othersQuantity
+    userId
+    condition
+    _version
+    _deleted
+    _lastChangedAt
+    createdAt
+    updatedAt
+  }
+}
+subscription OnUpdateDonate {
+  onUpdateDonate {
+    id
+    pickupDate
+    longitude
+    latitude
+    shirtsQuantity
+    jacketsQuantity
+    underWaresQuantity
+    pantiesQuantity
+    suitesQuantity
+    othersQuantity
+    userId
+    condition
+    _version
+    _deleted
+    _lastChangedAt
+    createdAt
+    updatedAt
+  }
+}
+subscription OnDeleteDonate {
+  onDeleteDonate {
+    id
+    pickupDate
+    longitude
+    latitude
+    shirtsQuantity
+    jacketsQuantity
+    underWaresQuantity
+    pantiesQuantity
+    suitesQuantity
+    othersQuantity
+    userId
+    condition
+    _version
+    _deleted
+    _lastChangedAt
     createdAt
     updatedAt
   }

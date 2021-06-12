@@ -9,7 +9,7 @@ import android.os.Handler;
 import com.example.cleanland.R;
 
 public class SplashActivity extends AppCompatActivity {
-    private final int SPLASH_DISPLAY_LENGTH = 12000; //splash screen will be shown for 2 seconds
+    private final int SPLASH_DISPLAY_LENGTH = 3000; //splash screen will be shown for 2 seconds
 
     Handler handler;
     @Override

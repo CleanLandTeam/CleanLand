@@ -8,10 +8,12 @@
     <string name="login_signup_hint">Don\'t have an account? Sign Up</string>
     <string name="login_name_hint">Name</string>
     <string name="login_mobile_number_hint">Mobile Number</string>
+
     <string name="next">next</string>
     <string-array name="condition_array">
         <item>Excellent</item>
         <item>Good</item>
         <item>Needing Repair</item>
     </string-array>
+
 </resources>

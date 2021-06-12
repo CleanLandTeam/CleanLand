@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.confirmSignUpPage"
+    tools:context=".activities.confirmSignUpActivity"
     android:background="@drawable/backgroud">
 
     <LinearLayout android:layout_width="match_parent"
@@ -24,19 +24,6 @@
             style="@style/loginHeader"
             android:text="Confirmation"
             android:layout_marginTop="@dimen/loginViewsMargin"/>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textInputMobile"
-            style="@style/parent"
-            android:layout_marginTop="@dimen/loginViewsMargin">
-
-            <EditText
-                android:id="@+id/userName_confirm"
-                style="@style/modifiedEditText"
-                android:hint="User name"
-                android:inputType="text"
-                android:maxLines="1" />
-        </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputCode"

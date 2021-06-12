@@ -1,36 +1,147 @@
 # this is an auto generated file. This will be overwritten
-mutation CreateTodo(
-  $input: CreateTodoInput!
-  $condition: ModelTodoConditionInput
+mutation CreateOrders(
+  $input: CreateOrdersInput!
+  $condition: ModelOrdersConditionInput
 ) {
-  createTodo(input: $input, condition: $condition) {
+  createOrders(input: $input, condition: $condition) {
     id
-    name
-    description
+    pickupDate
+    deliveryDate
+    longitude
+    latitude
+    shirtsQuantity
+    jacketsQuantity
+    underWaresQuantity
+    pantiesQuantity
+    suitesQuantity
+    othersQuantity
+    userId
+    state
+    _version
+    _deleted
+    _lastChangedAt
     createdAt
     updatedAt
   }
 }
-mutation UpdateTodo(
-  $input: UpdateTodoInput!
-  $condition: ModelTodoConditionInput
+mutation UpdateOrders(
+  $input: UpdateOrdersInput!
+  $condition: ModelOrdersConditionInput
 ) {
-  updateTodo(input: $input, condition: $condition) {
+  updateOrders(input: $input, condition: $condition) {
     id
-    name
-    description
+    pickupDate
+    deliveryDate
+    longitude
+    latitude
+    shirtsQuantity
+    jacketsQuantity
+    underWaresQuantity
+    pantiesQuantity
+    suitesQuantity
+    othersQuantity
+    userId
+    state
+    _version
+    _deleted
+    _lastChangedAt
     createdAt
     updatedAt
   }
 }
-mutation DeleteTodo(
-  $input: DeleteTodoInput!
-  $condition: ModelTodoConditionInput
+mutation DeleteOrders(
+  $input: DeleteOrdersInput!
+  $condition: ModelOrdersConditionInput
 ) {
-  deleteTodo(input: $input, condition: $condition) {
+  deleteOrders(input: $input, condition: $condition) {
     id
-    name
-    description
+    pickupDate
+    deliveryDate
+    longitude
+    latitude
+    shirtsQuantity
+    jacketsQuantity
+    underWaresQuantity
+    pantiesQuantity
+    suitesQuantity
+    othersQuantity
+    userId
+    state
+    _version
+    _deleted
+    _lastChangedAt
+    createdAt
+    updatedAt
+  }
+}
+mutation CreateDonate(
+  $input: CreateDonateInput!
+  $condition: ModelDonateConditionInput
+) {
+  createDonate(input: $input, condition: $condition) {
+    id
+    pickupDate
+    longitude
+    latitude
+    shirtsQuantity
+    jacketsQuantity
+    underWaresQuantity
+    pantiesQuantity
+    suitesQuantity
+    othersQuantity
+    userId
+    condition
+    _version
+    _deleted
+    _lastChangedAt
+    createdAt
+    updatedAt
+  }
+}
+mutation UpdateDonate(
+  $input: UpdateDonateInput!
+  $condition: ModelDonateConditionInput
+) {
+  updateDonate(input: $input, condition: $condition) {
+    id
+    pickupDate
+    longitude
+    latitude
+    shirtsQuantity
+    jacketsQuantity
+    underWaresQuantity
+    pantiesQuantity
+    suitesQuantity
+    othersQuantity
+    userId
+    condition
+    _version
+    _deleted
+    _lastChangedAt
+    createdAt
+    updatedAt
+  }
+}
+mutation DeleteDonate(
+  $input: DeleteDonateInput!
+  $condition: ModelDonateConditionInput
+) {
+  deleteDonate(input: $input, condition: $condition) {
+    id
+    pickupDate
+    longitude
+    latitude
+    shirtsQuantity
+    jacketsQuantity
+    underWaresQuantity
+    pantiesQuantity
+    suitesQuantity
+    othersQuantity
+    userId
+    condition
+    _version
+    _deleted
+    _lastChangedAt
     createdAt
     updatedAt
   }

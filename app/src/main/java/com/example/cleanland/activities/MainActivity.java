@@ -7,6 +7,9 @@ import android.os.Bundle;
 
 import android.os.Handler;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+
 import com.amplifyframework.AmplifyException;
 import com.amplifyframework.auth.cognito.AWSCognitoAuthPlugin;
 import com.amplifyframework.core.Amplify;
@@ -18,16 +21,26 @@ import com.example.cleanland.utils.UserAuthentication;
 
 public class MainActivity extends AppCompatActivity {
 
-
+    AmplifyInitializer amplifyInitializer;
     UserAuthentication userAuthentication =new UserAuthentication();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        AmplifyInitializer amplifyInitializer= new AmplifyInitializer();
+       this.amplifyInitializer= new AmplifyInitializer(getApplicationContext());
 
-        this.userAuthentication.checkForUserAuth();
+        Amplify.Auth.fetchAuthSession(
+                result -> {
+                    if (!result.isSignedIn()) {
+                      //  Log.d("ActivityContextlog", "inside userauth check"+ ActivityContext);
+                        Intent loginIntent = new Intent(this, LoginActivity.class);
+                       startActivity(loginIntent);
+                    }
+                },
+                error -> Log.e("failed user login", error.toString())
+        );
+        //this.userAuthentication.checkForUserAuth(getBaseContext());
 
 
 
@@ -37,8 +50,26 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        Amplify.Auth.fetchAuthSession(
+                result -> {
+                    if (!result.isSignedIn()) {
+                       // Log.d("ActivityContextlog", "inside userauth check"+ ActivityContext);
+                        Intent loginIntent = new Intent(this, LoginActivity.class);
+                        startActivity(loginIntent);
+                    }
+                },
+                error -> Log.e("failed user login", error.toString())
+        );
+       // this.userAuthentication.checkForUserAuth(this);
 
-        this.userAuthentication.checkForUserAuth();
+        Button goToOrderBtn = MainActivity.this.findViewById(R.id.AddOrderBtn);
+        goToOrderBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(MainActivity.this, OrderPage.class);
+                startActivity(i);
+            }
+        });
 
     }
 

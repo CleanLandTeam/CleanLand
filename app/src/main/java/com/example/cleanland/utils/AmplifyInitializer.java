@@ -1,5 +1,6 @@
 package com.example.cleanland.utils;
 
+import android.content.Context;
 import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,17 +12,17 @@ import com.amplifyframework.core.Amplify;
 import com.amplifyframework.datastore.AWSDataStorePlugin;
 import com.amplifyframework.storage.s3.AWSS3StoragePlugin;
 
-public class AmplifyInitializer extends AppCompatActivity {
 
+public class AmplifyInitializer  {
 
-    public AmplifyInitializer(){
+    public AmplifyInitializer(Context applicationContext){
         try {
             Amplify.addPlugin(new AWSDataStorePlugin());
             Amplify.addPlugin(new AWSApiPlugin());
             Amplify.addPlugin(new AWSS3StoragePlugin());
             Amplify.addPlugin(new AWSCognitoAuthPlugin());
 
-            Amplify.configure(getApplicationContext());
+            Amplify.configure(applicationContext);
 
             Log.i("AmplifyInitializer", "Initialized Amplify");
         } catch (AmplifyException e) {
