@@ -21,17 +21,6 @@ import java.util.ArrayList;
 
 public class SignUpActivity extends AppCompatActivity {
 
-    EditText user = findViewById(R.id.userName_signup);
-    String username = user.getText().toString();
-
-    EditText userPass = findViewById(R.id.password_signup);
-    String password = userPass.getText().toString();
-
-    EditText userEmail = findViewById(R.id.email_signup);
-    String email = userEmail.getText().toString();
-
-    Intent intent;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,12 +28,18 @@ public class SignUpActivity extends AppCompatActivity {
         setContentView(R.layout.activity_signup);
 
 
-
         findViewById(R.id.signup).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
+                EditText user = findViewById(R.id.userName_signup);
+                String username = user.getText().toString();
 
+                EditText userPass = findViewById(R.id.password_signup);
+                String password = userPass.getText().toString();
+
+                EditText userEmail = findViewById(R.id.email_signup);
+                String email = userEmail.getText().toString();
                 Log.i("email", "onClick: " + email);
                 ArrayList<AuthUserAttribute> attributes = new ArrayList<>();
                 attributes.add(new AuthUserAttribute(AuthUserAttributeKey.name(), "null"));
@@ -66,8 +61,8 @@ public class SignUpActivity extends AppCompatActivity {
                 );
 
 
-                intent = new Intent(v.getContext(), confirmSignUpActivity.class);
-                intent.putExtra("userName2", username);
+                Intent intent = new Intent(v.getContext(), confirmSignUpActivity.class);
+                intent.putExtra("confirmEmail", email);
 
                 startActivity(intent);
             }
