@@ -44,8 +44,10 @@ public final class Donate implements Model {
   private final @ModelField(targetType="Int") Integer othersQuantity;
   private final @ModelField(targetType="String") String userId;
   private final @ModelField(targetType="Condition") Condition condition;
+
   private @ModelField(targetType="AWSDateTime", isReadOnly = true) Temporal.DateTime createdAt;
   private @ModelField(targetType="AWSDateTime", isReadOnly = true) Temporal.DateTime updatedAt;
+
   public String getId() {
       return id;
   }

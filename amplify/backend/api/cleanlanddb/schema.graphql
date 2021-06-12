@@ -29,7 +29,9 @@ type Orders @model {
   suitesQuantity :  Int
   othersQuantity  :Int
   userId:String
-  state: State
+
+  state:State
+
 }
 
 type Donate @model {
@@ -44,5 +46,7 @@ type Donate @model {
     suitesQuantity :  Int
     othersQuantity  :Int
     userId: String
-    condition: Condition
+
+    condition:Condition
+
 }

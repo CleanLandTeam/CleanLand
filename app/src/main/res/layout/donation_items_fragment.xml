@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#8ac4d0"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#f4d160"
+        android:gravity="center"
+        android:text="Items That you want to donate"
+        android:textSize="20dp"
+        android:textColor="@color/black"
+        android:textStyle="bold" />
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="10dp"
+        android:background="@color/browser_actions_bg_grey">
+
+        <TableRow android:background="#39a6a3"
+            android:paddingVertical="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Item"
+                android:textSize="19dp"
+                android:textStyle="bold"
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Condition"
+                android:textSize="19dp"
+                android:textStyle="bold"
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Quantity"
+                android:textSize="19dp"
+                android:textStyle="bold"
+                android:textColor="@color/black"/>
+        </TableRow>
+
+        <TableRow android:background="#f3f0d7">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Shirts"
+                android:textColor="@color/black"
+                android:textSize="19dp"
+                android:textStyle="bold" />
+
+            <Spinner
+                android:id="@+id/shirtsDropDownCondition"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:entries="@array/condition_array" />
+
+            <EditText
+                android:id="@+id/shirtsQuantity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="number"
+                android:text="0" />
+        </TableRow>
+
+        <TableRow android:background="#F3D7D7">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Jackets"
+                android:textColor="@color/black"
+                android:textSize="19dp"
+                android:textStyle="bold" />
+
+            <Spinner
+                android:id="@+id/jacketsDropDownCondition"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:entries="@array/condition_array" />
+
+            <EditText
+                android:id="@+id/jacketsQuantity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="number"
+                android:text="0" />
+        </TableRow>
+
+
+        <TableRow android:background="#f3f0d7">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Panties"
+                android:textColor="@color/black"
+                android:textSize="19dp"
+                android:textStyle="bold" />
+
+            <Spinner
+                android:id="@+id/pantiesDropDownCondition"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:entries="@array/condition_array" />
+
+            <EditText
+                android:id="@+id/pantiesQuantity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="number"
+                android:text="0" />
+        </TableRow>
+
+        <TableRow android:background="#F3D7D7">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Suites"
+                android:textColor="@color/black"
+                android:textSize="19dp"
+                android:textStyle="bold" />
+
+            <Spinner
+                android:id="@+id/suitesDropDownCondition"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:entries="@array/condition_array" />
+
+            <EditText
+                android:id="@+id/suitesQuantity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="number"
+                android:text="0" />
+        </TableRow>
+
+    </TableLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Other Items"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        android:textColor="@color/black"
+        android:background="#E28BE863"/>
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="10dp"
+        android:background="#FCFFED77">
+        <TableRow>
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="Item name"
+                android:textSize="19dp"
+                android:textStyle="bold"
+                android:textColor="@color/black"/>
+
+            <Spinner
+                android:id="@+id/othersDropDownCondition"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:entries="@array/condition_array" />
+
+            <EditText
+                android:id="@+id/othersQuantity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="number"
+                android:text="0"/>
+        </TableRow>
+    </TableLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/next_donation_button"
+        android:textSize="25dp"
+        android:layout_gravity="end"
+        android:text="next"/>
+
+
+</LinearLayout>

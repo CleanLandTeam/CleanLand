@@ -22,8 +22,7 @@ public class confirmSignUpActivity extends AppCompatActivity {
 
 
         Toast succeeded = Toast.makeText(getApplicationContext(), "Confirm signUp succeeded!", Toast.LENGTH_LONG);
-        Toast faild = Toast.makeText(getApplicationContext(), "Confirm signUp succeeded!", Toast.LENGTH_LONG);
-
+        Toast failed = Toast.makeText(getApplicationContext(), "Confirmation code is wrong!", Toast.LENGTH_LONG);
 
         findViewById(R.id.confirm).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -37,8 +36,8 @@ public class confirmSignUpActivity extends AppCompatActivity {
                 Amplify.Auth.confirmSignUp(
                         email,
                         code,
-                        result -> Toast.makeText(getApplicationContext(), "Confirm signUp succeeded!", Toast.LENGTH_LONG),
-                        error ->  Toast.makeText(getApplicationContext(), "Confirm code wrong!", Toast.LENGTH_LONG)
+                        result -> succeeded.show(),
+                        error ->  failed.show()
                 );
 
 //                Intent intent = new Intent(v.getContext(), MainActivity.class);
