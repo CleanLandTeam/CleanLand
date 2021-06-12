@@ -26,19 +26,6 @@
             android:layout_marginTop="@dimen/loginViewsMargin"/>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textInputMobile"
-            style="@style/parent"
-            android:layout_marginTop="@dimen/loginViewsMargin">
-
-            <EditText
-                android:id="@+id/userName_confirm"
-                style="@style/modifiedEditText"
-                android:hint="User name"
-                android:inputType="text"
-                android:maxLines="1" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputCode"
             style="@style/parent"
             android:layout_marginTop="@dimen/loginViewsMargin">

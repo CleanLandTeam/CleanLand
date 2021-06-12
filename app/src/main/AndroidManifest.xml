@@ -14,8 +14,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CleanLand">
+
         <activity android:name=".activities.userDonations"></activity>
         <activity android:name=".activities.DonatePage" />
+
+        <activity android:name=".activities.ProfileActivity"></activity>
+       
+
         <activity android:name=".activities.OrderPage" />
         <activity android:name=".activities.SplashActivity">
             <intent-filter>
