@@ -14,6 +14,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CleanLand">
+        <activity android:name=".activities.DonatePage"></activity>
+        <activity android:name=".activities.OrderPage" />
         <activity android:name=".activities.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,7 +28,7 @@
             android:name=".activities.LoginActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".activities.SignUpActivity" />
-        <activity android:name=".activities.MainActivity"></activity>
+        <activity android:name=".activities.MainActivity" />
     </application>
 
 </manifest>
