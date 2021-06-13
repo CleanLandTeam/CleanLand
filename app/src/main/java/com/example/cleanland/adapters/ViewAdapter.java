@@ -40,7 +40,7 @@ public class ViewAdapter extends RecyclerView.Adapter<ViewAdapter.ViewHolder> {
             super(view);
             // Define click listener for the ViewHolder's View
 
-            allItem = (TextView) view.findViewById(R.id.allItemFragment);
+            allItem = (TextView) view.findViewById(R.id.quantityItemFragment);
             pickUpDate = (TextView) view.findViewById(R.id.pickUpDateFragment);
 
         }
