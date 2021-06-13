@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
        this.amplifyInitializer= new AmplifyInitializer(getApplicationContext());
 
 
-       String ApiKey="AIzaSyBjDWuP1pscuJQIQCK0yUT3YZu2UYAygqA";
+
 
 
 
