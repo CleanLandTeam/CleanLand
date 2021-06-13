@@ -26,7 +26,7 @@ public class userDonations extends AppCompatActivity {
 //        donates.add(new Donate("0","0",1.2,1.3,1,2,
 //                0,3,4,5,"0",Condition.A));
 
-        TextView test1=findViewById(R.id.shirtsQuantitryDonations);
+        TextView test1=findViewById(R.id.shirtsQuantityDonations);
         test1.setText("1");
 
     }
