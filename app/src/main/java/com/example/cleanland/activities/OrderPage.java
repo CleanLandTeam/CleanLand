@@ -2,6 +2,7 @@ package com.example.cleanland.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -23,6 +24,7 @@ public class OrderPage extends AppCompatActivity {
 
 
 
+
         Button popupButton = findViewById(R.id.add);
         popupButton.setOnClickListener(new View.OnClickListener() {
 
@@ -33,6 +35,10 @@ public class OrderPage extends AppCompatActivity {
                 popUpClass.showPopupWindow(v);
             }
         });
+
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.actionBarColor)));
 
     }
 

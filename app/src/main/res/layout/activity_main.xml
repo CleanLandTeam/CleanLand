@@ -48,7 +48,7 @@
                     <TextView
                         android:id="@+id/textViewSub1Title"
                         style="@style/viewParent.headerText.HomeCardTitle"
-                        android:text="Orders" />
+                        android:text="Add Order"/>
 
                     <TextView
                         style="@style/viewParent.headerText.homeCardContent"

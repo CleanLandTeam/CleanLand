@@ -26,5 +26,7 @@
     <color name="miniTitleColor">#6F6A6A</color>
     <color name="whiteBodyColor">#FCFCFC</color>
 
-
+<!--    ============================-->
+    <!-- Action Bar Color   -->
+    <color name="actionBarColor">#00BCD4</color>
 </resources>
