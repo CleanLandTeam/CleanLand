@@ -7,6 +7,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.TextView;
 
 import com.example.cleanland.R;
 //import com.example.cleanland.adapters.ViewAdapter;
@@ -15,6 +17,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MyOrders extends AppCompatActivity {
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,4 +50,9 @@ public class MyOrders extends AppCompatActivity {
 //        this.startActivity(intent);
 //
 //    }
+
+
+
+
+
 }
