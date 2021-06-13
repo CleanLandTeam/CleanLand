@@ -79,7 +79,8 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInput_gender_profile"
             style="@style/parent"
-            android:layout_marginTop="@dimen/loginViewsMargin">
+            android:layout_marginTop="@dimen/loginViewsMargin"
+            >
 
             <EditText
                 android:id="@+id/gender_profile"
