@@ -7,6 +7,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.TextView;
 
 import com.amplifyframework.datastore.generated.model.Orders;
 import com.amplifyframework.datastore.generated.model.State;
@@ -17,7 +19,9 @@ import com.example.cleanland.adapters.ViewAdapter;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class MyOrders extends AppCompatActivity implements ViewAdapter.OnInteractingWithTaskListener {
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,10 +41,12 @@ public class MyOrders extends AppCompatActivity implements ViewAdapter.OnInterac
 
 
     }
+
     @Override
     public void taskListener(Orders ordersTable) {
         Intent intent = new Intent(MyOrders.this, OrderPage.class);
         this.startActivity(intent);
 
     }
+
 }
