@@ -15,5 +15,6 @@
         <item>Good</item>
         <item>Needing Repair</item>
     </string-array>
+    <string name="title_activity_maps">Map</string>
 
 </resources>
