@@ -94,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
         goToProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, userDonations.class);
+                Intent intent = new Intent(MainActivity.this, DonationActivity.class);
                 startActivity(intent);
             }
         });
