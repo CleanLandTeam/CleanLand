@@ -1,224 +1,218 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".activities.userDonations">
+    android:padding="10dp"
+    tools:context=".activities.userDonations"
+    android:background="@drawable/backgroud">
+
 
     <TextView
         android:id="@+id/yourDonations"
+        style="@style/userDonationHeader"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginVertical="10dp"
+        android:layout_marginTop="69dp"
         android:text="Your Donations"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.078" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TableLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-        <TableRow>
+        android:id="@+id/tableLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="76dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:background="#FBBDD3"
+        android:weightSum="700"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/yourDonations">
 
+        <TableRow
+            android:background="#AEED87"
+            android:minHeight="20dp"
+            android:paddingVertical="5dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Item"
+                android:textColor="@color/black"
+                android:textSize="19dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Quantity"
+                android:textColor="@color/black"
+                android:textSize="19dp"
+                android:textStyle="bold" />
         </TableRow>
 
+        <TableRow android:background="@drawable/border"
+            android:paddingVertical="10dp"
+            >
+
+            <TextView
+                android:id="@+id/shirtsDonations"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Shirts"
+                android:textSize="17dp"
+                android:paddingLeft="10dp"
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:id="@+id/shirtsQuantityDonations"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="TextView"
+                android:textColor="@color/black"
+                android:gravity="center"/>
+        </TableRow>
+
+        <TableRow android:background="@drawable/border"
+            android:paddingVertical="10dp">
+
+            <TextView
+                android:id="@+id/jacketsDonations"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Jackets"
+                android:textColor="@color/black"
+                android:textSize="17dp"
+                android:paddingLeft="10dp"/>
+
+            <TextView
+                android:id="@+id/jacketsQuantitryDonations"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="TextView"
+                android:textColor="@color/black"
+                android:gravity="center"/>
+        </TableRow>
+
+        <TableRow android:background="@drawable/border"
+            android:paddingVertical="10dp">
+
+            <TextView
+                android:id="@+id/pantiesDonations"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Panties"
+                android:textColor="@color/black"
+                android:textSize="17dp"
+                android:paddingLeft="10dp"/>
+
+            <TextView
+                android:id="@+id/pantiesDonationsQuantity"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="TextView"
+                android:textColor="@color/black"
+                android:gravity="center"/>
+        </TableRow>
+
+        <TableRow android:background="@drawable/border"
+            android:paddingVertical="10dp">
+
+            <TextView
+                android:id="@+id/SuitesDonatios"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Suites"
+                android:textColor="@color/black"
+                android:textSize="17dp"
+                android:paddingLeft="10dp"/>
+
+            <TextView
+                android:id="@+id/suitesDonationsQuantity"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="TextView"
+                android:textColor="@color/black"
+                android:gravity="center"/>
+        </TableRow>
+
+        <TableRow
+            android:paddingVertical="10dp"
+            android:background="@drawable/border">
+
+            <TextView
+                android:id="@+id/othersDonations"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Others"
+                android:textColor="@color/black"
+                android:textSize="17dp"
+                android:paddingLeft="10dp"/>
+
+            <TextView
+                android:id="@+id/othersDonationsQuantity"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="TextView"
+                android:textColor="@color/black"
+                android:gravity="center"/>
+        </TableRow>
     </TableLayout>
 
-
-    <View
-        android:id="@+id/divider2"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="4dp"
-        android:layout_marginTop="25dp"
-        android:background="#FF5722"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="128dp"
+        android:orientation="horizontal"
+        android:background="#929DFF"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/yourDonations"
-        app:layout_constraintVertical_bias="0.065" />
-
-    <TextView
-        android:id="@+id/shirtsDonations"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="66dp"
-        android:layout_marginLeft="66dp"
-        android:layout_marginEnd="0dp"
-        android:layout_marginRight="0dp"
-        android:text="Shirts"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/shirtsQuantitryDonations"
-        app:layout_constraintHorizontal_bias="0.192"
+        android:padding="17dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.296" />
+        app:layout_constraintTop_toBottomOf="@+id/tableLayout">
 
-    <TextView
-        android:id="@+id/shirtsQuantitryDonations"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.436"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.296" />
+        <TextView
+            android:id="@+id/totalPoints"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="25dp"
+            android:text="TotalPoints:"
+            android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/jacketsDonations"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="0dp"
-        android:layout_marginEnd="0dp"
-        android:layout_marginRight="0dp"
-        android:layout_marginBottom="0dp"
-        android:text="Jackets"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/jacketsQuantitryDonations"
-        app:layout_constraintHorizontal_bias="0.212"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/shirtsDonations"
-        app:layout_constraintVertical_bias="0.058" />
-
-    <TextView
-        android:id="@+id/jacketsQuantitryDonations"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="0dp"
-        android:layout_marginBottom="0dp"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.436"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/shirtsQuantitryDonations"
-        app:layout_constraintVertical_bias="0.058" />
-
-    <TextView
-        android:id="@+id/pantiesDonations"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="0dp"
-        android:layout_marginLeft="0dp"
-        android:layout_marginTop="0dp"
-        android:layout_marginEnd="0dp"
-        android:layout_marginRight="0dp"
-        android:layout_marginBottom="0dp"
-        android:text="Panties"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/pantiesDonationsQuantity"
-        app:layout_constraintHorizontal_bias="0.206"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/jacketsDonations"
-        app:layout_constraintVertical_bias="0.062" />
-
-    <TextView
-        android:id="@+id/pantiesDonationsQuantity"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="0dp"
-        android:layout_marginBottom="0dp"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.436"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/jacketsQuantitryDonations"
-        app:layout_constraintVertical_bias="0.062" />
-
-    <TextView
-        android:id="@+id/SuitesDonatios"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="0dp"
-        android:layout_marginEnd="0dp"
-        android:layout_marginRight="0dp"
-        android:layout_marginBottom="0dp"
-        android:text="Suites"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/suitesDonationsQuantity"
-        app:layout_constraintHorizontal_bias="0.191"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pantiesDonations"
-        app:layout_constraintVertical_bias="0.084" />
-
-    <TextView
-        android:id="@+id/suitesDonationsQuantity"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="0dp"
-        android:layout_marginBottom="0dp"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.436"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pantiesDonationsQuantity"
-        app:layout_constraintVertical_bias="0.087" />
-
-    <TextView
-        android:id="@+id/othersDonations"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="0dp"
-        android:layout_marginLeft="0dp"
-        android:layout_marginTop="0dp"
-        android:layout_marginEnd="0dp"
-        android:layout_marginRight="0dp"
-        android:layout_marginBottom="0dp"
-        android:text="Others"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/othersDonationsQuantity"
-        app:layout_constraintHorizontal_bias="0.196"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/SuitesDonatios"
-        app:layout_constraintVertical_bias="0.092" />
-
-    <TextView
-        android:id="@+id/othersDonationsQuantity"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="0dp"
-        android:layout_marginBottom="0dp"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.436"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/suitesDonationsQuantity"
-        app:layout_constraintVertical_bias="0.089" />
-
-    <TextView
-        android:id="@+id/totalPoints"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="0dp"
-        android:layout_marginRight="0dp"
-        android:text="TotalPoints:"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/totalDonationsPoint"
-        app:layout_constraintHorizontal_bias="0.664"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.74" />
-
-    <TextView
-        android:id="@+id/totalDonationsPoint"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="0dp"
-        android:layout_marginBottom="0dp"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.733"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/othersDonationsQuantity"
-        app:layout_constraintVertical_bias="0.353" />
+        <TextView
+            android:id="@+id/totalDonationsPoint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="25dp"
+            android:text="TextView"
+            android:textStyle="bold" />
+    </LinearLayout>
 
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

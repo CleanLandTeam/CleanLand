@@ -40,6 +40,12 @@
         <item name="android:textStyle">bold</item>
     </style>
 
+    <style name="userDonationHeader">
+        <item name="android:textColor">#9034FD</item>
+        <item name="android:textSize">@dimen/headerTextSize</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
     <style name="loginCard" parent="parent"></style>
 
     <style name="linearParent" parent="parent">

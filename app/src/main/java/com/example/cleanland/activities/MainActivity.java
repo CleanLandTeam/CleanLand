@@ -49,7 +49,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     AmplifyInitializer amplifyInitializer;
-    UserAuthentication userAuthentication =new UserAuthentication();
+    UserAuthentication userAuthentication ;
 
     ////
     private static final String TAG = "MapsActivity";
@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
        this.amplifyInitializer= new AmplifyInitializer(getApplicationContext());
 
 
-       String ApiKey="AIzaSyBjDWuP1pscuJQIQCK0yUT3YZu2UYAygqA";
+
 
 
 
