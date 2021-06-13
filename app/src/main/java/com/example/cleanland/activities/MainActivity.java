@@ -48,7 +48,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     AmplifyInitializer amplifyInitializer;
-    UserAuthentication userAuthentication =new UserAuthentication();
+    UserAuthentication userAuthentication ;
 
     ////
     private static final String TAG = "MapsActivity";

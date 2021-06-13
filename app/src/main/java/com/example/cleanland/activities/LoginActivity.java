@@ -55,13 +55,7 @@ public class LoginActivity extends AppCompatActivity {
                         result -> succeeded.show(),
                         error -> failed.show()
                 );
-
-
-                Intent intent = new Intent(v.getContext(), MainActivity.class);
-                intent.putExtra("userName1", userName);
-                startActivity(intent);
-
-
+                    finish();
             }
         });
 
