@@ -18,69 +18,45 @@
         android:layout_height="708dp">
 
         <TextView
-            android:id="@+id/shirtsViewFragment"
+            android:id="@+id/allItemFragment"
             android:layout_width="136dp"
             android:layout_height="46dp"
-            android:layout_marginStart="72dp"
-            android:layout_marginLeft="72dp"
-            android:layout_marginTop="144dp"
+            android:layout_marginStart="64dp"
+            android:layout_marginLeft="64dp"
+            android:layout_marginTop="320dp"
+            app:layout_constraintStart_toEndOf="@+id/textView4"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/pickUpDateView"
+            android:layout_width="121dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="76dp"
+            android:layout_marginLeft="76dp"
+            android:layout_marginTop="132dp"
+            android:text="PickUp Date"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/jacketsViewFragment"
-            android:layout_width="136dp"
-            android:layout_height="46dp"
-            android:layout_marginStart="72dp"
-            android:layout_marginLeft="72dp"
-            android:layout_marginTop="20dp"
+            android:id="@+id/pickUpDateFragment"
+            android:layout_width="113dp"
+            android:layout_height="36dp"
             android:text="TextView"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/shirtsViewFragment" />
+            app:layout_constraintBottom_toTopOf="@+id/textView4"
+            app:layout_constraintTop_toTopOf="@+id/pickUpDateView"
+            app:layout_constraintVertical_bias="0.666"
+            tools:layout_editor_absoluteX="84dp" />
 
         <TextView
-            android:id="@+id/underWaresViewFragment"
-            android:layout_width="136dp"
-            android:layout_height="46dp"
-            android:layout_marginStart="72dp"
-            android:layout_marginLeft="72dp"
-            android:layout_marginTop="20dp"
-            android:text="TextView"
+            android:id="@+id/textView4"
+            android:layout_width="126dp"
+            android:layout_height="47dp"
+            android:layout_marginStart="76dp"
+            android:layout_marginLeft="76dp"
+            android:text="Total Items :"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/jacketsViewFragment" />
-
-        <TextView
-            android:id="@+id/othersViewFragment"
-            android:layout_width="136dp"
-            android:layout_height="46dp"
-            android:layout_marginStart="72dp"
-            android:layout_marginLeft="72dp"
-            android:layout_marginTop="20dp"
-            android:text="TextView"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/suitesViewFragment" />
-
-        <TextView
-            android:id="@+id/suitesViewFragment"
-            android:layout_width="136dp"
-            android:layout_height="46dp"
-            android:layout_marginStart="72dp"
-            android:layout_marginLeft="72dp"
-            android:layout_marginTop="20dp"
-            android:text="TextView"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/pantiesViewFragment" />
-
-        <TextView
-            android:id="@+id/pantiesViewFragment"
-            android:layout_width="136dp"
-            android:layout_height="46dp"
-            android:layout_marginStart="72dp"
-            android:layout_marginLeft="72dp"
-            android:layout_marginTop="20dp"
-            android:text="TextView"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/underWaresViewFragment" />
+            tools:layout_editor_absoluteY="321dp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

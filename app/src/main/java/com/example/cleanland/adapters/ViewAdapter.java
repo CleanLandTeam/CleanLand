@@ -6,14 +6,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.amplifyframework.datastore.generated.model.Orders;
 import com.example.cleanland.R;
 
-
-import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
@@ -33,12 +30,9 @@ public class ViewAdapter extends RecyclerView.Adapter<ViewAdapter.ViewHolder> {
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public Orders ordersTable;
-        TextView shirts ;
-        TextView jackets ;
-        TextView underwares ;
-        TextView panties ;
-        TextView suites ;
-        TextView others ;
+        TextView allItem ;
+        TextView pickUpDate ;
+
 
 
 
@@ -46,18 +40,13 @@ public class ViewAdapter extends RecyclerView.Adapter<ViewAdapter.ViewHolder> {
             super(view);
             // Define click listener for the ViewHolder's View
 
-
-            shirts = (TextView) view.findViewById(R.id.shirtsViewFragment);
-            jackets = (TextView) view.findViewById(R.id.jacketsViewFragment);
-            underwares = (TextView) view.findViewById(R.id.underWaresViewFragment);
-            panties = (TextView) view.findViewById(R.id.pantiesViewFragment);
-            suites = (TextView) view.findViewById(R.id.suitesViewFragment);
-            others = (TextView) view.findViewById(R.id.othersViewFragment);
+            allItem = (TextView) view.findViewById(R.id.allItemFragment);
+            pickUpDate = (TextView) view.findViewById(R.id.pickUpDateFragment);
 
         }
 
         public TextView getTextView() {
-            return shirts;
+            return allItem;
         }
     }
     public void CustomAdapter(List<Orders> dataSet ) {
@@ -85,13 +74,9 @@ public class ViewAdapter extends RecyclerView.Adapter<ViewAdapter.ViewHolder> {
     public void onBindViewHolder(ViewHolder viewHolder, final int position) {
 
          // for OrdersName
-        viewHolder.shirts.setText(localDataSet.get(position).getShirtsQuantity());
-        viewHolder.jackets.setText(localDataSet.get(position).getJacketsQuantity());
-        viewHolder.underwares.setText(localDataSet.get(position).getUnderWaresQuantity());
-        viewHolder.panties.setText(localDataSet.get(position).getPantiesQuantity());
-        viewHolder.suites.setText(localDataSet.get(position).getSuitesQuantity());
-        viewHolder.others.setText(localDataSet.get(position).getOthersQuantity());
-
+       String sum= localDataSet.get(position).getShirtsQuantity()+ localDataSet.get(position).getJacketsQuantity() +localDataSet.get(position).getUnderWaresQuantity()+ localDataSet.get(position).getPantiesQuantity()+ localDataSet.get(position).getSuitesQuantity()+ localDataSet.get(position).getOthersQuantity()+"";
+        viewHolder.allItem.setText(sum);
+        viewHolder.pickUpDate.setText(localDataSet.get(position).getPickupDate());
     }
 
     @Override
