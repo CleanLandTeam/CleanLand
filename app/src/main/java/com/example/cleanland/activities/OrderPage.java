@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.cleanland.R;
@@ -19,6 +20,20 @@ public class OrderPage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order_page);
+
+
+
+        Button popupButton = findViewById(R.id.add);
+        popupButton.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+
+                PopUpClass popUpClass = new PopUpClass();
+                popUpClass.showPopupWindow(v);
+            }
+        });
+
     }
 
 
