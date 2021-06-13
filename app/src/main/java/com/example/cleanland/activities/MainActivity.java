@@ -16,6 +16,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import android.view.View;
@@ -88,18 +89,18 @@ public class MainActivity extends AppCompatActivity {
         );
         //this.userAuthentication.checkForUserAuth(getBaseContext());
 
-        Button goToProfile = MainActivity.this.findViewById(R.id.profile);
+        RelativeLayout goToProfile =  MainActivity.this.findViewById(R.id.addDonation);
         goToProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
+                Intent intent = new Intent(MainActivity.this, userDonations.class);
                 startActivity(intent);
             }
         });
 
 
 
-        Button goToLogin = MainActivity.this.findViewById(R.id.login);
+        RelativeLayout goToLogin = MainActivity.this.findViewById(R.id.login);
         goToLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -124,7 +125,7 @@ public class MainActivity extends AppCompatActivity {
         );
        // this.userAuthentication.checkForUserAuth(this);
 
-        Button goToOrderBtn = MainActivity.this.findViewById(R.id.AddOrderBtn);
+        RelativeLayout goToOrderBtn = MainActivity.this.findViewById(R.id.orders);
         goToOrderBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -10,7 +10,6 @@
 
 
     <androidx.core.widget.NestedScrollView
-        xmlns:android="http://schemas.android.com/apk/res/android"
 
         android:orientation="vertical"
         android:padding="10dp"
@@ -100,7 +99,7 @@
                 android:id="@+id/phone_number_profile"
                 style="@style/modifiedEditText"
                 android:hint="Phone number"
-                android:inputType="text"
+                android:inputType="number|text|numberDecimal|phone"
                 android:maxLines="1" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -126,7 +125,7 @@
                 android:id="@+id/birthdate_profile"
                 style="@style/modifiedEditText"
                 android:hint="Birthdate"
-                android:inputType="text"
+                android:inputType="date"
                 android:maxLines="1" />
         </com.google.android.material.textfield.TextInputLayout>
 
