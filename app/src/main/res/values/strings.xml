@@ -15,6 +15,13 @@
         <item>Good</item>
         <item>Needing Repair</item>
     </string-array>
+
+    <string-array name="gender">
+        <item>Male</item>
+        <item>Female</item>
+    </string-array>
+
     <string name="title_activity_maps">Map</string>
+
 
 </resources>

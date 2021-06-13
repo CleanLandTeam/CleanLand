@@ -25,6 +25,7 @@ import android.widget.Button;
 
 import com.amplifyframework.AmplifyException;
 import com.amplifyframework.auth.cognito.AWSCognitoAuthPlugin;
+import com.amplifyframework.auth.options.AuthSignOutOptions;
 import com.amplifyframework.core.Amplify;
 import com.amplifyframework.datastore.AWSDataStorePlugin;
 import com.amplifyframework.storage.s3.AWSS3StoragePlugin;
@@ -175,7 +176,13 @@ public class MainActivity extends AppCompatActivity {
         }
         if (id == R.id.action_user_logout) {
             //Menu item pressed
-            Toast.makeText(this,"user logout pressed .", Toast.LENGTH_SHORT).show();
+            Amplify.Auth.signOut(
+                    AuthSignOutOptions.builder().globalSignOut(true).build(),
+                    () -> Log.i("AuthQuickstart", "Signed out globally"),
+                    error -> Log.e("AuthQuickstart", error.toString())
+            );
+            Toast.makeText(this,"Signed out succeeded!", Toast.LENGTH_SHORT).show();
+
             return true; //Indicated menu press was handled
         }
 
