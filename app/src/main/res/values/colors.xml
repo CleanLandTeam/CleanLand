@@ -27,5 +27,7 @@
     <color name="whiteBodyColor">#FCFCFC</color>
     <color name="pick_location_color">#FCFCFC</color>
 
-
+<!--    ============================-->
+    <!-- Action Bar Color   -->
+    <color name="actionBarColor">#00BCD4</color>
 </resources>

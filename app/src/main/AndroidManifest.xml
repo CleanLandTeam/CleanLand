@@ -41,11 +41,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.MyOrders" />
-        <activity android:name=".activities.userDonations" />
-        <activity android:name=".activities.DonatePage" />
-        <activity android:name=".activities.ProfileActivity" />
-        <activity android:name=".activities.OrderPage" />
+
+        <activity android:name=".activities.MyOrders"
+            android:parentActivityName=".activities.MainActivity"/>
+        <activity android:name=".activities.userDonations"
+            android:parentActivityName=".activities.MainActivity"/>
+        <activity android:name=".activities.DonatePage"
+            android:parentActivityName=".activities.MainActivity"/>
+        <activity android:name=".activities.ProfileActivity"
+            android:parentActivityName=".activities.MainActivity"/>
+        <activity android:name=".activities.OrderPage"
+            android:parentActivityName=".activities.MainActivity"/>
+
         <activity android:name=".activities.SplashActivity" />
         <activity android:name=".activities.confirmSignUpActivity" />
         <activity

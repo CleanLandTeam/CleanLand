@@ -6,6 +6,7 @@ import androidx.core.content.ContextCompat;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.drawable.ColorDrawable;
 import android.location.Location;
 import android.os.Bundle;
 
@@ -69,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         setTitle("Welcome To Clean Land");
-
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.actionBarColor)));
        this.amplifyInitializer= new AmplifyInitializer(getApplicationContext());
 
 
@@ -94,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
         goToProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, userDonations.class);
+                Intent intent = new Intent(MainActivity.this, DonationActivity.class);
                 startActivity(intent);
             }
         });
@@ -169,7 +170,7 @@ public class MainActivity extends AppCompatActivity {
         }
         if (id == R.id.action_user_orders) {
             //Menu item pressed
-            Intent intent = new Intent(this,OrderPage.class);
+            Intent intent = new Intent(this,MyOrders.class);
             startActivity(intent);
             Toast.makeText(this,"user order  pressed .", Toast.LENGTH_SHORT).show();
             return true; //Indicated menu press was handled
