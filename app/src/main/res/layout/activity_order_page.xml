@@ -23,9 +23,7 @@
                 android:text="Add your order"
                 android:textColor="#61c9ef" />
 
-            <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:app="http://schemas.android.com/apk/res-auto"
-                xmlns:tools="http://schemas.android.com/tools"
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 tools:context=".activities.OrderPage">
@@ -80,7 +78,7 @@
                                 android:id="@+id/integer_number"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="0"
+                                android:text="12"
                                 android:textSize="50sp"
                                 android:textStyle="bold"
                                 app:layout_constraintBottom_toBottomOf="parent"
@@ -406,7 +404,7 @@
                     android:layout_height="60dp"
                     android:layout_centerVertical="true"
                     android:elevation="13dp"
-                    android:src="@drawable/suit" />
+                    android:src="@drawable/suitbw" />
 
 
             </RelativeLayout>

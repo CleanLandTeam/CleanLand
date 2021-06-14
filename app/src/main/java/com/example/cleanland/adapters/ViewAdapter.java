@@ -72,10 +72,28 @@ public class ViewAdapter extends RecyclerView.Adapter<ViewAdapter.ViewHolder> {
     }
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, final int position) {
-
+        Integer sum=0;
          // for OrdersName
-       String sum= localDataSet.get(position).getShirtsQuantity()+ localDataSet.get(position).getJacketsQuantity() +localDataSet.get(position).getUnderWaresQuantity()+ localDataSet.get(position).getPantiesQuantity()+ localDataSet.get(position).getSuitesQuantity()+ localDataSet.get(position).getOthersQuantity()+"";
-        viewHolder.allItem.setText(sum);
+        if(localDataSet.get(position).getShirtsQuantity()!=null)
+            sum+=localDataSet.get(position).getShirtsQuantity();
+
+        if(localDataSet.get(position).getJacketsQuantity()!=null)
+            sum+=localDataSet.get(position).getJacketsQuantity();
+
+        if(localDataSet.get(position).getUnderWaresQuantity()!=null)
+            sum+=localDataSet.get(position).getUnderWaresQuantity();
+
+        if(localDataSet.get(position).getPantiesQuantity()!=null)
+            sum+=localDataSet.get(position).getPantiesQuantity();
+
+        if(localDataSet.get(position).getSuitesQuantity()!=null)
+            sum+=localDataSet.get(position).getSuitesQuantity();
+
+
+        if(localDataSet.get(position).getOthersQuantity()!=null)
+            sum+=localDataSet.get(position).getOthersQuantity();
+
+        viewHolder.allItem.setText(sum+"");
         viewHolder.pickUpDate.setText(localDataSet.get(position).getPickupDate());
     }
 

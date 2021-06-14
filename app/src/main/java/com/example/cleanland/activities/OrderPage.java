@@ -1,4 +1,3 @@
-package com.example.cleanland.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.DialogFragment;
@@ -18,6 +17,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.cleanland.R;
+
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -41,18 +41,51 @@ public class OrderPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order_page);
 
+        try {
+            Amplify.addPlugin(new AWSDataStorePlugin());
+            Amplify.configure(getApplicationContext());
 
-//
-//        Button popupButton = findViewById(R.id.add);
-//        popupButton.setOnClickListener(new View.OnClickListener() {
-//
-//            @Override
-//            public void onClick(View v) {
-//
-//                PopUpClass popUpClass = new PopUpClass();
-//                popUpClass.showPopupWindow(v);
-//            }
-//        });
+            Log.i("Tutorial", "Initialized Amplify");
+        } catch (AmplifyException e) {
+            Log.e("Tutorial", "Could not initialize Amplify", e);
+        }
+        
+        Button addOrder = OrderPage.this.findViewById(R.id.add);
+        addOrder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(OrderPage.this,MyOrders.class);
+                TextView shirtsQuantity = (TextView) findViewById(R.id.integer_number);
+                TextView jacketsQuantity = (TextView) findViewById(R.id.integer_number_one);
+                TextView underWareQuantity = (TextView) findViewById(R.id.integer_number_Two);
+                TextView suitsQuantity = (TextView) findViewById(R.id.integer_number_Three);
+                TextView pantiesQuantity = (TextView) findViewById(R.id.integer_number_Four);
+                EditText pickUpDate = (EditText) findViewById(R.id.pickUpDate);
+
+                    try {
+                        Orders item = Orders.builder()
+                .pickupDate("abd")
+                .deliveryDate("deliveryDate").longitude(5.2).latitude(4.1)
+                                .shirtsQuantity(Integer.valueOf(shirtsQuantity.getText().toString()))
+                                .jacketsQuantity(Integer.valueOf(jacketsQuantity.getText().toString()))
+                                .underWaresQuantity(Integer.valueOf(underWareQuantity.getText().toString()))
+                                .pantiesQuantity(Integer.valueOf(pantiesQuantity.getText().toString()))
+                                .suitesQuantity(Integer.valueOf(suitsQuantity.getText().toString()))
+                .build();
+                        Amplify.DataStore.save(item,
+                                success -> Log.i("Tutorial", "Saved item: " + success.item().getShirtsQuantity()),
+                                error -> Log.e("Tutorial", "Could not save item to DataStore", error)
+                        );
+                        Log.i("Tutorial", "Initialized Amplify");
+                    } catch (Exception e) {
+                        Log.e("Tutorial", "Could not initialize Amplify", e);
+                    }
+
+                    startActivity(intent);
+
+            }
+        });
+
 
 
 //        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
