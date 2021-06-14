@@ -47,19 +47,21 @@
         <activity android:name=".activities.ProfileActivity"
             android:parentActivityName=".activities.MainActivity"/>
         <activity android:name=".activities.OrderPage"
-            android:parentActivityName=".activities.MainActivity"/>
+            android:parentActivityName=".activities.MainActivity">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+    </activity>
 
-        <activity android:name=".activities.SplashActivity" />
+    <activity android:name=".activities.SplashActivity" />
         <activity android:name=".activities.confirmSignUpActivity" />
         <activity
             android:name=".activities.LoginActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".activities.SignUpActivity" />
         <activity android:name=".activities.MainActivity" >
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
+
         </activity>
     </application>
 

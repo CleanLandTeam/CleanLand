@@ -1,6 +1,5 @@
 package com.amplifyframework.datastore.generated.model;
 
-import com.amplifyframework.core.model.temporal.Temporal;
 
 import java.util.List;
 import java.util.UUID;
@@ -44,10 +43,6 @@ public final class Donate implements Model {
   private final @ModelField(targetType="Int") Integer othersQuantity;
   private final @ModelField(targetType="String") String userId;
   private final @ModelField(targetType="Condition") Condition condition;
-
-  private @ModelField(targetType="AWSDateTime", isReadOnly = true) Temporal.DateTime createdAt;
-  private @ModelField(targetType="AWSDateTime", isReadOnly = true) Temporal.DateTime updatedAt;
-
   public String getId() {
       return id;
   }
@@ -96,14 +91,6 @@ public final class Donate implements Model {
       return condition;
   }
   
-  public Temporal.DateTime getCreatedAt() {
-      return createdAt;
-  }
-  
-  public Temporal.DateTime getUpdatedAt() {
-      return updatedAt;
-  }
-  
   private Donate(String id, String pickupDate, Double longitude, Double latitude, Integer shirtsQuantity, Integer jacketsQuantity, Integer underWaresQuantity, Integer pantiesQuantity, Integer suitesQuantity, Integer othersQuantity, String userId, Condition condition) {
     this.id = id;
     this.pickupDate = pickupDate;
@@ -138,9 +125,7 @@ public final class Donate implements Model {
               ObjectsCompat.equals(getSuitesQuantity(), donate.getSuitesQuantity()) &&
               ObjectsCompat.equals(getOthersQuantity(), donate.getOthersQuantity()) &&
               ObjectsCompat.equals(getUserId(), donate.getUserId()) &&
-              ObjectsCompat.equals(getCondition(), donate.getCondition()) &&
-              ObjectsCompat.equals(getCreatedAt(), donate.getCreatedAt()) &&
-              ObjectsCompat.equals(getUpdatedAt(), donate.getUpdatedAt());
+              ObjectsCompat.equals(getCondition(), donate.getCondition());
       }
   }
   
@@ -159,8 +144,6 @@ public final class Donate implements Model {
       .append(getOthersQuantity())
       .append(getUserId())
       .append(getCondition())
-      .append(getCreatedAt())
-      .append(getUpdatedAt())
       .toString()
       .hashCode();
   }
@@ -180,9 +163,7 @@ public final class Donate implements Model {
       .append("suitesQuantity=" + String.valueOf(getSuitesQuantity()) + ", ")
       .append("othersQuantity=" + String.valueOf(getOthersQuantity()) + ", ")
       .append("userId=" + String.valueOf(getUserId()) + ", ")
-      .append("condition=" + String.valueOf(getCondition()) + ", ")
-      .append("createdAt=" + String.valueOf(getCreatedAt()) + ", ")
-      .append("updatedAt=" + String.valueOf(getUpdatedAt()))
+      .append("condition=" + String.valueOf(getCondition()))
       .append("}")
       .toString();
   }
