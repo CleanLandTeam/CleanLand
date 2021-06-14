@@ -18,11 +18,13 @@
             android:orientation="vertical">
 
             <TextView
-                android:text="Clean land"
-                style="@style/viewParent.headerText" />
+                android:id="@+id/welcoming_user"
+                style="@style/viewParent.headerText"
+                android:text="Welcome"
+                android:textSize="24sp" />
 
             <TextView
-                android:text="Never trust anyone who has not use clean land application."
+                android:text="We Are Here For You."
                 style="@style/viewParent.headerText.contentText"
                 android:layout_marginBottom="20dp"/>
 
@@ -48,17 +50,39 @@
                     <TextView
                         android:id="@+id/textViewSub1Title"
                         style="@style/viewParent.headerText.HomeCardTitle"
-                        android:text="Add Order"/>
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="0dp"
+                        android:layout_marginLeft="0dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_marginEnd="18dp"
+                        android:layout_marginRight="18dp"
+                        android:layout_toStartOf="@+id/img1"
+                        android:layout_toLeftOf="@+id/img1"
+                        android:text="Add Order" />
 
                     <TextView
                         style="@style/viewParent.headerText.homeCardContent"
                         android:layout_below="@id/textViewSub1Title"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentLeft="true"
+                        android:layout_marginStart="0dp"
+                        android:layout_marginLeft="0dp"
                         android:text="Place new order" />
 
                     <ImageView
+                        android:id="@+id/img1"
                         style="@style/homeCardImage"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginRight="10dp"
                         android:maxHeight="90dp"
-                        android:src="@drawable/home_ic_maths" />
+                        android:src="@drawable/addorder" />
 
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
@@ -94,18 +118,38 @@
 
                     <TextView
                         android:id="@+id/textViewSub2Title"
-                        android:text="Offers"
-                        style="@style/viewParent.headerText.HomeCardTitle" />
+                        style="@style/viewParent.headerText.HomeCardTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="0dp"
+                        android:layout_marginLeft="0dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_marginEnd="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_toStartOf="@+id/img2"
+                        android:layout_toLeftOf="@+id/img2"
+                        android:text="Offers" />
 
                     <TextView
-                        android:text="Check new offers"
                         style="@style/viewParent.headerText.homeCardContent"
-                        android:layout_below="@id/textViewSub2Title"/>
+                        android:layout_below="@id/textViewSub2Title"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentLeft="true"
+                        android:layout_marginStart="0dp"
+                        android:layout_marginLeft="0dp"
+                        android:text="Check new offers" />
 
                     <ImageView
+                        android:id="@+id/img2"
+                        style="@style/homeCardImage"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
                         android:maxHeight="90dp"
-                        android:src="@drawable/home_ic_physics"
-                        style="@style/homeCardImage" />
+                        android:src="@drawable/ribbon" />
                 </RelativeLayout>
 <!--                </net.colindodd.gradientlayout.GradientRelativeLayout>-->
             </androidx.cardview.widget.CardView>
@@ -138,17 +182,38 @@
                     <TextView
                         android:id="@+id/textViewSub3Title"
                         style="@style/viewParent.headerText.HomeCardTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="0dp"
+                        android:layout_marginLeft="0dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_marginEnd="17dp"
+                        android:layout_marginRight="17dp"
+                        android:layout_toStartOf="@+id/img3"
+                        android:layout_toLeftOf="@+id/img3"
                         android:text="Point System" />
 
                     <TextView
                         style="@style/viewParent.headerText.homeCardContent"
                         android:layout_below="@id/textViewSub3Title"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentLeft="true"
+                        android:layout_marginStart="0dp"
+                        android:layout_marginLeft="0dp"
                         android:text="More laundry more points" />
 
                     <ImageView
+                        android:id="@+id/img3"
                         style="@style/homeCardImage"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginTop="0dp"
                         android:maxHeight="90dp"
-                        android:src="@drawable/home_ic_chemistry" />
+                        android:src="@drawable/one_plus" />
 
                     <!--                </net.colindodd.gradientlayout.GradientRelativeLayout>-->
                 </RelativeLayout>
@@ -181,17 +246,36 @@
                     <TextView
                         android:id="@+id/textViewSub4Title"
                         style="@style/viewParent.headerText.HomeCardTitle"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="0dp"
+                        android:layout_marginLeft="0dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_marginEnd="14dp"
+                        android:layout_marginRight="14dp"
+                        android:layout_toStartOf="@+id/img4"
+                        android:layout_toLeftOf="@+id/img4"
                         android:text="Charity donation" />
 
                     <TextView
                         style="@style/viewParent.headerText.homeCardContent"
                         android:layout_below="@id/textViewSub4Title"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentLeft="true"
+                        android:layout_marginStart="0dp"
+                        android:layout_marginLeft="0dp"
                         android:text="Donate here" />
 
                     <ImageView
+                        android:id="@+id/img4"
                         style="@style/homeCardImage"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginTop="0dp"
                         android:maxHeight="90dp"
-                        android:src="@drawable/home_ic_chemistry" />
+                        android:src="@drawable/helping_hand" />
 
                     <!--                </net.colindodd.gradientlayout.GradientRelativeLayout>-->
                 </RelativeLayout>
