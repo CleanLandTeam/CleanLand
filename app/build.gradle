@@ -66,6 +66,7 @@ dependencies {
     implementation 'com.google.android.libraries.places:places:2.4.0'
     api 'com.google.android.material:material:1.1.0-alpha06'
 
-
+    implementation 'com.amplifyframework:aws-api:1.17.4'
+    implementation 'com.amplifyframework:aws-datastore:1.17.4'
 
 }

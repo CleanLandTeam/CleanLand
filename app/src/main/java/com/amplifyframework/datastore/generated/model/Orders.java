@@ -1,6 +1,5 @@
 package com.amplifyframework.datastore.generated.model;
 
-import com.amplifyframework.core.model.temporal.Temporal;
 
 import java.util.List;
 import java.util.UUID;
@@ -46,10 +45,6 @@ public final class Orders implements Model {
   private final @ModelField(targetType="Int") Integer othersQuantity;
   private final @ModelField(targetType="String") String userId;
   private final @ModelField(targetType="State") State state;
-
-  private @ModelField(targetType="AWSDateTime", isReadOnly = true) Temporal.DateTime createdAt;
-  private @ModelField(targetType="AWSDateTime", isReadOnly = true) Temporal.DateTime updatedAt;
-
   public String getId() {
       return id;
   }
@@ -102,14 +97,6 @@ public final class Orders implements Model {
       return state;
   }
   
-  public Temporal.DateTime getCreatedAt() {
-      return createdAt;
-  }
-  
-  public Temporal.DateTime getUpdatedAt() {
-      return updatedAt;
-  }
-  
   public Orders(String id, String pickupDate, String deliveryDate, Double longitude, Double latitude, Integer shirtsQuantity, Integer jacketsQuantity, Integer underWaresQuantity, Integer pantiesQuantity, Integer suitesQuantity, Integer othersQuantity, String userId, State state) {
     this.id = id;
     this.pickupDate = pickupDate;
@@ -146,9 +133,7 @@ public final class Orders implements Model {
               ObjectsCompat.equals(getSuitesQuantity(), orders.getSuitesQuantity()) &&
               ObjectsCompat.equals(getOthersQuantity(), orders.getOthersQuantity()) &&
               ObjectsCompat.equals(getUserId(), orders.getUserId()) &&
-              ObjectsCompat.equals(getState(), orders.getState()) &&
-              ObjectsCompat.equals(getCreatedAt(), orders.getCreatedAt()) &&
-              ObjectsCompat.equals(getUpdatedAt(), orders.getUpdatedAt());
+              ObjectsCompat.equals(getState(), orders.getState());
       }
   }
   
@@ -168,8 +153,6 @@ public final class Orders implements Model {
       .append(getOthersQuantity())
       .append(getUserId())
       .append(getState())
-      .append(getCreatedAt())
-      .append(getUpdatedAt())
       .toString()
       .hashCode();
   }
@@ -190,9 +173,7 @@ public final class Orders implements Model {
       .append("suitesQuantity=" + String.valueOf(getSuitesQuantity()) + ", ")
       .append("othersQuantity=" + String.valueOf(getOthersQuantity()) + ", ")
       .append("userId=" + String.valueOf(getUserId()) + ", ")
-      .append("state=" + String.valueOf(getState()) + ", ")
-      .append("createdAt=" + String.valueOf(getCreatedAt()) + ", ")
-      .append("updatedAt=" + String.valueOf(getUpdatedAt()))
+      .append("state=" + String.valueOf(getState()))
       .append("}")
       .toString();
   }
