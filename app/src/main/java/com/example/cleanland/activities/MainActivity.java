@@ -112,6 +112,15 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        RelativeLayout goToOffersActivity =  MainActivity.this.findViewById(R.id.offers);
+        goToOffersActivity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, OffersActivity.class);
+                startActivity(intent);
+            }
+        });
+
         RelativeLayout goToCharityActivity =  MainActivity.this.findViewById(R.id.addDonation);
         goToCharityActivity.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -143,6 +152,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, OrderPage.class);
+                startActivity(intent);
+            }
+        });
+
+        RelativeLayout goToOffersActivity =  MainActivity.this.findViewById(R.id.offers);
+        goToOffersActivity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, OffersActivity.class);
                 startActivity(intent);
             }
         });

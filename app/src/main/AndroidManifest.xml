@@ -45,12 +45,14 @@
 
         <activity android:name=".activities.userDonations"
             android:parentActivityName=".activities.MainActivity"/>
-
+        <activity android:name=".activities.OffersActivity"
+            android:parentActivityName=".activities.MainActivity"/>
         <activity android:name=".activities.ProfileActivity"
             android:parentActivityName=".activities.MainActivity"/>
         <activity android:name=".activities.OrderPage"
             android:parentActivityName=".activities.MainActivity"/>
-        <activity android:name=".activities.DonationActivity"/>
+        <activity android:name=".activities.DonationActivity"
+            android:parentActivityName=".activities.MainActivity"/>
 
         <activity android:name=".activities.SplashActivity"
             android:theme="@style/AppTheme.NoActionBar">
