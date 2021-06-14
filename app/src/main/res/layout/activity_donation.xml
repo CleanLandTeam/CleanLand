@@ -476,6 +476,68 @@
 
 
             </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:context=".activities.OrderPage">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="2dp"
+                    android:layout_marginBottom="5dp"
+                    android:minHeight="120dp"
+                    app:cardBackgroundColor="@color/whiteBodyColor"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="2dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="50dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/viewParent.headerText"
+                            android:text="Location"
+                            android:textColor="#61c9ef" />
+
+                        <TextView
+                            android:id="@+id/locationViewDonation"
+
+                            style="@style/viewParent.headerText"
+                            android:textColor="#61c9ef" />
+                        <Button
+                            android:id="@+id/locationDonation"
+                            style="@style/loginButton"
+                            android:layout_width="149dp"
+                            android:layout_height="wrap_content"
+                            android:text="Location"
+
+
+                            />
+
+
+                    </LinearLayout>
+
+
+
+
+                </androidx.cardview.widget.CardView>
+
+
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_centerVertical="true"
+                    android:elevation="13dp"
+                    android:src="@drawable/pin" />
+
+
+            </RelativeLayout>
 
             <Button
                 android:id="@+id/Donate"

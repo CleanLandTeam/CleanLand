@@ -126,16 +126,14 @@ public class OrderPage extends AppCompatActivity {
                 startActivityForResult(intent, 1000);// Activity is started with requestCode 2
             }
         });
+
     }
 
-    // Call Back method  to get the Message form other Activity
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data)
     {
         super.onActivityResult(requestCode, resultCode, data);
-        // check if the request code is same as what is passed  here it is 2
-//        if(requestCode==1000)
-//        {
+
         Double latitude=data.getExtras().getDouble("latitude");
         Double longitude=data.getExtras().getDouble("longitude");
         String address=data.getExtras().getString("address");
@@ -143,16 +141,6 @@ public class OrderPage extends AppCompatActivity {
 
         locationView.setText(address);
     }
-
-
-
-
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        // Inflate the menu; this adds items to the action bar if it is present.
-//        getMenuInflater().inflate(R.menu.main, menu);
-//        return true;
-//    }
 
     private void updateLabel() {
         String myFormat = "MM/dd/yy"; //In which you need put here

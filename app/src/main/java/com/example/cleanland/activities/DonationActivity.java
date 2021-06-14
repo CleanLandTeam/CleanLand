@@ -1,6 +1,7 @@
 package com.example.cleanland.activities;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -24,6 +25,9 @@ public class DonationActivity extends AppCompatActivity {
     int mintegerFour = 0;
     EditText edittext;
     final Calendar myCalendar = Calendar.getInstance();
+
+    TextView locationViewDonation;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,6 +59,36 @@ public class DonationActivity extends AppCompatActivity {
                         myCalendar.get(Calendar.DAY_OF_MONTH)).show();
             }
         });
+
+
+
+
+        locationViewDonation=(TextView)findViewById(R.id.locationViewDonation);
+
+        Button locationDonation=(Button)findViewById(R.id.locationDonation);
+        locationDonation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+                Intent intent=new Intent(DonationActivity.this,MapsActivity.class);
+                startActivityForResult(intent, 1000);// Activity is started with requestCode 2
+            }
+        });
+
+    }
+
+
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data)
+    {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        Double latitude=data.getExtras().getDouble("latitude");
+        Double longitude=data.getExtras().getDouble("longitude");
+        String address=data.getExtras().getString("address");
+
+
+        locationViewDonation.setText(address);
     }
 
 
