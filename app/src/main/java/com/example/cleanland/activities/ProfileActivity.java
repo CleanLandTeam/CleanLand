@@ -50,8 +50,6 @@ public class ProfileActivity extends AppCompatActivity {
 
                     ContextCompat.getMainExecutor(getApplicationContext()).execute(() -> {
 
-
-
                         address.setText(attributes.get(1).getValue());
                         birthday.setText(attributes.get(2).getValue().toString());
                         gender.setText(attributes.get(4).getValue().toString());
