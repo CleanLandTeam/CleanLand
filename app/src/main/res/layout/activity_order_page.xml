@@ -404,7 +404,7 @@
                     android:layout_height="60dp"
                     android:layout_centerVertical="true"
                     android:elevation="13dp"
-                    android:src="@drawable/suit" />
+                    android:src="@drawable/suitbw" />
 
 
             </RelativeLayout>
@@ -537,14 +537,19 @@
                         <EditText
                             android:layout_width="200dp"
                             android:layout_height="wrap_content"
-                            android:id="@+id/in_date"
                             android:inputType="text"
                             android:hint="Date"
                             android:layout_alignParentTop="true"
                             android:layout_alignParentLeft="true"
-                            android:layout_alignParentStart="true" />
+                            android:layout_alignParentStart="true"
 
-                       <include layout="@layout/calender"/>
+                            android:id="@+id/in_date"
+                            android:clickable="false"
+                            android:cursorVisible="false"
+                            android:focusable="false"
+                            android:focusableInTouchMode="false"
+                            />
+
 
 
 
@@ -595,19 +600,19 @@
                         <EditText
                             android:layout_width="200dp"
                             android:layout_height="wrap_content"
-                            android:id="@+id/in_delivery_date"
+                            android:inputType="text"
+                            android:hint="Date"
                             android:layout_alignParentTop="true"
                             android:layout_alignParentLeft="true"
-                            android:layout_alignParentStart="true" />
+                            android:layout_alignParentStart="true"
+                            android:id="@+id/in_delivery_date"
+                            android:clickable="false"
+                            android:cursorVisible="false"
+                            android:focusable="false"
+                            android:focusableInTouchMode="false"
+                            />
 
-                        <Button
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="SELECT DATE"
-                            android:id="@+id/btn_delivery_date"
-                            android:layout_alignBottom="@+id/in_date"
-                            android:layout_toRightOf="@+id/in_date"
-                            android:layout_toEndOf="@+id/in_date" />
+
 
                     </LinearLayout>
 
