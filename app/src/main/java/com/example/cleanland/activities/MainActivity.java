@@ -75,10 +75,6 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
-
-
-
         Amplify.Auth.fetchAuthSession(
                 result -> {
                     if (!result.isSignedIn()) {
@@ -90,26 +86,26 @@ public class MainActivity extends AppCompatActivity {
                 error -> Log.e("failed user login", error.toString())
         );
         //this.userAuthentication.checkForUserAuth(getBaseContext());
-
-        RelativeLayout goToProfile =  MainActivity.this.findViewById(R.id.addDonation);
-        goToProfile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, DonationActivity.class);
-                startActivity(intent);
-            }
-        });
-
-
-
-        RelativeLayout goToLogin = MainActivity.this.findViewById(R.id.login);
-        goToLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-                startActivity(intent);
-            }
-        });
+//
+//        RelativeLayout goToProfile =  MainActivity.this.findViewById(R.id.addDonation);
+//        goToProfile.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(MainActivity.this, DonationActivity.class);
+//                startActivity(intent);
+//            }
+//        });
+//
+//
+//
+//        RelativeLayout goToLogin = MainActivity.this.findViewById(R.id.login);
+//        goToLogin.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(this, LoginActivity.class);
+//                startActivity(intent);
+//            }
+//        });
     }
 
     @Override
@@ -127,14 +123,14 @@ public class MainActivity extends AppCompatActivity {
         );
        // this.userAuthentication.checkForUserAuth(this);
 
-        RelativeLayout goToOrderBtn = MainActivity.this.findViewById(R.id.orders);
-        goToOrderBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(MainActivity.this, OrderPage.class);
-                startActivity(i);
-            }
-        });
+//        RelativeLayout goToOrderBtn = MainActivity.this.findViewById(R.id.orders);
+//        goToOrderBtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent i = new Intent(MainActivity.this, OrderPage.class);
+//                startActivity(i);
+//            }
+//        });
 
     }
 
@@ -158,31 +154,31 @@ public class MainActivity extends AppCompatActivity {
             //Menu item pressed
             Intent profileIntent = new Intent(this,ProfileActivity.class);
             startActivity(profileIntent);
-            Toast.makeText(this,"user profile pressed .", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(this,"user profile pressed .", Toast.LENGTH_SHORT).show();
             return true; //Indicated menu press was handled
         }
         if (id == R.id.action_user_donations) {
             //Menu item pressed
             Intent intent = new Intent(this,userDonations.class);
             startActivity(intent);
-            Toast.makeText(this,"user donations pressed .", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(this,"user donations pressed .", Toast.LENGTH_SHORT).show();
             return true; //Indicated menu press was handled
         }
         if (id == R.id.action_user_orders) {
             //Menu item pressed
             Intent intent = new Intent(this,MyOrders.class);
             startActivity(intent);
-            Toast.makeText(this,"user order  pressed .", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(this,"user order  pressed .", Toast.LENGTH_SHORT).show();
             return true; //Indicated menu press was handled
         }
         if (id == R.id.action_user_logout) {
             //Menu item pressed
             Amplify.Auth.signOut(
-                    AuthSignOutOptions.builder().globalSignOut(true).build(),
-                    () -> Log.i("AuthQuickstart", "Signed out globally"),
+
+                    () -> {Intent intent = new Intent(this, LoginActivity.class);} ,
                     error -> Log.e("AuthQuickstart", error.toString())
             );
-            Toast.makeText(this,"Signed out succeeded!", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(this,"Signed out succeeded!", Toast.LENGTH_SHORT).show();
 
             return true; //Indicated menu press was handled
         }
