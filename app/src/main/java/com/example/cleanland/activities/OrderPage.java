@@ -33,7 +33,15 @@ public class OrderPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order_page);
 
-        State state=null;
+        try {
+            Amplify.addPlugin(new AWSDataStorePlugin());
+            Amplify.configure(getApplicationContext());
+
+            Log.i("Tutorial", "Initialized Amplify");
+        } catch (AmplifyException e) {
+            Log.e("Tutorial", "Could not initialize Amplify", e);
+        }
+        
         Button addOrder = OrderPage.this.findViewById(R.id.add);
         addOrder.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,14 +53,7 @@ public class OrderPage extends AppCompatActivity {
                 TextView suitsQuantity = (TextView) findViewById(R.id.integer_number_Three);
                 TextView pantiesQuantity = (TextView) findViewById(R.id.integer_number_Four);
                 EditText pickUpDate = (EditText) findViewById(R.id.pickUpDate);
-                        try {
-            Amplify.addPlugin(new AWSDataStorePlugin());
-            Amplify.configure(getApplicationContext());
 
-            Log.i("Tutorial", "Initialized Amplify");
-        } catch (AmplifyException e) {
-            Log.e("Tutorial", "Could not initialize Amplify", e);
-        }
                     try {
                         Orders item = Orders.builder()
                 .pickupDate("abd")
