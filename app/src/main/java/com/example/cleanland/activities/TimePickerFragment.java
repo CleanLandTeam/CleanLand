@@ -2,10 +2,16 @@ package com.example.cleanland.activities;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.DatePicker;
+import android.widget.EditText;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.DialogFragment;
+
+import com.example.cleanland.R;
 
 import java.util.Calendar;
 
@@ -24,7 +30,14 @@ public class TimePickerFragment extends DialogFragment
         return new DatePickerDialog(getActivity(), this, year, month, day);
     }
 
-    public void onDateSet(DatePicker view, int year, int month, int day) {
-        // Do something with the date chosen by the user
+
+    @Override
+    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+        GetDate getDate = new GetDate();
+        getDate.getPickUpDate(year, month, dayOfMonth);
+
+
     }
+
+
 }

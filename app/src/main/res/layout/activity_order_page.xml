@@ -540,15 +540,13 @@
                             android:layout_width="200dp"
                             android:layout_height="wrap_content"
                             android:id="@+id/in_date"
+                            android:inputType="text"
+                            android:hint="Date"
                             android:layout_alignParentTop="true"
                             android:layout_alignParentLeft="true"
                             android:layout_alignParentStart="true" />
 
-                        <Button
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Select date"
-                            android:onClick="showDatePickerDialog" />
+                       <include layout="@layout/calender"/>
 
 
 

@@ -3,10 +3,14 @@ package com.example.cleanland.activities;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.DialogFragment;
 
+import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.cleanland.R;
@@ -22,7 +26,6 @@ public class OrderPage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order_page);
-
 
 
 //
@@ -41,6 +44,8 @@ public class OrderPage extends AppCompatActivity {
 //        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 //        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.actionBarColor)));
 
+
+
     }
 
     public void showDatePickerDialog(View v) {
@@ -49,64 +54,85 @@ public class OrderPage extends AppCompatActivity {
     }
 
 
-
     public void increaseInteger(View view) {
         minteger = minteger + 1;
         display(minteger);
 
-    }public void decreaseInteger(View view) {
+    }
+
+    public void decreaseInteger(View view) {
         minteger = minteger - 1;
         display(minteger);
     }
+
     public void increaseIntegerOne(View view) {
         mintegerOne = mintegerOne + 1;
         displayOne(mintegerOne);
 
-    }public void decreaseIntegerOne(View view) {
+    }
+
+    public void decreaseIntegerOne(View view) {
         mintegerOne = mintegerOne - 1;
         displayOne(mintegerOne);
-    }public void increaseIntegerTwo(View view) {
+    }
+
+    public void increaseIntegerTwo(View view) {
         mintegerTwo = mintegerTwo + 1;
         displayTwo(mintegerTwo);
 
-    }public void decreaseIntegerTwo(View view) {
+    }
+
+    public void decreaseIntegerTwo(View view) {
         mintegerTwo = mintegerTwo - 1;
         displayTwo(mintegerTwo);
-    }public void increaseIntegerThree(View view) {
+    }
+
+    public void increaseIntegerThree(View view) {
         mintegerThree = mintegerThree + 1;
         displayThree(mintegerThree);
 
-    }public void decreaseIntegerThree(View view) {
+    }
+
+    public void decreaseIntegerThree(View view) {
         mintegerThree = mintegerThree - 1;
         displayThree(mintegerThree);
-    }public void increaseIntegerFour(View view) {
+    }
+
+    public void increaseIntegerFour(View view) {
         mintegerFour = mintegerFour + 1;
         displayFour(mintegerFour);
 
-    }public void decreaseIntegerFour(View view) {
+    }
+
+    public void decreaseIntegerFour(View view) {
         mintegerFour = mintegerFour - 1;
         displayFour(mintegerFour);
     }
+
     private void display(int number) {
         TextView displayInteger = (TextView) findViewById(
                 R.id.integer_number);
         displayInteger.setText("" + number);
     }
+
     private void displayOne(int number) {
         TextView displayInteger = (TextView) findViewById(
                 R.id.integer_number_one);
         displayInteger.setText("" + number);
     }
+
     private void displayTwo(int number) {
         TextView displayInteger = (TextView) findViewById(
                 R.id.integer_number_Two);
         displayInteger.setText("" + number);
     }
+
     private void displayThree(int number) {
         TextView displayInteger = (TextView) findViewById(
                 R.id.integer_number_Three);
         displayInteger.setText("" + number);
     }
+
     private void displayFour(int number) {
         TextView displayInteger = (TextView) findViewById(
                 R.id.integer_number_Four);

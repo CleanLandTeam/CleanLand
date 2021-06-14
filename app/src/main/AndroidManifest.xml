@@ -18,7 +18,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.CleanLand"
+        android:theme="@style/Theme.AppCompat.Light"
         >
 
         <!--
@@ -42,6 +42,10 @@
         <activity android:name=".activities.MyOrders"
             android:parentActivityName=".activities.MainActivity"/>
 
+
+
+        <activity android:name=".activities.GetDate"
+            android:parentActivityName=".activities.MainActivity"/>
         <activity android:name=".activities.userDonations"
             android:parentActivityName=".activities.MainActivity"/>
 

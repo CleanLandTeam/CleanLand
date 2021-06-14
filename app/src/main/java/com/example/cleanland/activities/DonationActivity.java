@@ -38,13 +38,6 @@ public class DonationActivity extends AppCompatActivity {
     }public void decreaseIntegerOne(View view) {
         mintegerOne = mintegerOne - 1;
         displayOne(mintegerOne);
-    }public void increaseIntegerTwo(View view) {
-        mintegerTwo = mintegerTwo + 1;
-        displayTwo(mintegerTwo);
-
-    }public void decreaseIntegerTwo(View view) {
-        mintegerTwo = mintegerTwo - 1;
-        displayTwo(mintegerTwo);
     }public void increaseIntegerThree(View view) {
         mintegerThree = mintegerThree + 1;
         displayThree(mintegerThree);
@@ -70,11 +63,7 @@ public class DonationActivity extends AppCompatActivity {
                 R.id.donation_integer_number_one);
         displayInteger.setText("" + number);
     }
-    private void displayTwo(int number) {
-        TextView displayInteger = (TextView) findViewById(
-                R.id.donation_integer_number_Two);
-        displayInteger.setText("" + number);
-    }
+
     private void displayThree(int number) {
         TextView displayInteger = (TextView) findViewById(
                 R.id.donation_integer_number_Three);

@@ -87,14 +87,14 @@ public class MainActivity extends AppCompatActivity {
         );
         //this.userAuthentication.checkForUserAuth(getBaseContext());
 //
-//        RelativeLayout goToProfile =  MainActivity.this.findViewById(R.id.addDonation);
-//        goToProfile.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(MainActivity.this, DonationActivity.class);
-//                startActivity(intent);
-//            }
-//        });
+        RelativeLayout goToProfile =  MainActivity.this.findViewById(R.id.addDonation);
+        goToProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, DonationActivity.class);
+                startActivity(intent);
+            }
+        });
 //
 //
 //
@@ -123,14 +123,14 @@ public class MainActivity extends AppCompatActivity {
         );
        // this.userAuthentication.checkForUserAuth(this);
 
-//        RelativeLayout goToOrderBtn = MainActivity.this.findViewById(R.id.orders);
-//        goToOrderBtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent i = new Intent(MainActivity.this, OrderPage.class);
-//                startActivity(i);
-//            }
-//        });
+        RelativeLayout goToOrderBtn = MainActivity.this.findViewById(R.id.orders);
+        goToOrderBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(MainActivity.this, OrderPage.class);
+                startActivity(i);
+            }
+        });
 
     }
 
