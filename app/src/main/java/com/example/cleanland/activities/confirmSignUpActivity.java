@@ -36,7 +36,7 @@ public class confirmSignUpActivity extends AppCompatActivity {
                 Amplify.Auth.confirmSignUp(
                         email,
                         code,
-                        result -> succeeded.show(),
+                        result -> {succeeded.show(); finish();},
                         error ->  failed.show()
                 );
 

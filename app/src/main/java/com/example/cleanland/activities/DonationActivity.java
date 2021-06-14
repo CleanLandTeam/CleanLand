@@ -135,6 +135,7 @@ public class DonationActivity extends AppCompatActivity {
         displayFour(mintegerFour);
 
     }public void decreaseIntegerFour(View view) {
+
         mintegerFour = mintegerFour - 1;
         displayFour(mintegerFour);
     }
