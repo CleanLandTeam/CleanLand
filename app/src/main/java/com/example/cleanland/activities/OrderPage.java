@@ -1,27 +1,25 @@
+package com.example.cleanland.activities;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.DialogFragment;
 
-  package com.example.cleanland.activities;
+import android.app.DatePickerDialog;
+import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
+import android.location.Address;
+import android.location.Geocoder;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.Menu;
+import android.view.View;
+import android.widget.Button;
+import android.widget.DatePicker;
+import android.widget.EditText;
+import android.widget.TextView;
 
-        import androidx.appcompat.app.AppCompatActivity;
-        import androidx.fragment.app.DialogFragment;
+import com.example.cleanland.R;
 
-        import android.content.Intent;
-        import android.graphics.drawable.ColorDrawable;
-        import android.os.Bundle;
-        import android.text.Editable;
-        import android.util.Log;
-        import android.view.View;
-        import android.widget.Button;
-        import android.widget.DatePicker;
-        import android.widget.EditText;
-        import android.widget.TextView;
 
-        import com.amplifyframework.AmplifyException;
-        import com.amplifyframework.core.Amplify;
-        import com.amplifyframework.datastore.AWSDataStorePlugin;
-        import com.amplifyframework.datastore.generated.model.Orders;
-        import com.amplifyframework.datastore.generated.model.State;
-        import com.example.cleanland.R;
-
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
@@ -35,6 +33,7 @@ public class OrderPage extends AppCompatActivity {
     EditText edittext;
     final Calendar myCalendar = Calendar.getInstance();
     EditText editDeliveryDate;
+    TextView locationView;
 
 
     @Override
@@ -148,7 +147,45 @@ public class OrderPage extends AppCompatActivity {
         });
 
 
+
+
+         locationView=(TextView)findViewById(R.id.locationView);
+
+        Button location=(Button)findViewById(R.id.location);
+        location.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+                Intent intent=new Intent(OrderPage.this,MapsActivity.class);
+                startActivityForResult(intent, 1000);// Activity is started with requestCode 2
+            }
+        });
     }
+
+    // Call Back method  to get the Message form other Activity
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data)
+    {
+        super.onActivityResult(requestCode, resultCode, data);
+        // check if the request code is same as what is passed  here it is 2
+//        if(requestCode==1000)
+//        {
+        Double latitude=data.getExtras().getDouble("latitude");
+        Double longitude=data.getExtras().getDouble("longitude");
+        String address=data.getExtras().getString("address");
+
+
+        locationView.setText(address);
+    }
+
+
+
+
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        // Inflate the menu; this adds items to the action bar if it is present.
+//        getMenuInflater().inflate(R.menu.main, menu);
+//        return true;
+//    }
 
     private void updateLabel() {
         String myFormat = "MM/dd/yy"; //In which you need put here
