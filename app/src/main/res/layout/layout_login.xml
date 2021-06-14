@@ -43,7 +43,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/loginViewsMargin"
             android:text="Login"
-            android:textColor="#B2F0FF" />
+            android:textColor="#1EB4D8" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputEmail"
@@ -86,8 +86,9 @@
             android:layout_marginTop="@dimen/loginViewsMargin"
             android:text="@string/login_signup_hint"
             android:textAlignment="textEnd"
-            android:textColor="@color/primaryTextColor"
-            android:textStyle="bold" />
+            android:textColor="#1EB4D8"
+            android:textStyle="bold"
+            android:gravity="end" />
 
     </LinearLayout>
 

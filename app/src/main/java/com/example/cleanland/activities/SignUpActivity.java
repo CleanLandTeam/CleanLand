@@ -47,28 +47,35 @@ public class SignUpActivity extends AppCompatActivity {
                 Toast failed = Toast.makeText(getApplicationContext(), "please check the user name and email", Toast.LENGTH_LONG);
 
                 ArrayList<AuthUserAttribute> attributes = new ArrayList<>();
-                attributes.add(new AuthUserAttribute(AuthUserAttributeKey.name(), "null"));
-                attributes.add(new AuthUserAttribute(AuthUserAttributeKey.familyName(), "null"));
-                attributes.add(new AuthUserAttribute(AuthUserAttributeKey.middleName(), "null"));
-                attributes.add(new AuthUserAttribute(AuthUserAttributeKey.picture(), "null"));
-                attributes.add(new AuthUserAttribute(AuthUserAttributeKey.gender(), "null"));
-                attributes.add(new AuthUserAttribute(AuthUserAttributeKey.birthdate(), "02/01/1996"));
-                attributes.add(new AuthUserAttribute(AuthUserAttributeKey.locale(), "null"));
-                attributes.add(new AuthUserAttribute(AuthUserAttributeKey.phoneNumber(), "+96279923821"));
+                attributes.add(new AuthUserAttribute(AuthUserAttributeKey.name(), ""));
+                attributes.add(new AuthUserAttribute(AuthUserAttributeKey.familyName(), ""));
+                attributes.add(new AuthUserAttribute(AuthUserAttributeKey.middleName(), ""));
+                attributes.add(new AuthUserAttribute(AuthUserAttributeKey.picture(), ""));
+                attributes.add(new AuthUserAttribute(AuthUserAttributeKey.gender(), ""));
+                attributes.add(new AuthUserAttribute(AuthUserAttributeKey.birthdate(), "01/01/1950"));
+
+                attributes.add(new AuthUserAttribute(AuthUserAttributeKey.locale(), ""));
+                attributes.add(new AuthUserAttribute(AuthUserAttributeKey.phoneNumber(), ""));
+               // attributes.add(new AuthUserAttribute(AuthUserAttributeKey.phoneNumber(), "+96279923821"));
+                attributes.add(new AuthUserAttribute(AuthUserAttributeKey.phoneNumber(), "+96270000000"));
                 attributes.add(new AuthUserAttribute(AuthUserAttributeKey.address(), "null"));
 
                 Amplify.Auth.signUp(
                         email,
                         password,
                         AuthSignUpOptions.builder().userAttributes(attributes).build(),
-                        result -> succeeded.show(),
-                        error -> failed.show()
+                        result -> {succeeded.show();
+
+                            Intent intent = new Intent(getApplicationContext(), confirmSignUpActivity.class);
+                            intent.putExtra("confirmEmail", email);
+
+                            startActivity(intent);
+                        },
+                        error -> {failed.show();
+                            Log.e("error signup ", ""+error);}
                 );
 
-                    Intent intent = new Intent(v.getContext(), confirmSignUpActivity.class);
-                    intent.putExtra("confirmEmail", email);
 
-                    startActivity(intent);
 
 
             }

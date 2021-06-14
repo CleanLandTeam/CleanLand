@@ -20,7 +20,7 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_login);
-//        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.actionBarColor)));
+
 
 
         findViewById(R.id.signUp_text).setOnClickListener(new View.OnClickListener() {
@@ -50,14 +50,12 @@ public class LoginActivity extends AppCompatActivity {
 
 
                 Amplify.Auth.signIn(
-
                         userName,
                         passWord,
-
-                        result -> succeeded.show(),
+                        result -> {succeeded.show();       finish();},
                         error -> failed.show()
                 );
-                    finish();
+
             }
         });
 

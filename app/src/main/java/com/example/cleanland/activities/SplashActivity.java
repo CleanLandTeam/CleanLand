@@ -17,7 +17,7 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
-        setTitle("Welcome To Clean Land");
+        //setTitle("Welcome To Clean Land");
 
 
 

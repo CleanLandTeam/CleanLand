@@ -23,9 +23,7 @@
                 android:text="Add your order"
                 android:textColor="#61c9ef" />
 
-            <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:app="http://schemas.android.com/apk/res-auto"
-                xmlns:tools="http://schemas.android.com/tools"
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 tools:context=".activities.OrderPage">
@@ -406,7 +404,7 @@
                     android:layout_height="60dp"
                     android:layout_centerVertical="true"
                     android:elevation="13dp"
-                    android:src="@drawable/suit" />
+                    android:src="@drawable/suitbw" />
 
 
             </RelativeLayout>
