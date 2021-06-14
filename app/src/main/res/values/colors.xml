@@ -25,6 +25,7 @@
     <color name="contentTextColor">#020000</color>
     <color name="miniTitleColor">#6F6A6A</color>
     <color name="whiteBodyColor">#FCFCFC</color>
+    <color name="pick_location_color">#FCFCFC</color>
 
 
 </resources>
