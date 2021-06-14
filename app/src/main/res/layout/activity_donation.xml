@@ -407,7 +407,7 @@
                     android:layout_height="60dp"
                     android:layout_centerVertical="true"
                     android:elevation="13dp"
-                    android:src="@drawable/suit" />
+                    android:src="@drawable/suitbw" />
 
 
             </RelativeLayout>
