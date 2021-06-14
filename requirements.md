@@ -20,6 +20,7 @@
 
 ## stretch goals :
 - create offers system.
+- create point system
 
 ## Domain modeling:
 
