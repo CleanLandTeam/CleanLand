@@ -4,8 +4,11 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentActivity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.location.Address;
+import android.location.Geocoder;
 import android.location.Location;
 import android.os.Bundle;
 import android.util.Log;
@@ -29,11 +32,15 @@ import com.google.android.libraries.places.api.net.PlacesClient;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.io.IOException;
+import java.util.Locale;
+
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
     private boolean locationPermissionGranted;
+    Address city;
 
     private GoogleMap map;
     private CameraPosition cameraPosition;
@@ -81,12 +88,28 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
             @Override
             public void onClick(View v) {
-                Log.d("location is ", "lat: "+getLatitidue()+" lon: "+getLongitude());
-                Intent intent=new Intent();
-                intent.putExtra("latitidue",getLatitidue());
-                intent.putExtra("longitude",getLongitude());
-                setResult(1000,intent);
-                finish();
+
+
+                Geocoder geocoder = new Geocoder(MapsActivity.this, Locale.getDefault());
+                try{
+                     city = geocoder.getFromLocation(latitidue,longitude, 1).get(0);
+//                                    Toast.makeText(MainActivity.this, city.toString(), Toast.LENGTH_LONG).show();
+                    Log.d("city", city.getAddressLine(0));
+                    Log.d("location is ", "lat: "+getLatitidue()+" lon: "+getLongitude());
+                    Intent intent=new Intent();
+                    intent.putExtra("latitude",getLatitidue());
+                    intent.putExtra("longitude",getLongitude());
+                    intent.putExtra("address",city.getAddressLine(0));
+
+                    setResult(Activity.RESULT_OK,intent);
+
+                    finish();
+
+                }catch (IOException e){
+                    e.printStackTrace();
+                }
+
+
             }
         });
 
