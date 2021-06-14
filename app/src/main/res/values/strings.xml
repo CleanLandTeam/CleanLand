@@ -28,5 +28,6 @@
     <string name="option_get_place" type="id">Get place</string>
     <string name="pick_place">Choose a place</string>
     <string name="pick_this_location">Pick This Location</string>
+    <string name="Welcome_msg">Welcome To Clean Land</string>
 
 </resources>
