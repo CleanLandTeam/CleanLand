@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         setTitle("Welcome To Clean Land");
-        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.actionBarColor)));
+       // getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.actionBarColor)));
        this.amplifyInitializer= new AmplifyInitializer(getApplicationContext());
 
 
@@ -86,26 +86,25 @@ public class MainActivity extends AppCompatActivity {
                 error -> Log.e("failed user login", error.toString())
         );
         //this.userAuthentication.checkForUserAuth(getBaseContext());
-//
-        RelativeLayout goToProfile =  MainActivity.this.findViewById(R.id.addDonation);
-        goToProfile.setOnClickListener(new View.OnClickListener() {
+
+        RelativeLayout goToOrderActivity =  MainActivity.this.findViewById(R.id.orders);
+        goToOrderActivity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, OrderPage.class);
+                startActivity(intent);
+            }
+        });
+
+        RelativeLayout goToCharityActivity =  MainActivity.this.findViewById(R.id.addDonation);
+        goToOrderActivity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, DonationActivity.class);
                 startActivity(intent);
             }
         });
-//
-//
-//
-//        RelativeLayout goToLogin = MainActivity.this.findViewById(R.id.login);
-//        goToLogin.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(this, LoginActivity.class);
-//                startActivity(intent);
-//            }
-//        });
+
     }
 
     @Override
@@ -121,17 +120,25 @@ public class MainActivity extends AppCompatActivity {
                 },
                 error -> Log.e("failed user login", error.toString())
         );
-       // this.userAuthentication.checkForUserAuth(this);
 
-        RelativeLayout goToOrderBtn = MainActivity.this.findViewById(R.id.orders);
-        goToOrderBtn.setOnClickListener(new View.OnClickListener() {
+
+        RelativeLayout goToOrderActivity =  MainActivity.this.findViewById(R.id.orders);
+        goToOrderActivity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(MainActivity.this, OrderPage.class);
-                startActivity(i);
+                Intent intent = new Intent(MainActivity.this, OrderPage.class);
+                startActivity(intent);
             }
         });
 
+        RelativeLayout goToCharityActivity =  MainActivity.this.findViewById(R.id.addDonation);
+        goToOrderActivity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, DonationActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
 
@@ -175,7 +182,9 @@ public class MainActivity extends AppCompatActivity {
             //Menu item pressed
             Amplify.Auth.signOut(
 
-                    () -> {Intent intent = new Intent(this, LoginActivity.class);} ,
+                    () -> {Intent intent = new Intent(this, LoginActivity.class);
+                    startActivity(intent)
+                    ;} ,
                     error -> Log.e("AuthQuickstart", error.toString())
             );
 //            Toast.makeText(this,"Signed out succeeded!", Toast.LENGTH_SHORT).show();
