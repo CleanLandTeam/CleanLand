@@ -64,7 +64,7 @@
                             app:layout_constraintTop_toTopOf="parent">
 
                             <Button
-                                android:id="@+id/tShirtMinus"
+                                android:id="@+id/t_Shirt_Minus"
                                 android:layout_width="35dp"
                                 android:layout_height="35dp"
                                 android:background="@drawable/minus"
@@ -84,14 +84,14 @@
                                 android:textSize="50sp"
                                 android:textStyle="bold"
                                 app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toStartOf="@+id/tShirtMinus"
+                                app:layout_constraintEnd_toStartOf="@+id/t_Shirt_Minus"
                                 app:layout_constraintHorizontal_bias="0.5"
-                                app:layout_constraintStart_toEndOf="@+id/tShirtPlus"
+                                app:layout_constraintStart_toEndOf="@+id/t_Shirt_Plus"
                                 app:layout_constraintTop_toTopOf="parent"
                                 app:layout_constraintVertical_bias="0.484" />
 
                             <Button
-                                android:id="@+id/tShirtPlus"
+                                android:id="@+id/t_Shirt_Plus"
                                 android:layout_width="34dp"
                                 android:layout_height="34dp"
                                 android:background="@drawable/plusicon"
@@ -310,7 +310,7 @@
                     android:layout_height="60dp"
                     android:layout_centerVertical="true"
                     android:elevation="13dp"
-                    android:src="@drawable/underwear" />
+                    android:src="@drawable/underwear1" />
 
 
             </RelativeLayout>
@@ -507,6 +507,126 @@
 
             </RelativeLayout>
 
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:context=".activities.OrderPage">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="2dp"
+                    android:layout_marginBottom="5dp"
+                    android:minHeight="120dp"
+                    app:cardBackgroundColor="@color/whiteBodyColor"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="2dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="50dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/viewParent.headerText"
+                            android:text="Pickup date"
+                            android:textColor="#61c9ef" />
+
+                        <EditText
+                            android:layout_width="200dp"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/in_date"
+                            android:inputType="text"
+                            android:hint="Date"
+                            android:layout_alignParentTop="true"
+                            android:layout_alignParentLeft="true"
+                            android:layout_alignParentStart="true" />
+
+                       <include layout="@layout/calender"/>
+
+
+
+                    </LinearLayout>
+
+
+                </androidx.cardview.widget.CardView>
+
+
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_centerVertical="true"
+                    android:elevation="13dp"
+                    android:src="@drawable/calendar" />
+
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:context=".activities.OrderPage">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="2dp"
+                    android:layout_marginBottom="5dp"
+                    android:minHeight="120dp"
+                    app:cardBackgroundColor="@color/whiteBodyColor"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="2dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="50dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/viewParent.headerText"
+                            android:text="Delivery date"
+                            android:textColor="#61c9ef" />
+
+                        <EditText
+                            android:layout_width="200dp"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/in_delivery_date"
+                            android:layout_alignParentTop="true"
+                            android:layout_alignParentLeft="true"
+                            android:layout_alignParentStart="true" />
+
+                        <Button
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="SELECT DATE"
+                            android:id="@+id/btn_delivery_date"
+                            android:layout_alignBottom="@+id/in_date"
+                            android:layout_toRightOf="@+id/in_date"
+                            android:layout_toEndOf="@+id/in_date" />
+
+                    </LinearLayout>
+
+
+                </androidx.cardview.widget.CardView>
+
+
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_centerVertical="true"
+                    android:elevation="13dp"
+                    android:src="@drawable/calendar" />
+
+
+            </RelativeLayout>
+
             <Button
                 android:id="@+id/add"
                 style="@style/loginButton"
@@ -515,7 +635,7 @@
                 android:layout_marginTop="@dimen/loginViewsMargin"
                 android:minWidth="88dip"
                 android:text="Add"
-                 />
+                />
 
         </LinearLayout>
 

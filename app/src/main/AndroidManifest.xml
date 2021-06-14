@@ -18,7 +18,8 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.CleanLand">
+        android:theme="@style/Theme.AppCompat.Light"
+        >
 
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
@@ -40,6 +41,11 @@
 
         <activity android:name=".activities.MyOrders"
             android:parentActivityName=".activities.MainActivity"/>
+
+
+
+        <activity android:name=".activities.GetDate"
+            android:parentActivityName=".activities.MainActivity"/>
         <activity android:name=".activities.userDonations"
             android:parentActivityName=".activities.MainActivity"/>
 
@@ -47,6 +53,7 @@
             android:parentActivityName=".activities.MainActivity"/>
         <activity android:name=".activities.OrderPage"
             android:parentActivityName=".activities.MainActivity"/>
+        <activity android:name=".activities.DonationActivity"/>
 
         <activity android:name=".activities.SplashActivity"
             android:theme="@style/AppTheme.NoActionBar">
