@@ -1,22 +1,94 @@
 package com.example.cleanland.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import com.amplifyframework.AmplifyException;
+import com.amplifyframework.core.Amplify;
+import com.amplifyframework.datastore.AWSDataStorePlugin;
 import com.amplifyframework.datastore.generated.model.Condition;
 import com.amplifyframework.datastore.generated.model.Donate;
+import com.amplifyframework.datastore.generated.model.Orders;
 import com.example.cleanland.R;
+import com.example.cleanland.adapters.ViewAdapter;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class userDonations extends AppCompatActivity {
-    
+
+    @Override
+    public void onResume(){
+        super.onResume();
+        this.handleRViewShow();
+    }
+    private void handleRViewShow(){
+        List<Donate> donateToView = new ArrayList<>();
+
+        try {
+            Amplify.DataStore.query(Donate.class,
+                    tasks -> {
+                        String pickUp="";
+                        Integer shirt=0;
+                        Integer jacket=0;
+                        Integer panties=0;
+                        Integer suites=0;
+                        while (tasks.hasNext()) {
+                            Donate donate = tasks.next();
+                            donateToView.add(new Donate("2",donate.getPickupDate().toString(),2.2,1.1,donate.getShirtsQuantity(),donate.getJacketsQuantity(),0,donate.getPantiesQuantity(),donate.getSuitesQuantity(),0,"null",null));
+
+                            if(donate.getShirtsQuantity()!=0)
+                                shirt+=donate.getShirtsQuantity();
+
+                            if(donate.getJacketsQuantity()!=0)
+                                jacket+=donate.getJacketsQuantity();
+
+                            if(donate.getPantiesQuantity()!=0)
+                                panties+=donate.getPantiesQuantity();
+
+                            if(donate.getSuitesQuantity()!=0)
+                                suites+=donate.getSuitesQuantity();
+
+                            if(donate.getPickupDate()!=null)
+                                pickUp=donate.getPickupDate();
+
+
+                        }
+                        TextView shirtsQuantity=findViewById(R.id.shirtsQuantityDonations);
+                        TextView jacketsQuantity=findViewById(R.id.jacketQuantityDonations);
+                        TextView pantsQuantity=findViewById(R.id.pantiesQuantityDonations);
+                        TextView suitesQuantity=findViewById(R.id.suitesQuantityDonations);
+                        shirtsQuantity.setText(shirt+"");
+                        jacketsQuantity.setText(jacket+"");
+                        pantsQuantity.setText(panties+"");
+                        suitesQuantity.setText(suites+"");
+                    },
+                    failure -> Log.e("Tutorial", "Could not query DataStore", failure)
+
+
+            );
+
+            try{
+                Thread.sleep(1500);
+
+
+
+            }catch(InterruptedException e){
+                e.printStackTrace();
+            }
+        } catch (Exception e) {
+            Log.e("Tutorial", "Could not initialize Amplify", e);
+        }
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,12 +96,7 @@ public class userDonations extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.actionBarColor)));
 
-        ArrayList<Donate> donates=new ArrayList<>();
-//        donates.add(new Donate("0","0",1.2,1.3,1,2,
-//                0,3,4,5,"0",Condition.A));
 
-        TextView test1=findViewById(R.id.shirtsQuantityDonations);
-        test1.setText("1");
 
     }
 

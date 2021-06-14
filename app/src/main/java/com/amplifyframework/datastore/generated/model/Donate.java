@@ -91,7 +91,7 @@ public final class Donate implements Model {
       return condition;
   }
   
-  private Donate(String id, String pickupDate, Double longitude, Double latitude, Integer shirtsQuantity, Integer jacketsQuantity, Integer underWaresQuantity, Integer pantiesQuantity, Integer suitesQuantity, Integer othersQuantity, String userId, Condition condition) {
+  public Donate(String id, String pickupDate, Double longitude, Double latitude, Integer shirtsQuantity, Integer jacketsQuantity, Integer underWaresQuantity, Integer pantiesQuantity, Integer suitesQuantity, Integer othersQuantity, String userId, Condition condition) {
     this.id = id;
     this.pickupDate = pickupDate;
     this.longitude = longitude;
