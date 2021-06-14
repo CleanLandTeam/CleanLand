@@ -1,4 +1,5 @@
 
+
   package com.example.cleanland.activities;
 
         import androidx.appcompat.app.AppCompatActivity;
@@ -25,7 +26,8 @@
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Locale;
+        import java.util.Date;
+        import java.util.Locale;
 
 public class OrderPage extends AppCompatActivity {
     int minteger = 0;
@@ -36,6 +38,7 @@ public class OrderPage extends AppCompatActivity {
     EditText edittext;
     final Calendar myCalendar = Calendar.getInstance();
     EditText editDeliveryDate;
+    TextView locationView;
 
 
     @Override
@@ -43,14 +46,14 @@ public class OrderPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order_page);
 
-        try {
-            Amplify.addPlugin(new AWSDataStorePlugin());
-            Amplify.configure(getApplicationContext());
-
-            Log.i("Tutorial", "Initialized Amplify");
-        } catch (AmplifyException e) {
-            Log.e("Tutorial", "Could not initialize Amplify", e);
-        }
+//        try {
+//            Amplify.addPlugin(new AWSDataStorePlugin());
+//            Amplify.configure(getApplicationContext());
+//
+//            Log.i("Tutorial", "Initialized Amplify");
+//        } catch (AmplifyException e) {
+//            Log.e("Tutorial", "Could not initialize Amplify", e);
+//        }
         
         Button addOrder = OrderPage.this.findViewById(R.id.add);
         addOrder.setOnClickListener(new View.OnClickListener() {
@@ -62,11 +65,11 @@ public class OrderPage extends AppCompatActivity {
                 TextView underWareQuantity = (TextView) findViewById(R.id.integer_number_Two);
                 TextView suitsQuantity = (TextView) findViewById(R.id.integer_number_Three);
                 TextView pantiesQuantity = (TextView) findViewById(R.id.integer_number_Four);
-                EditText pickUpDate = (EditText) findViewById(R.id.pickUpDate);
+                TextView pickUpDate =  findViewById(R.id.in_date);
 
                     try {
                         Orders item = Orders.builder()
-                .pickupDate("abd")
+                 .pickupDate(pickUpDate.getText().toString())
                 .deliveryDate("deliveryDate").longitude(5.2).latitude(4.1)
                                 .shirtsQuantity(Integer.valueOf(shirtsQuantity.getText().toString()))
                                 .jacketsQuantity(Integer.valueOf(jacketsQuantity.getText().toString()))
@@ -75,7 +78,7 @@ public class OrderPage extends AppCompatActivity {
                                 .suitesQuantity(Integer.valueOf(suitsQuantity.getText().toString()))
                 .build();
                         Amplify.DataStore.save(item,
-                                success -> Log.i("Tutorial", "Saved item: " + success.item().getShirtsQuantity()),
+                                success -> Log.i("Tutorial", "Saved item: " + success.item().getPickupDate()),
                                 error -> Log.e("Tutorial", "Could not save item to DataStore", error)
                         );
                         Log.i("Tutorial", "Initialized Amplify");
@@ -149,7 +152,45 @@ public class OrderPage extends AppCompatActivity {
         });
 
 
+
+
+         locationView=(TextView)findViewById(R.id.locationView);
+
+        Button location=(Button)findViewById(R.id.location);
+        location.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+                Intent intent=new Intent(OrderPage.this,MapsActivity.class);
+                startActivityForResult(intent, 1000);// Activity is started with requestCode 2
+            }
+        });
     }
+
+    // Call Back method  to get the Message form other Activity
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data)
+    {
+        super.onActivityResult(requestCode, resultCode, data);
+        // check if the request code is same as what is passed  here it is 2
+//        if(requestCode==1000)
+//        {
+        Double latitude=data.getExtras().getDouble("latitude");
+        Double longitude=data.getExtras().getDouble("longitude");
+        String address=data.getExtras().getString("address");
+
+
+        locationView.setText(address);
+    }
+
+
+
+
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        // Inflate the menu; this adds items to the action bar if it is present.
+//        getMenuInflater().inflate(R.menu.main, menu);
+//        return true;
+//    }
 
     private void updateLabel() {
         String myFormat = "MM/dd/yy"; //In which you need put here
