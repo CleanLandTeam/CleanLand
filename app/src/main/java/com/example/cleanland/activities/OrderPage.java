@@ -1,4 +1,4 @@
-
+package com.example.cleanland.activities;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.DialogFragment;
 
