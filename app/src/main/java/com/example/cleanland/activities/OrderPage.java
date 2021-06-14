@@ -1,6 +1,7 @@
 package com.example.cleanland.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.DialogFragment;
 
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -24,22 +25,27 @@ public class OrderPage extends AppCompatActivity {
 
 
 
+//
+//        Button popupButton = findViewById(R.id.add);
+//        popupButton.setOnClickListener(new View.OnClickListener() {
+//
+//            @Override
+//            public void onClick(View v) {
+//
+//                PopUpClass popUpClass = new PopUpClass();
+//                popUpClass.showPopupWindow(v);
+//            }
+//        });
 
-        Button popupButton = findViewById(R.id.add);
-        popupButton.setOnClickListener(new View.OnClickListener() {
 
-            @Override
-            public void onClick(View v) {
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.actionBarColor)));
 
-                PopUpClass popUpClass = new PopUpClass();
-                popUpClass.showPopupWindow(v);
-            }
-        });
+    }
 
-
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.actionBarColor)));
-
+    public void showDatePickerDialog(View v) {
+        DialogFragment newFragment = new TimePickerFragment();
+        newFragment.show(getSupportFragmentManager(), "datePicker");
     }
 
 
