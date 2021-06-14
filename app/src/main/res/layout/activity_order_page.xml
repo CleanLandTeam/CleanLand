@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/Add"
     style="@style/parent.contentLayout"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".activities.OrderPage">
@@ -20,7 +21,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="20dp"
                 android:text="Add your order"
-                android:textColor="#61c9ef"/>
+                android:textColor="#61c9ef" />
 
             <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -51,8 +52,7 @@
                         <TextView
                             style="@style/viewParent.headerText"
                             android:text="T-shirt"
-                            android:textColor="#61c9ef"
-                             />
+                            android:textColor="#61c9ef" />
 
                         <androidx.constraintlayout.widget.ConstraintLayout
                             android:layout_width="match_parent"
@@ -67,15 +67,14 @@
                                 android:id="@+id/tShirtMinus"
                                 android:layout_width="35dp"
                                 android:layout_height="35dp"
+                                android:background="@drawable/minus"
                                 android:onClick="decreaseInteger"
                                 app:backgroundTint="#FF0000	"
-                                android:background="@drawable/minus"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintEnd_toStartOf="@+id/integer_number"
                                 app:layout_constraintHorizontal_bias="0.5"
                                 app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent"
-                                />
+                                app:layout_constraintTop_toTopOf="parent" />
 
                             <TextView
                                 android:id="@+id/integer_number"
@@ -97,9 +96,9 @@
                                 android:layout_height="34dp"
                                 android:background="@drawable/plusicon"
                                 android:onClick="increaseInteger"
+                                app:backgroundTint="#61c9ef"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintEnd_toEndOf="parent"
-                                app:backgroundTint="#61c9ef"
                                 app:layout_constraintHorizontal_bias="0.5"
                                 app:layout_constraintStart_toEndOf="@+id/integer_number"
                                 app:layout_constraintTop_toTopOf="parent"
@@ -151,7 +150,7 @@
                         <TextView
                             style="@style/viewParent.headerText"
                             android:text="Jackets"
-                            android:textColor="#61c9ef"/>
+                            android:textColor="#61c9ef" />
 
                         <androidx.constraintlayout.widget.ConstraintLayout
                             android:layout_width="match_parent"
@@ -439,7 +438,7 @@
                         <TextView
                             style="@style/viewParent.headerText"
                             android:text="Panties"
-                            android:textColor="#61c9ef"/>
+                            android:textColor="#61c9ef" />
 
                         <androidx.constraintlayout.widget.ConstraintLayout
                             android:layout_width="match_parent"
@@ -511,14 +510,14 @@
             <Button
                 android:id="@+id/add"
                 style="@style/loginButton"
+                android:layout_width="match_parent"
                 android:layout_gravity="right"
                 android:layout_marginTop="@dimen/loginViewsMargin"
-                android:text="ADD"
-
-                app:backgroundTint="#FF5722" />
+                android:minWidth="88dip"
+                android:text="Add"
+                 />
 
         </LinearLayout>
-
 
 
     </androidx.core.widget.NestedScrollView>
