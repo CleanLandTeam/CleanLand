@@ -18,6 +18,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import android.view.View;
@@ -44,6 +45,8 @@ import com.google.android.libraries.places.api.net.FindCurrentPlaceRequest;
 import com.google.android.libraries.places.api.net.FindCurrentPlaceResponse;
 import com.google.android.libraries.places.api.net.PlacesClient;
 
+import org.w3c.dom.Text;
+
 import java.util.Collections;
 import java.util.List;
 
@@ -52,17 +55,6 @@ public class MainActivity extends AppCompatActivity {
     AmplifyInitializer amplifyInitializer;
     UserAuthentication userAuthentication ;
 
-    ////
-    private static final String TAG = "MapsActivity";
-    ListView lstPlaces;
-    private PlacesClient mPlacesClient;
-    private FusedLocationProviderClient mFusedLocationProviderClient;
-    private Location mLastKnownLocation;
-    private static final int M_MAX_ENTRIES = 5;
-    private String[] mLikelyPlaceNames;
-    private String[] mLikelyPlaceAddresses;
-    private String[] mLikelyPlaceAttributions;
-    private LatLng[] mLikelyPlaceLatLngs;
 
 
     @Override
@@ -70,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         setTitle("Welcome To Clean Land");
-        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.actionBarColor)));
+       // getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.actionBarColor)));
        this.amplifyInitializer= new AmplifyInitializer(getApplicationContext());
 
 
@@ -81,31 +73,54 @@ public class MainActivity extends AppCompatActivity {
                       //  Log.d("ActivityContextlog", "inside userauth check"+ ActivityContext);
                         Intent loginIntent = new Intent(this, LoginActivity.class);
                        startActivity(loginIntent);
+                    }else{
+
+                       TextView welcoming_user= findViewById(R.id.welcoming_user);
+
+                        Amplify.Auth.fetchUserAttributes(
+                                attributes ->{
+                                    if (attributes.get(9).getValue()!= "null")
+                                        ContextCompat.getMainExecutor(getApplicationContext()).execute(() -> {
+                                            welcoming_user.setText(welcoming_user.getText()+ " " + attributes.get(9).getValue() );
+
+                                        });
+
+                                    },
+                                error -> Log.e("AuthDemo", "Failed to fetch user attributes.", error)
+                        );
+
                     }
+
+
+
                 },
                 error -> Log.e("failed user login", error.toString())
         );
-        //this.userAuthentication.checkForUserAuth(getBaseContext());
-//
-        RelativeLayout goToProfile =  MainActivity.this.findViewById(R.id.addDonation);
-        goToProfile.setOnClickListener(new View.OnClickListener() {
+
+
+
+
+
+
+
+        RelativeLayout goToOrderActivity =  MainActivity.this.findViewById(R.id.orders);
+        goToOrderActivity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, OrderPage.class);
+                startActivity(intent);
+            }
+        });
+
+        RelativeLayout goToCharityActivity =  MainActivity.this.findViewById(R.id.addDonation);
+        goToCharityActivity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, DonationActivity.class);
                 startActivity(intent);
             }
         });
-//
-//
-//
-//        RelativeLayout goToLogin = MainActivity.this.findViewById(R.id.login);
-//        goToLogin.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(this, LoginActivity.class);
-//                startActivity(intent);
-//            }
-//        });
+
     }
 
     @Override
@@ -121,17 +136,25 @@ public class MainActivity extends AppCompatActivity {
                 },
                 error -> Log.e("failed user login", error.toString())
         );
-       // this.userAuthentication.checkForUserAuth(this);
 
-        RelativeLayout goToOrderBtn = MainActivity.this.findViewById(R.id.orders);
-        goToOrderBtn.setOnClickListener(new View.OnClickListener() {
+
+        RelativeLayout goToOrderActivity =  MainActivity.this.findViewById(R.id.orders);
+        goToOrderActivity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(MainActivity.this, OrderPage.class);
-                startActivity(i);
+                Intent intent = new Intent(MainActivity.this, OrderPage.class);
+                startActivity(intent);
             }
         });
 
+        RelativeLayout goToCharityActivity =  MainActivity.this.findViewById(R.id.addDonation);
+        goToCharityActivity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, DonationActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
 
@@ -175,7 +198,9 @@ public class MainActivity extends AppCompatActivity {
             //Menu item pressed
             Amplify.Auth.signOut(
 
-                    () -> {Intent intent = new Intent(this, LoginActivity.class);} ,
+                    () -> {Intent intent = new Intent(this, LoginActivity.class);
+                    startActivity(intent)
+                    ;} ,
                     error -> Log.e("AuthQuickstart", error.toString())
             );
 //            Toast.makeText(this,"Signed out succeeded!", Toast.LENGTH_SHORT).show();
