@@ -2,6 +2,9 @@
 
 ## Wireframe
 
+![wireFrame](https://github.com/CleanLandTeam/CleanLand/blob/test/wireframe/wireFrame.PNG)
+![wireFrame2](https://github.com/CleanLandTeam/CleanLand/blob/test/wireframe/wireframe2.PNG)
+![wireFrame3](https://github.com/CleanLandTeam/CleanLand/blob/test/wireframe/wireframe4.PNG)
 
 ## Vision:
 
@@ -17,5 +20,8 @@
 
 ## stretch goals :
 - create offers system.
+- create point system
 
 ## Domain modeling:
+
+![database](https://github.com/CleanLandTeam/CleanLand/blob/test/wireframe/relation.PNG)
