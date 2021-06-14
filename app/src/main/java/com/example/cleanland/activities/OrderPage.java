@@ -1,28 +1,33 @@
-package com.example.cleanland.activities;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.DialogFragment;
-
-import android.app.DatePickerDialog;
-import android.content.Intent;
-import android.graphics.drawable.ColorDrawable;
-import android.location.Address;
-import android.location.Geocoder;
-import android.os.Bundle;
-import android.util.Log;
-import android.view.Menu;
-import android.view.View;
-import android.widget.Button;
-import android.widget.DatePicker;
-import android.widget.EditText;
-import android.widget.TextView;
-
-import com.example.cleanland.R;
 
 
-import java.io.IOException;
+  package com.example.cleanland.activities;
+
+        import androidx.appcompat.app.AppCompatActivity;
+        import androidx.fragment.app.DialogFragment;
+
+        import android.app.DatePickerDialog;
+        import android.content.Intent;
+        import android.graphics.drawable.ColorDrawable;
+        import android.os.Bundle;
+        import android.text.Editable;
+        import android.util.Log;
+        import android.view.View;
+        import android.widget.Button;
+        import android.widget.DatePicker;
+        import android.widget.EditText;
+        import android.widget.TextView;
+
+        import com.amplifyframework.AmplifyException;
+        import com.amplifyframework.core.Amplify;
+        import com.amplifyframework.datastore.AWSDataStorePlugin;
+        import com.amplifyframework.datastore.generated.model.Orders;
+        import com.amplifyframework.datastore.generated.model.State;
+        import com.example.cleanland.R;
+
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Locale;
+        import java.util.Date;
+        import java.util.Locale;
 
 public class OrderPage extends AppCompatActivity {
     int minteger = 0;
@@ -41,14 +46,14 @@ public class OrderPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order_page);
 
-        try {
-            Amplify.addPlugin(new AWSDataStorePlugin());
-            Amplify.configure(getApplicationContext());
-
-            Log.i("Tutorial", "Initialized Amplify");
-        } catch (AmplifyException e) {
-            Log.e("Tutorial", "Could not initialize Amplify", e);
-        }
+//        try {
+//            Amplify.addPlugin(new AWSDataStorePlugin());
+//            Amplify.configure(getApplicationContext());
+//
+//            Log.i("Tutorial", "Initialized Amplify");
+//        } catch (AmplifyException e) {
+//            Log.e("Tutorial", "Could not initialize Amplify", e);
+//        }
         
         Button addOrder = OrderPage.this.findViewById(R.id.add);
         addOrder.setOnClickListener(new View.OnClickListener() {
@@ -60,11 +65,11 @@ public class OrderPage extends AppCompatActivity {
                 TextView underWareQuantity = (TextView) findViewById(R.id.integer_number_Two);
                 TextView suitsQuantity = (TextView) findViewById(R.id.integer_number_Three);
                 TextView pantiesQuantity = (TextView) findViewById(R.id.integer_number_Four);
-                EditText pickUpDate = (EditText) findViewById(R.id.pickUpDate);
+                TextView pickUpDate =  findViewById(R.id.in_date);
 
                     try {
                         Orders item = Orders.builder()
-                .pickupDate("abd")
+                 .pickupDate(pickUpDate.getText().toString())
                 .deliveryDate("deliveryDate").longitude(5.2).latitude(4.1)
                                 .shirtsQuantity(Integer.valueOf(shirtsQuantity.getText().toString()))
                                 .jacketsQuantity(Integer.valueOf(jacketsQuantity.getText().toString()))
@@ -73,7 +78,7 @@ public class OrderPage extends AppCompatActivity {
                                 .suitesQuantity(Integer.valueOf(suitsQuantity.getText().toString()))
                 .build();
                         Amplify.DataStore.save(item,
-                                success -> Log.i("Tutorial", "Saved item: " + success.item().getShirtsQuantity()),
+                                success -> Log.i("Tutorial", "Saved item: " + success.item().getPickupDate()),
                                 error -> Log.e("Tutorial", "Could not save item to DataStore", error)
                         );
                         Log.i("Tutorial", "Initialized Amplify");

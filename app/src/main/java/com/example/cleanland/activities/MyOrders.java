@@ -28,22 +28,6 @@ import java.util.List;
 public class MyOrders extends AppCompatActivity implements ViewAdapter.OnInteractingWithTaskListener {
     public  List<com.amplifyframework.datastore.generated.model.Orders> ordersTables = new ArrayList<>();
 
-
-
-
-
-    @Override
-    protected void onStart()
-    {
-        super.onStart();
-        try {
-            Amplify.addPlugin(new AWSDataStorePlugin());
-            Amplify.configure(getApplicationContext());
-            this.handleRViewShow();
-        }catch (AmplifyException ex){
-            System.out.println(ex);
-        }
-    }
     @Override
     public void onResume(){
         super.onResume();
