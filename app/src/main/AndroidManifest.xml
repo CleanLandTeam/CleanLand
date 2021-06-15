@@ -63,7 +63,8 @@
 
         </activity>
 
-        <activity android:name=".activities.confirmSignUpActivity" />
+        <activity android:name=".activities.confirmSignUpActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity
             android:name=".activities.LoginActivity"
             android:theme="@style/AppTheme.NoActionBar" />

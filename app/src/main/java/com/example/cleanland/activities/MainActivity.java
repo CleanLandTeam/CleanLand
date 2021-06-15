@@ -82,9 +82,7 @@ public class MainActivity extends AppCompatActivity {
                                     if (attributes.get(9).getValue()!= "null")
                                         ContextCompat.getMainExecutor(getApplicationContext()).execute(() -> {
                                             welcoming_user.setText(welcoming_user.getText()+ " " + attributes.get(9).getValue() );
-
                                         });
-
                                     },
                                 error -> Log.e("AuthDemo", "Failed to fetch user attributes.", error)
                         );

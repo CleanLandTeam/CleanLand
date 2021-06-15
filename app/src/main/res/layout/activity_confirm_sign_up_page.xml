@@ -5,25 +5,42 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activities.confirmSignUpActivity"
-    android:background="@drawable/backgroud">
+>
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/app_bar"
+        style="@style/login_Toolbar"
+        android:layout_width="0dp"
+        android:layout_height="230dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-    <LinearLayout android:layout_width="match_parent"
+
+    </androidx.appcompat.widget.Toolbar>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="24dp"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="8dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/app_bar"
+        app:layout_constraintVertical_bias="0.32">
+
         <TextView
+            style="@style/loginHeader"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            style="@style/loginHeader"
+            android:layout_marginTop="@dimen/loginViewsMargin"
             android:text="Confirmation"
-            android:layout_marginTop="@dimen/loginViewsMargin"/>
+            android:textColor="@color/actionBarColor" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputCode"
@@ -41,18 +58,44 @@
         <Button
             android:id="@+id/confirm"
             style="@style/loginButton"
-            android:text="Confirm"
-            android:layout_gravity="right"
-            android:layout_marginTop="@dimen/loginViewsMargin"/>
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/loginViewsMargin"
+            android:text="Confirm" />
 
         <TextView
+            android:id="@+id/resend_code"
             style="@style/parent"
-            android:textAlignment="textEnd"
-            android:textStyle="bold"
-            android:textColor="@color/primaryTextColor"
+            android:layout_marginTop="@dimen/loginViewsMargin"
             android:text="Didn't receive code?!"
-            android:layout_marginTop="@dimen/loginViewsMargin"/>
+
+            android:textColor="@color/actionBarColor"
+            android:textStyle="bold"
+            android:gravity="end" />
 
     </LinearLayout>
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/washing_machine" />
 
+    <TextView
+        android:id="@+id/welcome_msg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Welcome_msg"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/app_bar"
+        app:layout_constraintEnd_toEndOf="@+id/imageView2"
+        app:layout_constraintStart_toStartOf="@+id/imageView2"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        app:layout_constraintVertical_bias="0.556" />
 </androidx.constraintlayout.widget.ConstraintLayout>
