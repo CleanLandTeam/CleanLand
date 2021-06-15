@@ -173,7 +173,7 @@
                 <!--                    android:padding="10dp">-->
 
                 <RelativeLayout
-                    android:id="@+id/login"
+                    android:id="@+id/pointsSystem"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@drawable/home_gradient_maths"

@@ -133,6 +133,14 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        RelativeLayout goToPointsSystemActivity =  MainActivity.this.findViewById(R.id.pointsSystem);
+        goToOffersActivity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, PointsActivity.class);
+                startActivity(intent);
+            }
+        });
 
         RelativeLayout goToCharityActivity =  MainActivity.this.findViewById(R.id.addDonation);
         goToCharityActivity.setOnClickListener(new View.OnClickListener() {
@@ -174,6 +182,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, OffersActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        RelativeLayout goToPointsSystemActivity =  MainActivity.this.findViewById(R.id.pointsSystem);
+        goToOffersActivity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, PointsActivity.class);
                 startActivity(intent);
             }
         });
