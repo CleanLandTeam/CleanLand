@@ -160,6 +160,12 @@ public class DonationActivity extends AppCompatActivity {
         minteger = minteger + 1;
         display(minteger);
 
+
+    }public void decreaseInteger(View view) {
+        if(minteger>0)
+        minteger = minteger - 1;
+        display(minteger);
+
     }
 
     public void decreaseInteger(View view) {
@@ -175,46 +181,28 @@ public class DonationActivity extends AppCompatActivity {
         mintegerOne = mintegerOne + 1;
         displayOne(mintegerOne);
 
-    }
 
-    public void decreaseIntegerOne(View view) {
-        if (mintegerOne > 0) {
-            mintegerOne = mintegerOne - 1;
-            displayOne(mintegerOne);
-        } else {
-            displayOne(0);
-        }
-    }
-
-    public void increaseIntegerThree(View view) {
+    }public void decreaseIntegerOne(View view) {
+        if(mintegerOne>0)
+        mintegerOne = mintegerOne - 1;
+        displayOne(mintegerOne);
+    }public void increaseIntegerThree(View view) {
         mintegerThree = mintegerThree + 1;
         displayThree(mintegerThree);
 
-    }
-
-    public void decreaseIntegerThree(View view) {
-        if (mintegerThree > 0) {
-            mintegerThree = mintegerThree - 1;
-            displayThree(mintegerThree);
-        } else {
-            displayThree(0);
-        }
-    }
-
-    public void increaseIntegerFour(View view) {
+    }public void decreaseIntegerThree(View view) {
+        if(mintegerThree>0)
+        mintegerThree = mintegerThree - 1;
+        displayThree(mintegerThree);
+    }public void increaseIntegerFour(View view) {
         mintegerFour = mintegerFour + 1;
         displayFour(mintegerFour);
 
-    }
+    }public void decreaseIntegerFour(View view) {
+        if(mintegerFour>0)
+        mintegerFour = mintegerFour - 1;
+        displayFour(mintegerFour);
 
-    public void decreaseIntegerFour(View view) {
-
-        if (mintegerFour > 0) {
-            mintegerFour = mintegerFour - 1;
-            displayFour(mintegerFour);
-        } else {
-            displayFour(0);
-        }
     }
 
     private void display(int number) {

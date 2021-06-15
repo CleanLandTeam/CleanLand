@@ -4,12 +4,14 @@ import androidx.annotation.WorkerThread;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
+import android.app.DatePickerDialog;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.Looper;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 
 import com.amazonaws.mobile.client.AWSMobileClient;
@@ -20,11 +22,16 @@ import com.amplifyframework.auth.options.AuthSignUpOptions;
 import com.amplifyframework.core.Amplify;
 import com.example.cleanland.R;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
+import java.util.Locale;
 
 public class ProfileActivity extends AppCompatActivity {
+    EditText edittext;
 
+    final Calendar myCalendar = Calendar.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,11 +58,21 @@ public class ProfileActivity extends AppCompatActivity {
                     ContextCompat.getMainExecutor(getApplicationContext()).execute(() -> {
 
                         address.setText(attributes.get(1).getValue());
-                        birthday.setText(attributes.get(2).getValue().toString());
+
+                        if(attributes.get(2).getValue().equals("01/01/1950"))
+                            birthday.setText("");
+                        else
+                            birthday.setText(attributes.get(2).getValue().toString());
+
                         gender.setText(attributes.get(4).getValue().toString());
                         middleName.setText(attributes.get(7).getValue().toString());
                         firstName.setText(attributes.get(9).getValue().toString());
+
+                        if(attributes.get(10).getValue().equals("+96270000000"))
+                            phoneNumber.setText("");
+                        else
                         phoneNumber.setText(attributes.get(10).getValue().toString());
+
                         familyName.setText(attributes.get(11).getValue().toString());
 
                         Log.i("AuthDemo", "User attributes = " + attributes.toString());
@@ -88,5 +105,39 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
 
+
+
+        edittext = (EditText) findViewById(R.id.birthdate_profile);
+        DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
+
+            @Override
+            public void onDateSet(DatePicker view, int year, int monthOfYear,
+                                  int dayOfMonth) {
+                // TODO Auto-generated method stub
+                myCalendar.set(Calendar.YEAR, year);
+                myCalendar.set(Calendar.MONTH, monthOfYear);
+                myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+                updateLabel();
+            }
+
+        };
+
+        edittext.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                // TODO Auto-generated method stub
+                new DatePickerDialog(ProfileActivity.this, date, myCalendar
+                        .get(Calendar.YEAR), myCalendar.get(Calendar.MONTH),
+                        myCalendar.get(Calendar.DAY_OF_MONTH)).show();
+            }
+        });
     }
+    private void updateLabel() {
+        String myFormat = "MM/dd/yy"; //In which you need put here
+        SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
+
+        edittext.setText(sdf.format(myCalendar.getTime()));
+    }
+
 }

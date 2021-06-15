@@ -201,6 +201,7 @@ public class OrderPage extends AppCompatActivity {
     }
 
     public void decreaseInteger(View view) {
+        if(minteger>0)
         minteger = minteger - 1;
         display(minteger);
     }
@@ -212,7 +213,8 @@ public class OrderPage extends AppCompatActivity {
     }
 
     public void decreaseIntegerOne(View view) {
-        mintegerOne = mintegerOne - 1;
+        if(mintegerOne>0)
+            mintegerOne = mintegerOne - 1;
         displayOne(mintegerOne);
     }
 
@@ -223,6 +225,7 @@ public class OrderPage extends AppCompatActivity {
     }
 
     public void decreaseIntegerTwo(View view) {
+        if(mintegerTwo>0)
         mintegerTwo = mintegerTwo - 1;
         displayTwo(mintegerTwo);
     }
@@ -234,6 +237,7 @@ public class OrderPage extends AppCompatActivity {
     }
 
     public void decreaseIntegerThree(View view) {
+        if(mintegerThree>0)
         mintegerThree = mintegerThree - 1;
         displayThree(mintegerThree);
     }
@@ -245,6 +249,7 @@ public class OrderPage extends AppCompatActivity {
     }
 
     public void decreaseIntegerFour(View view) {
+        if(mintegerFour>0)
         mintegerFour = mintegerFour - 1;
         displayFour(mintegerFour);
     }
