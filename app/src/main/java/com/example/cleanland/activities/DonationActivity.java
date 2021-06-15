@@ -145,6 +145,7 @@ public class DonationActivity extends AppCompatActivity {
         display(minteger);
 
     }public void decreaseInteger(View view) {
+        if(minteger>0)
         minteger = minteger - 1;
         display(minteger);
     }
@@ -153,6 +154,7 @@ public class DonationActivity extends AppCompatActivity {
         displayOne(mintegerOne);
 
     }public void decreaseIntegerOne(View view) {
+        if(mintegerOne>0)
         mintegerOne = mintegerOne - 1;
         displayOne(mintegerOne);
     }public void increaseIntegerThree(View view) {
@@ -160,6 +162,7 @@ public class DonationActivity extends AppCompatActivity {
         displayThree(mintegerThree);
 
     }public void decreaseIntegerThree(View view) {
+        if(mintegerThree>0)
         mintegerThree = mintegerThree - 1;
         displayThree(mintegerThree);
     }public void increaseIntegerFour(View view) {
@@ -167,7 +170,7 @@ public class DonationActivity extends AppCompatActivity {
         displayFour(mintegerFour);
 
     }public void decreaseIntegerFour(View view) {
-
+        if(mintegerFour>0)
         mintegerFour = mintegerFour - 1;
         displayFour(mintegerFour);
     }
