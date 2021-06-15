@@ -73,10 +73,8 @@ subscription OnCreateDonate {
     latitude
     shirtsQuantity
     jacketsQuantity
-    underWaresQuantity
     pantiesQuantity
     suitesQuantity
-    othersQuantity
     userId
     condition
     _version
@@ -94,10 +92,8 @@ subscription OnUpdateDonate {
     latitude
     shirtsQuantity
     jacketsQuantity
-    underWaresQuantity
     pantiesQuantity
     suitesQuantity
-    othersQuantity
     userId
     condition
     _version
@@ -115,10 +111,8 @@ subscription OnDeleteDonate {
     latitude
     shirtsQuantity
     jacketsQuantity
-    underWaresQuantity
     pantiesQuantity
     suitesQuantity
-    othersQuantity
     userId
     condition
     _version

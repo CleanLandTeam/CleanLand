@@ -106,10 +106,8 @@ query SyncDonates(
       latitude
       shirtsQuantity
       jacketsQuantity
-      underWaresQuantity
       pantiesQuantity
       suitesQuantity
-      othersQuantity
       userId
       condition
       _version
@@ -130,10 +128,8 @@ query GetDonate($id: ID!) {
     latitude
     shirtsQuantity
     jacketsQuantity
-    underWaresQuantity
     pantiesQuantity
     suitesQuantity
-    othersQuantity
     userId
     condition
     _version
@@ -156,10 +152,8 @@ query ListDonates(
       latitude
       shirtsQuantity
       jacketsQuantity
-      underWaresQuantity
       pantiesQuantity
       suitesQuantity
-      othersQuantity
       userId
       condition
       _version
