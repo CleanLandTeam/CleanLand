@@ -16,6 +16,7 @@
         import android.widget.DatePicker;
         import android.widget.EditText;
         import android.widget.TextView;
+        import android.widget.Toast;
 
         import com.amplifyframework.AmplifyException;
         import com.amplifyframework.core.Amplify;
@@ -36,24 +37,86 @@ public class OrderPage extends AppCompatActivity {
     int mintegerThree = 0;
     int mintegerFour = 0;
     EditText edittext;
+
+    double longitude=0;
+    double latitude=0;
     final Calendar myCalendar = Calendar.getInstance();
     EditText editDeliveryDate;
     TextView locationView;
 
+    public double getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(double longitude) {
+        this.longitude = longitude;
+    }
+
+    public double getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(double latitude) {
+        this.latitude = latitude;
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        Button addOrder = OrderPage.this.findViewById(R.id.add);
+        addOrder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(OrderPage.this,MyOrders.class);
+                TextView shirtsQuantity = (TextView) findViewById(R.id.integer_number);
+                TextView jacketsQuantity = (TextView) findViewById(R.id.integer_number_one);
+                TextView underWareQuantity = (TextView) findViewById(R.id.integer_number_Two);
+                TextView suitsQuantity = (TextView) findViewById(R.id.integer_number_Three);
+                TextView pantiesQuantity = (TextView) findViewById(R.id.integer_number_Four);
+                TextView pickUpDate =  findViewById(R.id.in_date);
+                TextView deliveryDate =  findViewById(R.id.in_delivery_date);
+
+                if ((minteger !=0 || mintegerOne!=0 || mintegerTwo!=0 || mintegerThree!=0 || mintegerFour!=0) &&(longitude!=0 && latitude!=0) && (pickUpDate.getText().length()==8 && pickUpDate.getText().length()==8) ){
+                    try {
+                        Orders item = Orders.builder()
+                                .pickupDate(pickUpDate.getText().toString())
+                                .deliveryDate(deliveryDate.getText().toString())
+                                .longitude(getLongitude()).latitude(getLatitude())
+                                .shirtsQuantity(Integer.valueOf(shirtsQuantity.getText().toString()))
+                                .jacketsQuantity(Integer.valueOf(jacketsQuantity.getText().toString()))
+                                .underWaresQuantity(Integer.valueOf(underWareQuantity.getText().toString()))
+                                .pantiesQuantity(Integer.valueOf(pantiesQuantity.getText().toString()))
+                                .suitesQuantity(Integer.valueOf(suitsQuantity.getText().toString()))
+                                .build();
+                        Amplify.DataStore.save(item,
+                                success -> Log.i("Tutorial", "Saved item: " + success.item().getPickupDate()),
+                                error -> Log.e("Tutorial", "Could not save item to DataStore", error)
+                        );
+                        Log.i("Tutorial", "Initialized Amplify");
+                    } catch (Exception e) {
+                        Log.e("Tutorial", "Could not initialize Amplify", e);
+                    }
+
+                    startActivity(intent);
+
+                }else {
+                    Toast error = Toast.makeText(getApplicationContext(), "some Items is not filled ", Toast.LENGTH_LONG);
+                    error.show();
+                }
+
+
+            }
+        });
+
+
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order_page);
 
-//        try {
-//            Amplify.addPlugin(new AWSDataStorePlugin());
-//            Amplify.configure(getApplicationContext());
-//
-//            Log.i("Tutorial", "Initialized Amplify");
-//        } catch (AmplifyException e) {
-//            Log.e("Tutorial", "Could not initialize Amplify", e);
-//        }
         
         Button addOrder = OrderPage.this.findViewById(R.id.add);
         addOrder.setOnClickListener(new View.OnClickListener() {
@@ -66,17 +129,20 @@ public class OrderPage extends AppCompatActivity {
                 TextView suitsQuantity = (TextView) findViewById(R.id.integer_number_Three);
                 TextView pantiesQuantity = (TextView) findViewById(R.id.integer_number_Four);
                 TextView pickUpDate =  findViewById(R.id.in_date);
+                TextView deliveryDate =  findViewById(R.id.in_delivery_date);
 
+                if ((minteger !=0 || mintegerOne!=0 || mintegerTwo!=0 || mintegerThree!=0 || mintegerFour!=0) &&(longitude!=0 && latitude!=0) && (pickUpDate.getText().length()==10 && pickUpDate.getText().length()==10) ){
                     try {
                         Orders item = Orders.builder()
-                 .pickupDate(pickUpDate.getText().toString())
-                .deliveryDate("deliveryDate").longitude(5.2).latitude(4.1)
+                                .pickupDate(pickUpDate.getText().toString())
+                                .deliveryDate(deliveryDate.getText().toString())
+                                .longitude(getLongitude()).latitude(getLatitude())
                                 .shirtsQuantity(Integer.valueOf(shirtsQuantity.getText().toString()))
                                 .jacketsQuantity(Integer.valueOf(jacketsQuantity.getText().toString()))
                                 .underWaresQuantity(Integer.valueOf(underWareQuantity.getText().toString()))
                                 .pantiesQuantity(Integer.valueOf(pantiesQuantity.getText().toString()))
                                 .suitesQuantity(Integer.valueOf(suitsQuantity.getText().toString()))
-                .build();
+                                .build();
                         Amplify.DataStore.save(item,
                                 success -> Log.i("Tutorial", "Saved item: " + success.item().getPickupDate()),
                                 error -> Log.e("Tutorial", "Could not save item to DataStore", error)
@@ -87,6 +153,11 @@ public class OrderPage extends AppCompatActivity {
                     }
 
                     startActivity(intent);
+
+                }
+
+
+
 
             }
         });
@@ -176,6 +247,8 @@ public class OrderPage extends AppCompatActivity {
         Double longitude=data.getExtras().getDouble("longitude");
         String address=data.getExtras().getString("address");
 
+        setLatitude(latitude);
+        setLongitude(longitude);
 
         locationView.setText(address);
     }

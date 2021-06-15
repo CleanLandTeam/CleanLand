@@ -33,6 +33,25 @@ public class DonationActivity extends AppCompatActivity {
 
     TextView locationViewDonation;
 
+    double longitude=0;
+    double latitude=0;
+
+    public double getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(double longitude) {
+        this.longitude = longitude;
+    }
+
+    public double getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(double latitude) {
+        this.latitude = latitude;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -73,6 +92,8 @@ public class DonationActivity extends AppCompatActivity {
             @Override
             public void onClick(View arg0) {
                 Intent intent = new Intent(DonationActivity.this, MapsActivity.class);
+
+
                 startActivityForResult(intent, 1000);// Activity is started with requestCode 2
             }
         });
@@ -142,7 +163,8 @@ public class DonationActivity extends AppCompatActivity {
         Double longitude = data.getExtras().getDouble("longitude");
         String address = data.getExtras().getString("address");
 
-
+        setLatitude(latitude);
+        setLongitude(longitude);
         locationViewDonation.setText(address);
 
     }
