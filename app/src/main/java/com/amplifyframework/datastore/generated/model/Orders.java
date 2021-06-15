@@ -97,7 +97,7 @@ public final class Orders implements Model {
       return state;
   }
   
-  public Orders(String id, String pickupDate, String deliveryDate, Double longitude, Double latitude, Integer shirtsQuantity, Integer jacketsQuantity, Integer underWaresQuantity, Integer pantiesQuantity, Integer suitesQuantity, Integer othersQuantity, String userId, State state) {
+  private Orders(String id, String pickupDate, String deliveryDate, Double longitude, Double latitude, Integer shirtsQuantity, Integer jacketsQuantity, Integer underWaresQuantity, Integer pantiesQuantity, Integer suitesQuantity, Integer othersQuantity, String userId, State state) {
     this.id = id;
     this.pickupDate = pickupDate;
     this.deliveryDate = deliveryDate;

@@ -1,3 +1,4 @@
+
 package com.example.cleanland.activities;
 
 import android.app.DatePickerDialog;
@@ -32,25 +33,6 @@ public class DonationActivity extends AppCompatActivity {
     final Calendar myCalendar = Calendar.getInstance();
 
     TextView locationViewDonation;
-
-    double longitude=0;
-    double latitude=0;
-
-    public double getLongitude() {
-        return longitude;
-    }
-
-    public void setLongitude(double longitude) {
-        this.longitude = longitude;
-    }
-
-    public double getLatitude() {
-        return latitude;
-    }
-
-    public void setLatitude(double latitude) {
-        this.latitude = latitude;
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,8 +74,6 @@ public class DonationActivity extends AppCompatActivity {
             @Override
             public void onClick(View arg0) {
                 Intent intent = new Intent(DonationActivity.this, MapsActivity.class);
-
-
                 startActivityForResult(intent, 1000);// Activity is started with requestCode 2
             }
         });
@@ -163,8 +143,7 @@ public class DonationActivity extends AppCompatActivity {
         Double longitude = data.getExtras().getDouble("longitude");
         String address = data.getExtras().getString("address");
 
-        setLatitude(latitude);
-        setLongitude(longitude);
+
         locationViewDonation.setText(address);
 
     }
@@ -182,61 +161,41 @@ public class DonationActivity extends AppCompatActivity {
         minteger = minteger + 1;
         display(minteger);
 
+
+    }public void decreaseInteger(View view) {
+        if(minteger>0)
+        minteger = minteger - 1;
+        display(minteger);
+
     }
 
-    public void decreaseInteger(View view) {
-        if (minteger > 0) {
-            minteger = minteger - 1;
-            display(minteger);
-        } else {
-            display(0);
-        }
-    }
 
     public void increaseIntegerOne(View view) {
         mintegerOne = mintegerOne + 1;
         displayOne(mintegerOne);
 
-    }
 
-    public void decreaseIntegerOne(View view) {
-        if (mintegerOne > 0) {
-            mintegerOne = mintegerOne - 1;
-            displayOne(mintegerOne);
-        } else {
-            displayOne(0);
-        }
-    }
-
-    public void increaseIntegerThree(View view) {
+    }public void decreaseIntegerOne(View view) {
+        if(mintegerOne>0)
+        mintegerOne = mintegerOne - 1;
+        displayOne(mintegerOne);
+    }public void increaseIntegerThree(View view) {
         mintegerThree = mintegerThree + 1;
         displayThree(mintegerThree);
 
-    }
-
-    public void decreaseIntegerThree(View view) {
-        if (mintegerThree > 0) {
-            mintegerThree = mintegerThree - 1;
-            displayThree(mintegerThree);
-        } else {
-            displayThree(0);
-        }
-    }
-
-    public void increaseIntegerFour(View view) {
+    }public void decreaseIntegerThree(View view) {
+        if(mintegerThree>0)
+        mintegerThree = mintegerThree - 1;
+        displayThree(mintegerThree);
+    }public void increaseIntegerFour(View view) {
         mintegerFour = mintegerFour + 1;
         displayFour(mintegerFour);
 
-    }
+    }public void decreaseIntegerFour(View view) {
+        if(mintegerFour>0)
+        mintegerFour = mintegerFour - 1;
+        displayFour(mintegerFour);
 
-    public void decreaseIntegerFour(View view) {
-
-        if (mintegerFour > 0) {
-            mintegerFour = mintegerFour - 1;
-            displayFour(mintegerFour);
-        } else {
-            displayFour(0);
-        }
     }
 
     private void display(int number) {

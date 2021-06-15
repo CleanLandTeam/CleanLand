@@ -5,12 +5,14 @@ import androidx.core.content.ContextCompat;
 
 import android.Manifest;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.drawable.ColorDrawable;
 import android.location.Location;
 import android.os.Bundle;
 
 import android.os.Handler;
+import android.preference.PreferenceManager;
 import android.util.Log;
 
 import android.view.Menu;
@@ -79,9 +81,22 @@ public class MainActivity extends AppCompatActivity {
 
                         Amplify.Auth.fetchUserAttributes(
                                 attributes ->{
+
+                                    SharedPreferences spref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+                                    SharedPreferences.Editor editor = spref.edit();
+                                    editor.putString("userLoggedInEmail", attributes.get(12).getValue() );
+                                    editor.apply();
+
+
                                     if (attributes.get(9).getValue()!= "null")
                                         ContextCompat.getMainExecutor(getApplicationContext()).execute(() -> {
                                             welcoming_user.setText(welcoming_user.getText()+ " " + attributes.get(9).getValue() );
+
+
+
+                                            //Log.d("user email", "onCreate: "+ attributes.get(12).getValue());
+
+
                                         });
                                     },
                                 error -> Log.e("AuthDemo", "Failed to fetch user attributes.", error)

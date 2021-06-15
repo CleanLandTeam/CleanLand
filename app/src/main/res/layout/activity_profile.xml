@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activities.ProfileActivity"
-    android:background="@drawable/backgroud"
     >
 
 
@@ -115,6 +114,7 @@
                 android:hint="Address"
                 android:inputType="text"
                 android:maxLines="1" />
+
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -125,15 +125,19 @@
             <EditText
                 android:id="@+id/birthdate_profile"
                 style="@style/modifiedEditText"
+                android:layout_width="match_parent"
+                android:layout_height="42dp"
                 android:hint="Birthdate"
                 android:inputType="date"
                 android:maxLines="1" />
+
         </com.google.android.material.textfield.TextInputLayout>
 
 
         <Button
             android:id="@+id/edit_profile"
             style="@style/loginButton"
+            android:layout_width="340dp"
             android:layout_gravity="right"
             android:layout_marginTop="@dimen/loginViewsMargin"
             android:text="Edit" />

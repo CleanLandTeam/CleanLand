@@ -7,8 +7,10 @@
 
         import android.app.DatePickerDialog;
         import android.content.Intent;
+        import android.content.SharedPreferences;
         import android.graphics.drawable.ColorDrawable;
         import android.os.Bundle;
+        import android.preference.PreferenceManager;
         import android.text.Editable;
         import android.util.Log;
         import android.view.View;
@@ -60,57 +62,8 @@ public class OrderPage extends AppCompatActivity {
         this.latitude = latitude;
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-
-        Button addOrder = OrderPage.this.findViewById(R.id.add);
-        addOrder.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(OrderPage.this,MyOrders.class);
-                TextView shirtsQuantity = (TextView) findViewById(R.id.integer_number);
-                TextView jacketsQuantity = (TextView) findViewById(R.id.integer_number_one);
-                TextView underWareQuantity = (TextView) findViewById(R.id.integer_number_Two);
-                TextView suitsQuantity = (TextView) findViewById(R.id.integer_number_Three);
-                TextView pantiesQuantity = (TextView) findViewById(R.id.integer_number_Four);
-                TextView pickUpDate =  findViewById(R.id.in_date);
-                TextView deliveryDate =  findViewById(R.id.in_delivery_date);
-
-                if ((minteger !=0 || mintegerOne!=0 || mintegerTwo!=0 || mintegerThree!=0 || mintegerFour!=0) &&(longitude!=0 && latitude!=0) && (pickUpDate.getText().length()==8 && pickUpDate.getText().length()==8) ){
-                    try {
-                        Orders item = Orders.builder()
-                                .pickupDate(pickUpDate.getText().toString())
-                                .deliveryDate(deliveryDate.getText().toString())
-                                .longitude(getLongitude()).latitude(getLatitude())
-                                .shirtsQuantity(Integer.valueOf(shirtsQuantity.getText().toString()))
-                                .jacketsQuantity(Integer.valueOf(jacketsQuantity.getText().toString()))
-                                .underWaresQuantity(Integer.valueOf(underWareQuantity.getText().toString()))
-                                .pantiesQuantity(Integer.valueOf(pantiesQuantity.getText().toString()))
-                                .suitesQuantity(Integer.valueOf(suitsQuantity.getText().toString()))
-                                .build();
-                        Amplify.DataStore.save(item,
-                                success -> Log.i("Tutorial", "Saved item: " + success.item().getPickupDate()),
-                                error -> Log.e("Tutorial", "Could not save item to DataStore", error)
-                        );
-                        Log.i("Tutorial", "Initialized Amplify");
-                    } catch (Exception e) {
-                        Log.e("Tutorial", "Could not initialize Amplify", e);
-                    }
-
-                    startActivity(intent);
-
-                }else {
-                    Toast error = Toast.makeText(getApplicationContext(), "some Items is not filled ", Toast.LENGTH_LONG);
-                    error.show();
-                }
 
 
-            }
-        });
-
-
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -131,7 +84,15 @@ public class OrderPage extends AppCompatActivity {
                 TextView pickUpDate =  findViewById(R.id.in_date);
                 TextView deliveryDate =  findViewById(R.id.in_delivery_date);
 
-                if ((minteger !=0 || mintegerOne!=0 || mintegerTwo!=0 || mintegerThree!=0 || mintegerFour!=0) &&(longitude!=0 && latitude!=0) && (pickUpDate.getText().length()==10 && pickUpDate.getText().length()==10) ){
+                SharedPreferences spref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+//
+//                            welcome_msg.setText("{"+ spref.getString("Username","username")+"}'s Tasks");
+
+                String UserEmail=spref.getString("userLoggedInEmail","");
+
+                Log.d("email is", "onClick:+ " +UserEmail);
+
+                if ((minteger !=0 || mintegerOne!=0 || mintegerTwo!=0 || mintegerThree!=0 || mintegerFour!=0) &&(longitude!=0 && latitude!=0) && (pickUpDate.getText().length()==8 && pickUpDate.getText().length()==8) ){
                     try {
                         Orders item = Orders.builder()
                                 .pickupDate(pickUpDate.getText().toString())
@@ -142,6 +103,9 @@ public class OrderPage extends AppCompatActivity {
                                 .underWaresQuantity(Integer.valueOf(underWareQuantity.getText().toString()))
                                 .pantiesQuantity(Integer.valueOf(pantiesQuantity.getText().toString()))
                                 .suitesQuantity(Integer.valueOf(suitsQuantity.getText().toString()))
+                                .othersQuantity(0)
+                                .state(State.New)
+                                .userId(UserEmail)
                                 .build();
                         Amplify.DataStore.save(item,
                                 success -> Log.i("Tutorial", "Saved item: " + success.item().getPickupDate()),
@@ -155,10 +119,6 @@ public class OrderPage extends AppCompatActivity {
                     startActivity(intent);
 
                 }
-
-
-
-
             }
         });
 
@@ -267,36 +227,37 @@ public class OrderPage extends AppCompatActivity {
     }
 
 
+
     public void increaseInteger(View view) {
         minteger = minteger + 1;
         display(minteger);
 
+
+    }public void decreaseInteger(View view) {
+        if(minteger>0)
+            minteger = minteger - 1;
+        display(minteger);
+
     }
 
-    public void decreaseInteger(View view) {
-        minteger = minteger - 1;
-        display(minteger);
-    }
 
     public void increaseIntegerOne(View view) {
         mintegerOne = mintegerOne + 1;
         displayOne(mintegerOne);
 
-    }
 
-    public void decreaseIntegerOne(View view) {
-        mintegerOne = mintegerOne - 1;
+    }public void decreaseIntegerOne(View view) {
+        if(mintegerOne>0)
+            mintegerOne = mintegerOne - 1;
         displayOne(mintegerOne);
     }
-
     public void increaseIntegerTwo(View view) {
         mintegerTwo = mintegerTwo + 1;
         displayTwo(mintegerTwo);
 
-    }
-
-    public void decreaseIntegerTwo(View view) {
-        mintegerTwo = mintegerTwo - 1;
+    }public void decreaseIntegerTwo(View view) {
+        if(mintegerTwo>0)
+            mintegerTwo = mintegerTwo - 1;
         displayTwo(mintegerTwo);
     }
 
@@ -304,23 +265,22 @@ public class OrderPage extends AppCompatActivity {
         mintegerThree = mintegerThree + 1;
         displayThree(mintegerThree);
 
-    }
-
-    public void decreaseIntegerThree(View view) {
-        mintegerThree = mintegerThree - 1;
+    }public void decreaseIntegerThree(View view) {
+        if(mintegerThree>0)
+            mintegerThree = mintegerThree - 1;
         displayThree(mintegerThree);
-    }
-
-    public void increaseIntegerFour(View view) {
+    }public void increaseIntegerFour(View view) {
         mintegerFour = mintegerFour + 1;
         displayFour(mintegerFour);
 
+    }public void decreaseIntegerFour(View view) {
+        if(mintegerFour>0)
+            mintegerFour = mintegerFour - 1;
+        displayFour(mintegerFour);
+
     }
 
-    public void decreaseIntegerFour(View view) {
-        mintegerFour = mintegerFour - 1;
-        displayFour(mintegerFour);
-    }
+
 
     private void display(int number) {
         TextView displayInteger = (TextView) findViewById(
