@@ -13,6 +13,8 @@ import android.widget.Toast;
 import com.amplifyframework.core.Amplify;
 import com.example.cleanland.R;
 
+import java.util.Arrays;
+
 public class LoginActivity extends AppCompatActivity {
 
 
@@ -34,8 +36,8 @@ public class LoginActivity extends AppCompatActivity {
         });
 
 
-        Toast failed = Toast.makeText(getApplicationContext(), "Something want wrong try again!", Toast.LENGTH_LONG);
-        Toast succeeded = Toast.makeText(getApplicationContext(), "Sign in succeeded!", Toast.LENGTH_LONG);
+        Toast failed = Toast.makeText(getApplicationContext(), "Wrong Username or Password", Toast.LENGTH_LONG);
+        Toast succeeded = Toast.makeText(getApplicationContext(), "Sign in succeeded", Toast.LENGTH_LONG);
 
         findViewById(R.id.signin).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,7 +55,26 @@ public class LoginActivity extends AppCompatActivity {
                         userName,
                         passWord,
                         result -> {succeeded.show();       finish();},
-                        error -> failed.show()
+                        error -> {
+
+                            if(error.getCause().getLocalizedMessage().contains("UserNotConfirmedException") ){
+
+                                Intent intent = new Intent(getApplicationContext(), confirmSignUpActivity.class);
+                                intent.putExtra("confirmEmail",  user.getText().toString());
+                                startActivity(intent);
+                            }
+                            else {
+                                failed.show();
+
+                            }
+
+                          //  Log.d("check error type: ", " "+error.get);
+                          //  Log.d(" error  cause: ", " "+ error.getCause().getLocalizedMessage().contains("UserNotConfirmedException"));
+//
+//                            Log.d("check error type: ", " "+error);
+//
+//                            Log.d(" error  fillInStack", " "+error.fillInStackTrace());
+                        }
                 );
 
             }

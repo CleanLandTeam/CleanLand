@@ -2,10 +2,12 @@ package com.example.cleanland.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.graphics.Rect;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
@@ -19,6 +21,7 @@ import com.amplifyframework.datastore.generated.model.Orders;
 import com.amplifyframework.datastore.generated.model.State;
 import com.example.cleanland.R;
 import com.example.cleanland.adapters.ViewAdapter;
+import com.example.cleanland.utils.SpacingRecyclerView;
 //import com.example.cleanland.adapters.ViewAdapter;
 
 import java.util.ArrayList;
@@ -27,31 +30,38 @@ import java.util.List;
 
 public class MyOrders extends AppCompatActivity implements ViewAdapter.OnInteractingWithTaskListener {
     public  List<com.amplifyframework.datastore.generated.model.Orders> ordersTables = new ArrayList<>();
-
+    RecyclerView recyclerView;
+    ViewAdapter orderAdpater;
     @Override
     public void onResume(){
         super.onResume();
-        this.handleRViewShow();
+
+        this.orderAdpater.notifyDataSetChanged();
+
     }
     private void handleRViewShow(){
         List<Orders> ordersToView = new ArrayList<>();
         try {
             Amplify.DataStore.query(Orders.class,
-                    tasks -> {
-                        while (tasks.hasNext()) {
-                            Orders orders = tasks.next();
+                    AllOrders -> {
+                        while (AllOrders.hasNext()) {
+                            Orders orders = AllOrders.next();
 
-                            ordersToView.add(new Orders("2",orders.getPickupDate().toString(),"description",2.2,1.1,orders.getShirtsQuantity(),orders.getJacketsQuantity(),orders.getUnderWaresQuantity(),orders.getPantiesQuantity(),orders.getSuitesQuantity(),0,"null",null));
-                            System.out.println(orders);
+                            ordersToView.add(orders);
+
                         }
                     },
                     failure -> Log.e("Tutorial", "Could not query DataStore", failure)
             );
             try{
                 Thread.sleep(1500);
-                RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerview);
-                ViewAdapter orderAdpater = new ViewAdapter(ordersToView,this);
-                recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+
+                recyclerView = (RecyclerView) findViewById(R.id.recyclerview);
+                 orderAdpater = new ViewAdapter(ordersToView,this);
+                LinearLayoutManager layoutManager= new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
+                recyclerView.setLayoutManager(layoutManager);
+                SpacingRecyclerView spacingRecyclerView=new SpacingRecyclerView(10);
+                recyclerView.addItemDecoration(spacingRecyclerView);
                 recyclerView.setAdapter(orderAdpater);
             }catch(InterruptedException e){
                 e.printStackTrace();
@@ -66,8 +76,9 @@ public class MyOrders extends AppCompatActivity implements ViewAdapter.OnInterac
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_orders);
-        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.actionBarColor)));
+       // getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.actionBarColor)));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        this.handleRViewShow();
 
     }
 
