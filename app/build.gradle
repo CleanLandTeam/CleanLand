@@ -68,5 +68,7 @@ dependencies {
 
     implementation 'com.amplifyframework:aws-api:1.17.4'
     implementation 'com.amplifyframework:aws-datastore:1.17.4'
+    implementation 'com.google.android.material:material:<version>'
+
 
 }
