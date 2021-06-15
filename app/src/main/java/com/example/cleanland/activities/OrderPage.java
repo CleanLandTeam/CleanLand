@@ -69,7 +69,7 @@ public class OrderPage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order_page);
-
+        setTitle("Place an Order");
 
         Button addOrder = OrderPage.this.findViewById(R.id.add);
         addOrder.setOnClickListener(new View.OnClickListener() {

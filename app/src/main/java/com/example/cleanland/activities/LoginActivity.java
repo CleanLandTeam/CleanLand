@@ -58,7 +58,10 @@ public class LoginActivity extends AppCompatActivity {
                         passWord,
                         result -> {succeeded.show();
 
-
+                            SharedPreferences spref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+                            SharedPreferences.Editor editor = spref.edit();
+                            editor.putString("userLoggedInEmail", userName);
+                            editor.apply();
 
 
                         finish();
