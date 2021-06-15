@@ -5,10 +5,10 @@
         android:title="My Profile"
         app:showAsAction="never"/>
     <item android:id="@+id/action_user_donations"
-        android:title="Your Donations"
+        android:title="My Donations"
         app:showAsAction="never"/>
     <item android:id="@+id/action_user_orders"
-        android:title="Your Orders"
+        android:title="My Orders"
         app:showAsAction="never"/>
     <item android:id="@+id/action_user_logout"
         android:title="Logout"

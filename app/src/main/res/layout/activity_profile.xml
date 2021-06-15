@@ -27,12 +27,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
+
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             style="@style/loginHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/loginViewsMargin"
             android:text="Edit your information"
-            android:layout_marginTop="@dimen/loginViewsMargin"/>
+            android:textColor="@color/actionBarColor" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInput_name_profile"
@@ -137,7 +139,7 @@
         <Button
             android:id="@+id/edit_profile"
             style="@style/loginButton"
-            android:layout_width="340dp"
+            android:layout_width="match_parent"
             android:layout_gravity="right"
             android:layout_marginTop="@dimen/loginViewsMargin"
             android:text="Edit" />

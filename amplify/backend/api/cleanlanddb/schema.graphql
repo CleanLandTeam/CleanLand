@@ -41,10 +41,8 @@ type Donate @model {
   latitude : Float!
     shirtsQuantity  : Int
     jacketsQuantity : Int
-    underWaresQuantity: Int
     pantiesQuantity : Int
     suitesQuantity :  Int
-    othersQuantity  :Int
     userId: String
 
     condition:Condition

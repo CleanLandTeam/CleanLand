@@ -1,20 +1,25 @@
+
 package com.example.cleanland.activities;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.amplifyframework.core.Amplify;
+import com.amplifyframework.datastore.generated.model.Condition;
 import com.amplifyframework.datastore.generated.model.Donate;
 import com.amplifyframework.datastore.generated.model.Orders;
 import com.example.cleanland.R;
@@ -33,10 +38,14 @@ public class DonationActivity extends AppCompatActivity {
 
     TextView locationViewDonation;
 
+    double longitude=0;
+    double latitude=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_donation);
+
+            setTitle("Place a Donation");
 
 
         edittext = (EditText) findViewById(R.id.donation_date);
@@ -89,44 +98,65 @@ public class DonationActivity extends AppCompatActivity {
                 TextView pantiesQuantity = (TextView) findViewById(R.id.donation_integer_number_Four);
                 TextView pickUpDate = findViewById(R.id.donation_date);
                 TextView location = findViewById(R.id.locationViewDonation);
+                Spinner spinner = findViewById(R.id.spinner);
+
+                Log.d("TAG", "onClick: "+spinner.getSelectedItem().toString());
+//                Condition conditionType =  condition(spinner.getSelectedItem().toString());
                 boolean shirtsNum = shirtsQuantity.getText().toString().equals("0");
                 boolean jacketsNum = jacketsQuantity.getText().toString().equals("0");
                 boolean suitsNum = suitsQuantity.getText().toString().equals("0");
                 boolean pantiesNum = pantiesQuantity.getText().toString().equals("0");
                 boolean date = pickUpDate.getText().toString().equals("");
                 boolean cityName = location.getText().toString().equals("");
-                try {
-                    if (shirtsNum && jacketsNum && suitsNum && pantiesNum) {
-                        Toast error = Toast.makeText(getApplicationContext(), "please fill the quantity for one section al least ", Toast.LENGTH_LONG);
-                        error.show();
-                    } else if (date ) {
-                        Toast errorOne = Toast.makeText(getApplicationContext(), "please select pickup date ", Toast.LENGTH_LONG);
-                        errorOne.show();
-                    }else if (cityName){
-                        Toast errorTwo = Toast.makeText(getApplicationContext(), "please select pickup Location ", Toast.LENGTH_LONG);
-                        errorTwo.show();
+                boolean checkOne= true;
+                boolean checkTwo = true;
+                boolean checkThree = true;
 
-                    }
 
-                    Donate item = Donate.builder()
-                            .pickupDate(pickUpDate.getText().toString())
-                            .longitude(5.2).latitude(4.1)
-                            .shirtsQuantity(Integer.valueOf(shirtsQuantity.getText().toString()))
-                            .jacketsQuantity(Integer.valueOf(jacketsQuantity.getText().toString()))
-                            .pantiesQuantity(Integer.valueOf(pantiesQuantity.getText().toString()))
-                            .suitesQuantity(Integer.valueOf(suitsQuantity.getText().toString()))
-                            .build();
-                    Amplify.DataStore.save(item,
-                            success -> Log.i("Tutorial", "Saved item: " + success.item().getPickupDate()),
-                            error -> Log.e("Tutorial", "Could not save item to DataStore", error)
-                    );
-                    Log.i("Tutorial", "Initialized Amplify");
 
-                } catch (Exception e) {
-                    Log.e("Tutorial", "Could not initialize Amplify", e);
+
+                if (shirtsNum && jacketsNum && suitsNum && pantiesNum) {
+                    Toast error = Toast.makeText(getApplicationContext(), "please fill the quantity for one section at least ", Toast.LENGTH_LONG);
+                    error.show();
+                    checkOne = false;
+                } else if (date ) {
+                    Toast errorOne = Toast.makeText(getApplicationContext(), "please select pickup date ", Toast.LENGTH_LONG);
+                    errorOne.show();
+                    checkTwo = false;
+                }else if (cityName){
+                    Toast errorTwo = Toast.makeText(getApplicationContext(), "please select pickup Location ", Toast.LENGTH_LONG);
+                    errorTwo.show();
+                    checkThree = false;
                 }
 
-                startActivity(intent);
+                SharedPreferences spref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+                String UserEmail=spref.getString("userLoggedInEmail","");
+
+                Log.d("email is", "onClick:+ " +UserEmail);
+
+                    if (checkOne&&checkTwo&&checkThree) {
+
+                        Donate item = Donate.builder()
+                                .pickupDate(pickUpDate.getText().toString())
+                                .longitude(getLongitude()).latitude(getLatitude())
+                                .shirtsQuantity(Integer.valueOf(shirtsQuantity.getText().toString()))
+                                .jacketsQuantity(Integer.valueOf(jacketsQuantity.getText().toString()))
+                                .pantiesQuantity(Integer.valueOf(pantiesQuantity.getText().toString()))
+                                .suitesQuantity(Integer.valueOf(suitsQuantity.getText().toString()))
+                                .condition(condition(spinner.getSelectedItem().toString()))
+                                .userId(UserEmail)
+                                .build();
+                        Amplify.DataStore.save(item,
+                                success -> Log.i("Tutorial", "Saved item: " + success.item().getPickupDate()),
+                                error -> Log.e("Tutorial", "Could not save item to DataStore", error)
+                        );
+                        Log.i("Tutorial", "Initialized Amplify");
+
+
+                        startActivity(intent);
+                    }
+
+
 
             }
         });
@@ -147,7 +177,21 @@ public class DonationActivity extends AppCompatActivity {
 
     }
 
+public Condition condition (String str){
+        if(str.equals("A"))
+            return Condition.A;
 
+        if(str.equals("B"))
+            return  Condition.B;
+
+        if(str.equals("C"))
+            return Condition.C;
+        if(str.equals("D"))
+            return Condition.D;
+
+        return null;
+
+}
     private void updateLabel() {
         String myFormat = "dd/MM/yyyy"; //In which you need put here
         SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
@@ -161,13 +205,7 @@ public class DonationActivity extends AppCompatActivity {
         display(minteger);
 
 
-    }public void decreaseInteger(View view) {
-        if(minteger>0)
-        minteger = minteger - 1;
-        display(minteger);
-
     }
-
     public void decreaseInteger(View view) {
         if (minteger > 0) {
             minteger = minteger - 1;
@@ -228,4 +266,21 @@ public class DonationActivity extends AppCompatActivity {
                 R.id.donation_integer_number_Four);
         displayInteger.setText("" + number);
     }
+
+    public double getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(double longitude) {
+        this.longitude = longitude;
+    }
+
+    public double getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(double latitude) {
+        this.latitude = latitude;
+    }
 }
+

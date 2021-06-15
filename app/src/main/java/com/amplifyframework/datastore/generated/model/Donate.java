@@ -1,5 +1,6 @@
 package com.amplifyframework.datastore.generated.model;
 
+import com.amplifyframework.core.model.temporal.Temporal;
 
 import java.util.List;
 import java.util.UUID;
@@ -25,10 +26,8 @@ public final class Donate implements Model {
   public static final QueryField LATITUDE = field("Donate", "latitude");
   public static final QueryField SHIRTS_QUANTITY = field("Donate", "shirtsQuantity");
   public static final QueryField JACKETS_QUANTITY = field("Donate", "jacketsQuantity");
-  public static final QueryField UNDER_WARES_QUANTITY = field("Donate", "underWaresQuantity");
   public static final QueryField PANTIES_QUANTITY = field("Donate", "pantiesQuantity");
   public static final QueryField SUITES_QUANTITY = field("Donate", "suitesQuantity");
-  public static final QueryField OTHERS_QUANTITY = field("Donate", "othersQuantity");
   public static final QueryField USER_ID = field("Donate", "userId");
   public static final QueryField CONDITION = field("Donate", "condition");
   private final @ModelField(targetType="ID", isRequired = true) String id;
@@ -37,12 +36,12 @@ public final class Donate implements Model {
   private final @ModelField(targetType="Float", isRequired = true) Double latitude;
   private final @ModelField(targetType="Int") Integer shirtsQuantity;
   private final @ModelField(targetType="Int") Integer jacketsQuantity;
-  private final @ModelField(targetType="Int") Integer underWaresQuantity;
   private final @ModelField(targetType="Int") Integer pantiesQuantity;
   private final @ModelField(targetType="Int") Integer suitesQuantity;
-  private final @ModelField(targetType="Int") Integer othersQuantity;
   private final @ModelField(targetType="String") String userId;
   private final @ModelField(targetType="Condition") Condition condition;
+  private @ModelField(targetType="AWSDateTime", isReadOnly = true) Temporal.DateTime createdAt;
+  private @ModelField(targetType="AWSDateTime", isReadOnly = true) Temporal.DateTime updatedAt;
   public String getId() {
       return id;
   }
@@ -67,20 +66,12 @@ public final class Donate implements Model {
       return jacketsQuantity;
   }
   
-  public Integer getUnderWaresQuantity() {
-      return underWaresQuantity;
-  }
-  
   public Integer getPantiesQuantity() {
       return pantiesQuantity;
   }
   
   public Integer getSuitesQuantity() {
       return suitesQuantity;
-  }
-  
-  public Integer getOthersQuantity() {
-      return othersQuantity;
   }
   
   public String getUserId() {
@@ -91,17 +82,24 @@ public final class Donate implements Model {
       return condition;
   }
   
-  public Donate(String id, String pickupDate, Double longitude, Double latitude, Integer shirtsQuantity, Integer jacketsQuantity, Integer underWaresQuantity, Integer pantiesQuantity, Integer suitesQuantity, Integer othersQuantity, String userId, Condition condition) {
+
+  public Temporal.DateTime getCreatedAt() {
+      return createdAt;
+  }
+
+  public Temporal.DateTime getUpdatedAt() {
+      return updatedAt;
+  }
+
+  private Donate(String id, String pickupDate, Double longitude, Double latitude, Integer shirtsQuantity, Integer jacketsQuantity, Integer pantiesQuantity, Integer suitesQuantity, String userId, Condition condition) {
     this.id = id;
     this.pickupDate = pickupDate;
     this.longitude = longitude;
     this.latitude = latitude;
     this.shirtsQuantity = shirtsQuantity;
     this.jacketsQuantity = jacketsQuantity;
-    this.underWaresQuantity = underWaresQuantity;
     this.pantiesQuantity = pantiesQuantity;
     this.suitesQuantity = suitesQuantity;
-    this.othersQuantity = othersQuantity;
     this.userId = userId;
     this.condition = condition;
   }
@@ -120,12 +118,12 @@ public final class Donate implements Model {
               ObjectsCompat.equals(getLatitude(), donate.getLatitude()) &&
               ObjectsCompat.equals(getShirtsQuantity(), donate.getShirtsQuantity()) &&
               ObjectsCompat.equals(getJacketsQuantity(), donate.getJacketsQuantity()) &&
-              ObjectsCompat.equals(getUnderWaresQuantity(), donate.getUnderWaresQuantity()) &&
               ObjectsCompat.equals(getPantiesQuantity(), donate.getPantiesQuantity()) &&
               ObjectsCompat.equals(getSuitesQuantity(), donate.getSuitesQuantity()) &&
-              ObjectsCompat.equals(getOthersQuantity(), donate.getOthersQuantity()) &&
               ObjectsCompat.equals(getUserId(), donate.getUserId()) &&
-              ObjectsCompat.equals(getCondition(), donate.getCondition());
+              ObjectsCompat.equals(getCondition(), donate.getCondition()) &&
+              ObjectsCompat.equals(getCreatedAt(), donate.getCreatedAt()) &&
+              ObjectsCompat.equals(getUpdatedAt(), donate.getUpdatedAt());
       }
   }
   
@@ -138,12 +136,12 @@ public final class Donate implements Model {
       .append(getLatitude())
       .append(getShirtsQuantity())
       .append(getJacketsQuantity())
-      .append(getUnderWaresQuantity())
       .append(getPantiesQuantity())
       .append(getSuitesQuantity())
-      .append(getOthersQuantity())
       .append(getUserId())
       .append(getCondition())
+      .append(getCreatedAt())
+      .append(getUpdatedAt())
       .toString()
       .hashCode();
   }
@@ -158,12 +156,12 @@ public final class Donate implements Model {
       .append("latitude=" + String.valueOf(getLatitude()) + ", ")
       .append("shirtsQuantity=" + String.valueOf(getShirtsQuantity()) + ", ")
       .append("jacketsQuantity=" + String.valueOf(getJacketsQuantity()) + ", ")
-      .append("underWaresQuantity=" + String.valueOf(getUnderWaresQuantity()) + ", ")
       .append("pantiesQuantity=" + String.valueOf(getPantiesQuantity()) + ", ")
       .append("suitesQuantity=" + String.valueOf(getSuitesQuantity()) + ", ")
-      .append("othersQuantity=" + String.valueOf(getOthersQuantity()) + ", ")
       .append("userId=" + String.valueOf(getUserId()) + ", ")
-      .append("condition=" + String.valueOf(getCondition()))
+      .append("condition=" + String.valueOf(getCondition()) + ", ")
+      .append("createdAt=" + String.valueOf(getCreatedAt()) + ", ")
+      .append("updatedAt=" + String.valueOf(getUpdatedAt()))
       .append("}")
       .toString();
   }
@@ -201,8 +199,6 @@ public final class Donate implements Model {
       null,
       null,
       null,
-      null,
-      null,
       null
     );
   }
@@ -214,10 +210,8 @@ public final class Donate implements Model {
       latitude,
       shirtsQuantity,
       jacketsQuantity,
-      underWaresQuantity,
       pantiesQuantity,
       suitesQuantity,
-      othersQuantity,
       userId,
       condition);
   }
@@ -241,10 +235,8 @@ public final class Donate implements Model {
     BuildStep id(String id) throws IllegalArgumentException;
     BuildStep shirtsQuantity(Integer shirtsQuantity);
     BuildStep jacketsQuantity(Integer jacketsQuantity);
-    BuildStep underWaresQuantity(Integer underWaresQuantity);
     BuildStep pantiesQuantity(Integer pantiesQuantity);
     BuildStep suitesQuantity(Integer suitesQuantity);
-    BuildStep othersQuantity(Integer othersQuantity);
     BuildStep userId(String userId);
     BuildStep condition(Condition condition);
   }
@@ -257,10 +249,8 @@ public final class Donate implements Model {
     private Double latitude;
     private Integer shirtsQuantity;
     private Integer jacketsQuantity;
-    private Integer underWaresQuantity;
     private Integer pantiesQuantity;
     private Integer suitesQuantity;
-    private Integer othersQuantity;
     private String userId;
     private Condition condition;
     @Override
@@ -274,10 +264,8 @@ public final class Donate implements Model {
           latitude,
           shirtsQuantity,
           jacketsQuantity,
-          underWaresQuantity,
           pantiesQuantity,
           suitesQuantity,
-          othersQuantity,
           userId,
           condition);
     }
@@ -316,12 +304,6 @@ public final class Donate implements Model {
     }
     
     @Override
-     public BuildStep underWaresQuantity(Integer underWaresQuantity) {
-        this.underWaresQuantity = underWaresQuantity;
-        return this;
-    }
-    
-    @Override
      public BuildStep pantiesQuantity(Integer pantiesQuantity) {
         this.pantiesQuantity = pantiesQuantity;
         return this;
@@ -330,12 +312,6 @@ public final class Donate implements Model {
     @Override
      public BuildStep suitesQuantity(Integer suitesQuantity) {
         this.suitesQuantity = suitesQuantity;
-        return this;
-    }
-    
-    @Override
-     public BuildStep othersQuantity(Integer othersQuantity) {
-        this.othersQuantity = othersQuantity;
         return this;
     }
     
@@ -374,17 +350,15 @@ public final class Donate implements Model {
   
 
   public final class CopyOfBuilder extends Builder {
-    private CopyOfBuilder(String id, String pickupDate, Double longitude, Double latitude, Integer shirtsQuantity, Integer jacketsQuantity, Integer underWaresQuantity, Integer pantiesQuantity, Integer suitesQuantity, Integer othersQuantity, String userId, Condition condition) {
+    private CopyOfBuilder(String id, String pickupDate, Double longitude, Double latitude, Integer shirtsQuantity, Integer jacketsQuantity, Integer pantiesQuantity, Integer suitesQuantity, String userId, Condition condition) {
       super.id(id);
       super.pickupDate(pickupDate)
         .longitude(longitude)
         .latitude(latitude)
         .shirtsQuantity(shirtsQuantity)
         .jacketsQuantity(jacketsQuantity)
-        .underWaresQuantity(underWaresQuantity)
         .pantiesQuantity(pantiesQuantity)
         .suitesQuantity(suitesQuantity)
-        .othersQuantity(othersQuantity)
         .userId(userId)
         .condition(condition);
     }
@@ -415,11 +389,6 @@ public final class Donate implements Model {
     }
     
     @Override
-     public CopyOfBuilder underWaresQuantity(Integer underWaresQuantity) {
-      return (CopyOfBuilder) super.underWaresQuantity(underWaresQuantity);
-    }
-    
-    @Override
      public CopyOfBuilder pantiesQuantity(Integer pantiesQuantity) {
       return (CopyOfBuilder) super.pantiesQuantity(pantiesQuantity);
     }
@@ -427,11 +396,6 @@ public final class Donate implements Model {
     @Override
      public CopyOfBuilder suitesQuantity(Integer suitesQuantity) {
       return (CopyOfBuilder) super.suitesQuantity(suitesQuantity);
-    }
-    
-    @Override
-     public CopyOfBuilder othersQuantity(Integer othersQuantity) {
-      return (CopyOfBuilder) super.othersQuantity(othersQuantity);
     }
     
     @Override
