@@ -7,9 +7,11 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Rect;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
@@ -46,8 +48,12 @@ public class MyOrders extends AppCompatActivity implements ViewAdapter.OnInterac
                     AllOrders -> {
                         while (AllOrders.hasNext()) {
                             Orders orders = AllOrders.next();
+                            SharedPreferences spref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+                            String UserEmail=spref.getString("userLoggedInEmail","");
+                            Log.d("email is", "onClick:+ " +UserEmail);
+                            if (orders.getUserId().equals(UserEmail))
+                                ordersToView.add(orders);
 
-                            ordersToView.add(orders);
 
                         }
                     },
@@ -78,7 +84,10 @@ public class MyOrders extends AppCompatActivity implements ViewAdapter.OnInterac
         setContentView(R.layout.activity_my_orders);
        // getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.actionBarColor)));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        setTitle("My Orders");
         this.handleRViewShow();
+
+
 
     }
 

@@ -151,44 +151,13 @@ public class MainActivity extends AppCompatActivity {
         Amplify.Auth.fetchAuthSession(
                 result -> {
                     if (!result.isSignedIn()) {
-                        //  Log.d("ActivityContextlog", "inside userauth check"+ ActivityContext);
+                       // Log.d("ActivityContextlog", "inside userauth check"+ ActivityContext);
                         Intent loginIntent = new Intent(this, LoginActivity.class);
                         startActivity(loginIntent);
-                    }else{
-
-                        TextView welcoming_user= findViewById(R.id.welcoming_user);
-
-                        Amplify.Auth.fetchUserAttributes(
-                                attributes ->{
-
-                                    SharedPreferences spref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-                                    SharedPreferences.Editor editor = spref.edit();
-                                    editor.putString("userLoggedInEmail", attributes.get(12).getValue() );
-                                    editor.apply();
-
-
-                                    if (attributes.get(9).getValue()!= "null")
-                                        ContextCompat.getMainExecutor(getApplicationContext()).execute(() -> {
-                                            welcoming_user.setText(welcoming_user.getText()+ " " + attributes.get(9).getValue() );
-
-
-
-                                            //Log.d("user email", "onCreate: "+ attributes.get(12).getValue());
-
-
-                                        });
-                                },
-                                error -> Log.e("AuthDemo", "Failed to fetch user attributes.", error)
-                        );
-
                     }
-
-
-
                 },
                 error -> Log.e("failed user login", error.toString())
         );
-
 
 
         RelativeLayout goToOrderActivity =  MainActivity.this.findViewById(R.id.orders);
