@@ -35,15 +35,15 @@ public class userDonations extends AppCompatActivity {
 
         try {
             Amplify.DataStore.query(Donate.class,
-                    tasks -> {
+                    donates -> {
                         String pickUp="";
                         Integer shirt=0;
                         Integer jacket=0;
                         Integer panties=0;
                         Integer suites=0;
-                        while (tasks.hasNext()) {
-                            Donate donate = tasks.next();
-                            donateToView.add(new Donate("2",donate.getPickupDate().toString(),2.2,1.1,donate.getShirtsQuantity(),donate.getJacketsQuantity(),0,donate.getPantiesQuantity(),donate.getSuitesQuantity(),0,"null",null));
+                        while (donates.hasNext()) {
+                            Donate donate = donates.next();
+                            donateToView.add(donate);
 
                             if(donate.getShirtsQuantity()!=0)
                                 shirt+=donate.getShirtsQuantity();

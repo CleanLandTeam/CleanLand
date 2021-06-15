@@ -95,38 +95,49 @@ public class DonationActivity extends AppCompatActivity {
                 boolean pantiesNum = pantiesQuantity.getText().toString().equals("0");
                 boolean date = pickUpDate.getText().toString().equals("");
                 boolean cityName = location.getText().toString().equals("");
-                try {
-                    if (shirtsNum && jacketsNum && suitsNum && pantiesNum) {
-                        Toast error = Toast.makeText(getApplicationContext(), "please fill the quantity for one section al least ", Toast.LENGTH_LONG);
-                        error.show();
-                    } else if (date ) {
-                        Toast errorOne = Toast.makeText(getApplicationContext(), "please select pickup date ", Toast.LENGTH_LONG);
-                        errorOne.show();
-                    }else if (cityName){
-                        Toast errorTwo = Toast.makeText(getApplicationContext(), "please select pickup Location ", Toast.LENGTH_LONG);
-                        errorTwo.show();
+                boolean checkOne= true;
+                boolean checkTwo = true;
+                boolean checkThree = true;
 
-                    }
 
-                    Donate item = Donate.builder()
-                            .pickupDate(pickUpDate.getText().toString())
-                            .longitude(5.2).latitude(4.1)
-                            .shirtsQuantity(Integer.valueOf(shirtsQuantity.getText().toString()))
-                            .jacketsQuantity(Integer.valueOf(jacketsQuantity.getText().toString()))
-                            .pantiesQuantity(Integer.valueOf(pantiesQuantity.getText().toString()))
-                            .suitesQuantity(Integer.valueOf(suitsQuantity.getText().toString()))
-                            .build();
-                    Amplify.DataStore.save(item,
-                            success -> Log.i("Tutorial", "Saved item: " + success.item().getPickupDate()),
-                            error -> Log.e("Tutorial", "Could not save item to DataStore", error)
-                    );
-                    Log.i("Tutorial", "Initialized Amplify");
 
-                } catch (Exception e) {
-                    Log.e("Tutorial", "Could not initialize Amplify", e);
+
+                if (shirtsNum && jacketsNum && suitsNum && pantiesNum) {
+                    Toast error = Toast.makeText(getApplicationContext(), "please fill the quantity for one section al least ", Toast.LENGTH_LONG);
+                    error.show();
+                    checkOne = false;
+                } else if (date ) {
+                    Toast errorOne = Toast.makeText(getApplicationContext(), "please select pickup date ", Toast.LENGTH_LONG);
+                    errorOne.show();
+                    checkTwo = false;
+                }else if (cityName){
+                    Toast errorTwo = Toast.makeText(getApplicationContext(), "please select pickup Location ", Toast.LENGTH_LONG);
+                    errorTwo.show();
+                    checkThree = false;
                 }
 
-                startActivity(intent);
+
+                    if (checkOne&&checkTwo&&checkThree) {
+
+                        Donate item = Donate.builder()
+                                .pickupDate(pickUpDate.getText().toString())
+                                .longitude(5.2).latitude(4.1)
+                                .shirtsQuantity(Integer.valueOf(shirtsQuantity.getText().toString()))
+                                .jacketsQuantity(Integer.valueOf(jacketsQuantity.getText().toString()))
+                                .pantiesQuantity(Integer.valueOf(pantiesQuantity.getText().toString()))
+                                .suitesQuantity(Integer.valueOf(suitsQuantity.getText().toString()))
+                                .build();
+                        Amplify.DataStore.save(item,
+                                success -> Log.i("Tutorial", "Saved item: " + success.item().getPickupDate()),
+                                error -> Log.e("Tutorial", "Could not save item to DataStore", error)
+                        );
+                        Log.i("Tutorial", "Initialized Amplify");
+
+
+                        startActivity(intent);
+                    }
+
+
 
             }
         });
@@ -161,13 +172,7 @@ public class DonationActivity extends AppCompatActivity {
         display(minteger);
 
 
-    }public void decreaseInteger(View view) {
-        if(minteger>0)
-        minteger = minteger - 1;
-        display(minteger);
-
     }
-
     public void decreaseInteger(View view) {
         if (minteger > 0) {
             minteger = minteger - 1;
