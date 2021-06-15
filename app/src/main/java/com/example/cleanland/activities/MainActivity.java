@@ -134,7 +134,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         RelativeLayout goToPointsSystemActivity =  MainActivity.this.findViewById(R.id.pointsSystem);
-        goToOffersActivity.setOnClickListener(new View.OnClickListener() {
+        goToPointsSystemActivity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, PointsActivity.class);
@@ -187,7 +187,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         RelativeLayout goToPointsSystemActivity =  MainActivity.this.findViewById(R.id.pointsSystem);
-        goToOffersActivity.setOnClickListener(new View.OnClickListener() {
+        goToPointsSystemActivity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, PointsActivity.class);
