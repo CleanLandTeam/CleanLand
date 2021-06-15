@@ -85,10 +85,8 @@ mutation CreateDonate(
     latitude
     shirtsQuantity
     jacketsQuantity
-    underWaresQuantity
     pantiesQuantity
     suitesQuantity
-    othersQuantity
     userId
     condition
     _version
@@ -109,10 +107,8 @@ mutation UpdateDonate(
     latitude
     shirtsQuantity
     jacketsQuantity
-    underWaresQuantity
     pantiesQuantity
     suitesQuantity
-    othersQuantity
     userId
     condition
     _version
@@ -133,10 +129,8 @@ mutation DeleteDonate(
     latitude
     shirtsQuantity
     jacketsQuantity
-    underWaresQuantity
     pantiesQuantity
     suitesQuantity
-    othersQuantity
     userId
     condition
     _version

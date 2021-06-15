@@ -1,5 +1,4 @@
 
-
   package com.example.cleanland.activities;
 
         import androidx.appcompat.app.AppCompatActivity;
@@ -27,10 +26,11 @@
         import com.amplifyframework.datastore.generated.model.State;
         import com.example.cleanland.R;
 
+
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-        import java.util.Date;
-        import java.util.Locale;
+import java.util.Date;
+import java.util.Locale;
 
 public class OrderPage extends AppCompatActivity {
     int minteger = 0;
@@ -70,17 +70,18 @@ public class OrderPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order_page);
 
-        
+
         Button addOrder = OrderPage.this.findViewById(R.id.add);
         addOrder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(OrderPage.this,MyOrders.class);
+                Intent intent = new Intent(OrderPage.this, MyOrders.class);
                 TextView shirtsQuantity = (TextView) findViewById(R.id.integer_number);
                 TextView jacketsQuantity = (TextView) findViewById(R.id.integer_number_one);
                 TextView underWareQuantity = (TextView) findViewById(R.id.integer_number_Two);
                 TextView suitsQuantity = (TextView) findViewById(R.id.integer_number_Three);
                 TextView pantiesQuantity = (TextView) findViewById(R.id.integer_number_Four);
+
                 TextView pickUpDate =  findViewById(R.id.in_date);
                 TextView deliveryDate =  findViewById(R.id.in_delivery_date);
 
@@ -118,10 +119,10 @@ public class OrderPage extends AppCompatActivity {
 
                     startActivity(intent);
 
+
                 }
             }
         });
-
 
 
 //        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -155,7 +156,6 @@ public class OrderPage extends AppCompatActivity {
         });
 
 
-
         editDeliveryDate = (EditText) findViewById(R.id.in_delivery_date);
         DatePickerDialog.OnDateSetListener delivery_date = new DatePickerDialog.OnDateSetListener() {
 
@@ -183,15 +183,13 @@ public class OrderPage extends AppCompatActivity {
         });
 
 
+        locationView = (TextView) findViewById(R.id.locationView);
 
-
-         locationView=(TextView)findViewById(R.id.locationView);
-
-        Button location=(Button)findViewById(R.id.location);
+        Button location = (Button) findViewById(R.id.location);
         location.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
-                Intent intent=new Intent(OrderPage.this,MapsActivity.class);
+                Intent intent = new Intent(OrderPage.this, MapsActivity.class);
                 startActivityForResult(intent, 1000);// Activity is started with requestCode 2
             }
         });
@@ -199,13 +197,12 @@ public class OrderPage extends AppCompatActivity {
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data)
-    {
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        Double latitude=data.getExtras().getDouble("latitude");
-        Double longitude=data.getExtras().getDouble("longitude");
-        String address=data.getExtras().getString("address");
+        Double latitude = data.getExtras().getDouble("latitude");
+        Double longitude = data.getExtras().getDouble("longitude");
+        String address = data.getExtras().getString("address");
 
         setLatitude(latitude);
         setLongitude(longitude);
@@ -219,6 +216,7 @@ public class OrderPage extends AppCompatActivity {
 
         edittext.setText(sdf.format(myCalendar.getTime()));
     }
+
     private void updateDeliveryDate() {
         String myFormat = "MM/dd/yy"; //In which you need put here
         SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
@@ -231,54 +229,49 @@ public class OrderPage extends AppCompatActivity {
     public void increaseInteger(View view) {
         minteger = minteger + 1;
         display(minteger);
-
-
-    }public void decreaseInteger(View view) {
-        if(minteger>0)
+    }
+    public void decreaseInteger(View view) {
+        if (minteger > 0)
             minteger = minteger - 1;
         display(minteger);
-
     }
-
-
     public void increaseIntegerOne(View view) {
         mintegerOne = mintegerOne + 1;
         displayOne(mintegerOne);
-
-
-    }public void decreaseIntegerOne(View view) {
-        if(mintegerOne>0)
+    }
+    public void decreaseIntegerOne(View view) {
+        if (mintegerOne > 0)
             mintegerOne = mintegerOne - 1;
         displayOne(mintegerOne);
     }
     public void increaseIntegerTwo(View view) {
         mintegerTwo = mintegerTwo + 1;
         displayTwo(mintegerTwo);
-
-    }public void decreaseIntegerTwo(View view) {
-        if(mintegerTwo>0)
+    }
+    public void decreaseIntegerTwo(View view) {
+        if (mintegerTwo > 0)
             mintegerTwo = mintegerTwo - 1;
         displayTwo(mintegerTwo);
     }
-
     public void increaseIntegerThree(View view) {
         mintegerThree = mintegerThree + 1;
         displayThree(mintegerThree);
-
-    }public void decreaseIntegerThree(View view) {
-        if(mintegerThree>0)
+    }
+    public void decreaseIntegerThree(View view) {
+        if (mintegerThree > 0)
             mintegerThree = mintegerThree - 1;
         displayThree(mintegerThree);
-    }public void increaseIntegerFour(View view) {
+    }
+    public void increaseIntegerFour(View view) {
         mintegerFour = mintegerFour + 1;
         displayFour(mintegerFour);
-
-    }public void decreaseIntegerFour(View view) {
-        if(mintegerFour>0)
+    }
+    public void decreaseIntegerFour(View view) {
+        if (mintegerFour > 0)
             mintegerFour = mintegerFour - 1;
         displayFour(mintegerFour);
-
     }
+
 
 
 
