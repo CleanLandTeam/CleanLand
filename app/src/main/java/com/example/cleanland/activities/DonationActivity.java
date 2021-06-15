@@ -168,14 +168,7 @@ public class DonationActivity extends AppCompatActivity {
 
     }
 
-    public void decreaseInteger(View view) {
-        if (minteger > 0) {
-            minteger = minteger - 1;
-            display(minteger);
-        } else {
-            display(0);
-        }
-    }
+
 
     public void increaseIntegerOne(View view) {
         mintegerOne = mintegerOne + 1;
