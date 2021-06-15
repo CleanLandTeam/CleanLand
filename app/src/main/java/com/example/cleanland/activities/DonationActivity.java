@@ -10,6 +10,7 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -65,15 +66,13 @@ public class DonationActivity extends AppCompatActivity {
         });
 
 
+        locationViewDonation = (TextView) findViewById(R.id.locationViewDonation);
 
-
-        locationViewDonation=(TextView)findViewById(R.id.locationViewDonation);
-
-        Button locationDonation=(Button)findViewById(R.id.locationDonation);
+        Button locationDonation = (Button) findViewById(R.id.locationDonation);
         locationDonation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
-                Intent intent=new Intent(DonationActivity.this,MapsActivity.class);
+                Intent intent = new Intent(DonationActivity.this, MapsActivity.class);
                 startActivityForResult(intent, 1000);// Activity is started with requestCode 2
             }
         });
@@ -83,14 +82,32 @@ public class DonationActivity extends AppCompatActivity {
         addDonation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(DonationActivity.this,userDonations.class);
+                Intent intent = new Intent(DonationActivity.this, userDonations.class);
                 TextView shirtsQuantity = (TextView) findViewById(R.id.donation_integer_number);
                 TextView jacketsQuantity = (TextView) findViewById(R.id.donation_integer_number_one);
                 TextView suitsQuantity = (TextView) findViewById(R.id.donation_integer_number_Three);
                 TextView pantiesQuantity = (TextView) findViewById(R.id.donation_integer_number_Four);
-                TextView pickUpDate =  findViewById(R.id.donation_date);
-
+                TextView pickUpDate = findViewById(R.id.donation_date);
+                TextView location = findViewById(R.id.locationViewDonation);
+                boolean shirtsNum = shirtsQuantity.getText().toString().equals("0");
+                boolean jacketsNum = jacketsQuantity.getText().toString().equals("0");
+                boolean suitsNum = suitsQuantity.getText().toString().equals("0");
+                boolean pantiesNum = pantiesQuantity.getText().toString().equals("0");
+                boolean date = pickUpDate.getText().toString().equals("");
+                boolean cityName = location.getText().toString().equals("");
                 try {
+                    if (shirtsNum && jacketsNum && suitsNum && pantiesNum) {
+                        Toast error = Toast.makeText(getApplicationContext(), "please fill the quantity for one section al least ", Toast.LENGTH_LONG);
+                        error.show();
+                    } else if (date ) {
+                        Toast errorOne = Toast.makeText(getApplicationContext(), "please select pickup date ", Toast.LENGTH_LONG);
+                        errorOne.show();
+                    }else if (cityName){
+                        Toast errorTwo = Toast.makeText(getApplicationContext(), "please select pickup Location ", Toast.LENGTH_LONG);
+                        errorTwo.show();
+
+                    }
+
                     Donate item = Donate.builder()
                             .pickupDate(pickUpDate.getText().toString())
                             .longitude(5.2).latitude(4.1)
@@ -104,6 +121,7 @@ public class DonationActivity extends AppCompatActivity {
                             error -> Log.e("Tutorial", "Could not save item to DataStore", error)
                     );
                     Log.i("Tutorial", "Initialized Amplify");
+
                 } catch (Exception e) {
                     Log.e("Tutorial", "Could not initialize Amplify", e);
                 }
@@ -116,15 +134,13 @@ public class DonationActivity extends AppCompatActivity {
     }
 
 
-
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data)
-    {
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        Double latitude=data.getExtras().getDouble("latitude");
-        Double longitude=data.getExtras().getDouble("longitude");
-        String address=data.getExtras().getString("address");
+        Double latitude = data.getExtras().getDouble("latitude");
+        Double longitude = data.getExtras().getDouble("longitude");
+        String address = data.getExtras().getString("address");
 
 
         locationViewDonation.setText(address);
@@ -133,7 +149,7 @@ public class DonationActivity extends AppCompatActivity {
 
 
     private void updateLabel() {
-        String myFormat = "MM/dd/yy"; //In which you need put here
+        String myFormat = "dd/MM/yyyy"; //In which you need put here
         SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
 
         edittext.setText(sdf.format(myCalendar.getTime()));
@@ -144,38 +160,69 @@ public class DonationActivity extends AppCompatActivity {
         minteger = minteger + 1;
         display(minteger);
 
-    }public void decreaseInteger(View view) {
-        minteger = minteger - 1;
-        display(minteger);
     }
+
+    public void decreaseInteger(View view) {
+        if (minteger > 0) {
+            minteger = minteger - 1;
+            display(minteger);
+        } else {
+            display(0);
+        }
+    }
+
     public void increaseIntegerOne(View view) {
         mintegerOne = mintegerOne + 1;
         displayOne(mintegerOne);
 
-    }public void decreaseIntegerOne(View view) {
-        mintegerOne = mintegerOne - 1;
-        displayOne(mintegerOne);
-    }public void increaseIntegerThree(View view) {
+    }
+
+    public void decreaseIntegerOne(View view) {
+        if (mintegerOne > 0) {
+            mintegerOne = mintegerOne - 1;
+            displayOne(mintegerOne);
+        } else {
+            displayOne(0);
+        }
+    }
+
+    public void increaseIntegerThree(View view) {
         mintegerThree = mintegerThree + 1;
         displayThree(mintegerThree);
 
-    }public void decreaseIntegerThree(View view) {
-        mintegerThree = mintegerThree - 1;
-        displayThree(mintegerThree);
-    }public void increaseIntegerFour(View view) {
+    }
+
+    public void decreaseIntegerThree(View view) {
+        if (mintegerThree > 0) {
+            mintegerThree = mintegerThree - 1;
+            displayThree(mintegerThree);
+        } else {
+            displayThree(0);
+        }
+    }
+
+    public void increaseIntegerFour(View view) {
         mintegerFour = mintegerFour + 1;
         displayFour(mintegerFour);
 
-    }public void decreaseIntegerFour(View view) {
-
-        mintegerFour = mintegerFour - 1;
-        displayFour(mintegerFour);
     }
+
+    public void decreaseIntegerFour(View view) {
+
+        if (mintegerFour > 0) {
+            mintegerFour = mintegerFour - 1;
+            displayFour(mintegerFour);
+        } else {
+            displayFour(0);
+        }
+    }
+
     private void display(int number) {
         TextView displayInteger = (TextView) findViewById(
                 R.id.donation_integer_number);
         displayInteger.setText("" + number);
     }
+
     private void displayOne(int number) {
         TextView displayInteger = (TextView) findViewById(
                 R.id.donation_integer_number_one);
@@ -187,6 +234,7 @@ public class DonationActivity extends AppCompatActivity {
                 R.id.donation_integer_number_Three);
         displayInteger.setText("" + number);
     }
+
     private void displayFour(int number) {
         TextView displayInteger = (TextView) findViewById(
                 R.id.donation_integer_number_Four);
