@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -95,6 +96,10 @@ public class DonationActivity extends AppCompatActivity {
                 TextView pantiesQuantity = (TextView) findViewById(R.id.donation_integer_number_Four);
                 TextView pickUpDate = findViewById(R.id.donation_date);
                 TextView location = findViewById(R.id.locationViewDonation);
+                Spinner spinner = findViewById(R.id.spinner);
+
+                Log.d("TAG", "onClick: "+spinner.getSelectedItem().toString());
+//                Condition conditionType =  condition(spinner.getSelectedItem().toString());
                 boolean shirtsNum = shirtsQuantity.getText().toString().equals("0");
                 boolean jacketsNum = jacketsQuantity.getText().toString().equals("0");
                 boolean suitsNum = suitsQuantity.getText().toString().equals("0");
@@ -109,7 +114,7 @@ public class DonationActivity extends AppCompatActivity {
 
 
                 if (shirtsNum && jacketsNum && suitsNum && pantiesNum) {
-                    Toast error = Toast.makeText(getApplicationContext(), "please fill the quantity for one section al least ", Toast.LENGTH_LONG);
+                    Toast error = Toast.makeText(getApplicationContext(), "please fill the quantity for one section at least ", Toast.LENGTH_LONG);
                     error.show();
                     checkOne = false;
                 } else if (date ) {
@@ -136,6 +141,7 @@ public class DonationActivity extends AppCompatActivity {
                                 .jacketsQuantity(Integer.valueOf(jacketsQuantity.getText().toString()))
                                 .pantiesQuantity(Integer.valueOf(pantiesQuantity.getText().toString()))
                                 .suitesQuantity(Integer.valueOf(suitsQuantity.getText().toString()))
+                                .condition(condition(spinner.getSelectedItem().toString()))
                                 .userId(UserEmail)
                                 .build();
                         Amplify.DataStore.save(item,
@@ -169,7 +175,21 @@ public class DonationActivity extends AppCompatActivity {
 
     }
 
+public Condition condition (String str){
+        if(str.equals("A"))
+            return Condition.A;
 
+        if(str.equals("B"))
+            return  Condition.B;
+
+        if(str.equals("C"))
+            return Condition.C;
+        if(str.equals("D"))
+            return Condition.D;
+
+        return null;
+
+}
     private void updateLabel() {
         String myFormat = "dd/MM/yyyy"; //In which you need put here
         SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
