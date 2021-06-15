@@ -272,7 +272,7 @@
             android:id="@+id/linearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="8dp"
             android:layout_marginBottom="16dp"
             android:background="@drawable/login_button_bk"
             android:orientation="horizontal"
@@ -281,7 +281,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.526"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/constraintLayout3Others">
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout3Suites"
+            app:layout_constraintVertical_bias="0.3">
 
             <TextView
                 android:id="@+id/totalPoints"
@@ -375,77 +376,6 @@
                 android:textColor="@color/black"
                 app:layout_constraintBaseline_toBaselineOf="@+id/textView4Suites"
                 app:layout_constraintStart_toEndOf="@+id/textView4Suites" />
-
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/constraintLayout3Others"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/others_donation_background"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.526"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/constraintLayout3Suites"
-            tools:context=".fragments.MyOrderFragment">
-
-
-            <ImageView
-                android:id="@+id/rowItemImageOthersView"
-                android:layout_width="72dp"
-                android:layout_height="62dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp"
-                android:background="@drawable/baby_clothing"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.5" />
-
-
-            <TextView
-                android:id="@+id/textViewOthers"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginLeft="20dp"
-                android:fontFamily="sans-serif-condensed"
-                android:text="Others"
-                android:textColor="@color/black"
-                android:textSize="29dp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toEndOf="@+id/rowItemImageOthersView"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/textView4Others"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:fontFamily="sans-serif-condensed"
-                android:text="Number of Pieces"
-                android:textColor="@color/black"
-                android:textSize="15dp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="@+id/textViewOthers"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/textViewOthers"
-                app:layout_constraintTop_toBottomOf="@+id/textViewOthers" />
-
-            <TextView
-                android:id="@+id/othersQuantityDonations"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginLeft="8dp"
-                android:text="Item Quantity"
-                android:textColor="@color/black"
-                app:layout_constraintBaseline_toBaselineOf="@+id/textView4Others"
-                app:layout_constraintStart_toEndOf="@+id/textView4Others" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
