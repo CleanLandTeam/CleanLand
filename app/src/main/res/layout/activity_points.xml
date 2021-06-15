@@ -46,8 +46,8 @@
         android:layout_weight="1"
         android:fontFamily="serif"
         android:gravity="center"
-        android:text="You will gain a point as the table below"
-        android:textColor="#971944"
+        android:text="You will gain points as the Follow"
+        android:textColor="@color/black"
         android:textSize="27dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -61,8 +61,10 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="10dp"
         android:layout_marginTop="30dp"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        tools:layout_editor_absoluteX="10dp">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView">
 
         <TableRow
             android:layout_width="match_parent"
@@ -237,18 +239,52 @@
                 android:textColor="@color/black"
                 android:textSize="19dp" />
         </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Underwear"
+                android:textColor="@color/black"
+                android:textSize="19dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="5 points"
+                android:textColor="@color/black"
+                android:textSize="19dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="---"
+                android:textColor="@color/black"
+                android:textSize="19dp" />
+        </TableRow>
+
     </TableLayout>
 
     <TextView
         android:id="@+id/textView5"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="44dp"
-        android:background="@drawable/card_edge"
+        android:background="@drawable/home_gradient_maths"
         android:fontFamily="serif"
         android:gravity="center"
-        android:text="Your current balance of points"
-        android:textColor="#1C591F"
+        android:text="Current Balance"
+        android:textColor="@color/white"
         android:textSize="27dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -289,10 +325,13 @@
             android:id="@+id/ordersPoint"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/next_donation_button"
-            android:gravity="center"
             android:layout_gravity="center"
+            android:background="@drawable/single_point_counter_background"
+            android:gravity="center"
+            android:paddingHorizontal="30dp"
             android:text="0"
+            android:textColor="#ffff"
+            android:textSize="20dp"
             android:textStyle="bold"
             tools:layout_editor_absoluteX="83dp"
             tools:layout_editor_absoluteY="516dp" />
@@ -327,10 +366,13 @@
             android:id="@+id/donationPoint"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/next_donation_button"
-            android:gravity="center"
             android:layout_gravity="center"
+            android:paddingHorizontal="30dp"
+            android:background="@drawable/single_point_counter_background"
+            android:gravity="center"
             android:text="0"
+            android:textSize="20dp"
+            android:textColor="#ffff"
             android:textStyle="bold"
             tools:layout_editor_absoluteX="83dp"
             tools:layout_editor_absoluteY="516dp" />
@@ -340,11 +382,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="10dp"
+        android:background="@drawable/points_background"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
-        tools:layout_editor_absoluteX="10dp"
-        android:background="@drawable/points_background">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
 
         <TextView
             android:layout_width="wrap_content"
@@ -352,7 +396,7 @@
             android:layout_marginLeft="5dp"
             android:layout_weight="1"
             android:text="Total points"
-            android:textColor="@color/black"
+            android:textColor="#FFFFFF"
             android:textSize="30dp"
             android:textStyle="bold"
             tools:layout_editor_absoluteX="83dp"
@@ -365,8 +409,8 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text="0"
+            android:textColor="#FFFFFF"
             android:textSize="30sp"
-            android:textColor="#34595E"
             android:textStyle="bold"
             tools:layout_editor_absoluteX="83dp"
             tools:layout_editor_absoluteY="516dp" />
