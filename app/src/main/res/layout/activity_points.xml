@@ -292,7 +292,7 @@
             android:background="@drawable/next_donation_button"
             android:gravity="center"
             android:layout_gravity="center"
-            android:text="12"
+            android:text="0"
             android:textStyle="bold"
             tools:layout_editor_absoluteX="83dp"
             tools:layout_editor_absoluteY="516dp" />
@@ -330,7 +330,7 @@
             android:background="@drawable/next_donation_button"
             android:gravity="center"
             android:layout_gravity="center"
-            android:text="12"
+            android:text="0"
             android:textStyle="bold"
             tools:layout_editor_absoluteX="83dp"
             tools:layout_editor_absoluteY="516dp" />
@@ -364,7 +364,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="20"
+            android:text="0"
             android:textSize="30sp"
             android:textColor="#34595E"
             android:textStyle="bold"
