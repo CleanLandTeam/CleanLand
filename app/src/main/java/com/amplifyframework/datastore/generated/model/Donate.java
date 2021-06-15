@@ -82,14 +82,15 @@ public final class Donate implements Model {
       return condition;
   }
   
+
   public Temporal.DateTime getCreatedAt() {
       return createdAt;
   }
-  
+
   public Temporal.DateTime getUpdatedAt() {
       return updatedAt;
   }
-  
+
   private Donate(String id, String pickupDate, Double longitude, Double latitude, Integer shirtsQuantity, Integer jacketsQuantity, Integer pantiesQuantity, Integer suitesQuantity, String userId, Condition condition) {
     this.id = id;
     this.pickupDate = pickupDate;
