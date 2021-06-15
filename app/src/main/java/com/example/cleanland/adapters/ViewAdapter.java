@@ -32,6 +32,7 @@ public class ViewAdapter extends RecyclerView.Adapter<ViewAdapter.ViewHolder> {
         public Orders ordersTable;
         TextView allItem ;
         TextView pickUpDate ;
+        TextView status;
 
 
 
@@ -42,6 +43,7 @@ public class ViewAdapter extends RecyclerView.Adapter<ViewAdapter.ViewHolder> {
 
             allItem = (TextView) view.findViewById(R.id.quantityItemFragment);
             pickUpDate = (TextView) view.findViewById(R.id.pickUpDateFragment);
+            status = (TextView) view.findViewById(R.id.stateItemFragment);
 
         }
 
@@ -95,6 +97,7 @@ public class ViewAdapter extends RecyclerView.Adapter<ViewAdapter.ViewHolder> {
 
         viewHolder.allItem.setText(sum+"");
         viewHolder.pickUpDate.setText(localDataSet.get(position).getPickupDate());
+        viewHolder.status.setText(localDataSet.get(position).getState().toString());
     }
 
     @Override

@@ -37,9 +37,10 @@ public class ProfileActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
-        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.actionBarColor)));
+
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+      setTitle("My Profile");
 
 
         Button button = (Button) findViewById(R.id.edit_profile);

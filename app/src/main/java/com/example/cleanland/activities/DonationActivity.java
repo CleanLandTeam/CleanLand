@@ -44,6 +44,8 @@ public class DonationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_donation);
 
+            setTitle("Place a Donation");
+
 
         edittext = (EditText) findViewById(R.id.donation_date);
         DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
