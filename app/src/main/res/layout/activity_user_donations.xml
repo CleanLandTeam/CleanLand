@@ -113,7 +113,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
             <TextView
-                android:id="@+id/shirtsQuantityDetails"
+                android:id="@+id/shirtsQuantityDonations"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -184,7 +184,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/textViewJacket" />
 
             <TextView
-                android:id="@+id/jacketQuantityDetails"
+                android:id="@+id/jacketQuantityDonations"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -255,7 +255,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/textViewPanties" />
 
             <TextView
-                android:id="@+id/pantiesQuantityDetails"
+                android:id="@+id/pantiesQuantityDonations"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -366,7 +366,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/textViewSuites" />
 
             <TextView
-                android:id="@+id/suitesQuantityDetails"
+                android:id="@+id/suitesQuantityDonations"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -437,7 +437,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/textViewUnderWare" />
 
             <TextView
-                android:id="@+id/underWareQuantityDetails"
+                android:id="@+id/otherQuantityDonations"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"

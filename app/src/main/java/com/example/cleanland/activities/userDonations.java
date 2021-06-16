@@ -54,10 +54,10 @@ public class userDonations extends AppCompatActivity {
 
 
                         }
-                        TextView shirtsQuantity=findViewById(R.id.shirtsQuantityDetails);
-                        TextView jacketsQuantity=findViewById(R.id.jacketQuantityDetails);
-                        TextView pantsQuantity=findViewById(R.id.pantiesQuantityDetails);
-                        TextView suitesQuantity=findViewById(R.id.suitesQuantityDetails);
+                        TextView shirtsQuantity=findViewById(R.id.shirtsQuantityDonations);
+                        TextView jacketsQuantity=findViewById(R.id.jacketQuantityDonations);
+                        TextView pantsQuantity=findViewById(R.id.pantiesQuantityDonations);
+                        TextView suitesQuantity=findViewById(R.id.suitesQuantityDonations);
                         shirtsQuantity.setText(shirt+"");
                         jacketsQuantity.setText(jacket+"");
                         pantsQuantity.setText(panties+"");
