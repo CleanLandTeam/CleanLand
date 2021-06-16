@@ -770,8 +770,10 @@
                         <TextView
                             android:id="@+id/locationView"
                             style="@style/viewParent.headerText"
+
                             android:textColor="#0F1415"
                             android:textSize="15dp" />
+
 
                         <Button
                             android:id="@+id/location"

@@ -6,7 +6,8 @@
     tools:context=".activities.DonationActivity"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
+    style="@style/parent.contentLayout"
+    android:id="@+id/up"
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
