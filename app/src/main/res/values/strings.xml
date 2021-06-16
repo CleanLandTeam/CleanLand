@@ -18,10 +18,10 @@
     </string-array>
 
     <string-array name="condition">
-        <item>A</item>
-        <item>B</item>
-        <item>C</item>
-        <item>D</item>
+        <item>Excellent</item>
+        <item>Very Good</item>
+        <item>Good</item>
+        <item>Fine</item>
     </string-array>
 
     <string name="title_activity_maps">Map</string>

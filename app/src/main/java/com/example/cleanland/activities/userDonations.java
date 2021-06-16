@@ -64,7 +64,6 @@ public class userDonations extends AppCompatActivity {
 
 
                         }
-
                         TextView shirtsQuantity=findViewById(R.id.shirtsQuantityDonations);
                         TextView jacketsQuantity=findViewById(R.id.jacketQuantityDonations);
                         TextView pantsQuantity=findViewById(R.id.pantiesQuantityDonations);

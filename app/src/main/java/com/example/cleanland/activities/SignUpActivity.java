@@ -56,9 +56,8 @@ public class SignUpActivity extends AppCompatActivity {
 
                 attributes.add(new AuthUserAttribute(AuthUserAttributeKey.locale(), ""));
                 attributes.add(new AuthUserAttribute(AuthUserAttributeKey.phoneNumber(), ""));
-               // attributes.add(new AuthUserAttribute(AuthUserAttributeKey.phoneNumber(), "+96279923821"));
                 attributes.add(new AuthUserAttribute(AuthUserAttributeKey.phoneNumber(), "+96270000000"));
-                attributes.add(new AuthUserAttribute(AuthUserAttributeKey.address(), "null"));
+                attributes.add(new AuthUserAttribute(AuthUserAttributeKey.address(), ""));
 
                 Amplify.Auth.signUp(
                         email,
