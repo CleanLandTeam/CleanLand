@@ -106,7 +106,7 @@
                 android:gravity="center"
                 android:text="Donation"
                 android:textColor="@color/black"
-                android:textSize="20sp"
+                android:textSize="25sp"
                 android:textStyle="bold" />
         </TableRow>
 
@@ -393,6 +393,7 @@
         android:layout_marginRight="8dp"
         android:background="@drawable/points_background"
         android:orientation="horizontal"
+        android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -403,6 +404,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
             android:text="Total points"
+            android:gravity="center"
             android:textColor="#FFFFFF"
             android:textSize="22dp"
             android:textStyle="bold"

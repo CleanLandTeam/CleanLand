@@ -40,8 +40,7 @@ public class PointsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_points);
-        setTitle("Points System");
-//        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.actionBarColor)));
+        setTitle("Point System");
 
         ordersPoint = (TextView) findViewById(R.id.ordersPoint);
         donationsPoint = (TextView) findViewById(R.id.donationPoint);

@@ -8,14 +8,17 @@ import android.os.Bundle;
 import android.os.Handler;
 
 import com.example.cleanland.R;
+import com.example.cleanland.utils.AmplifyInitializer;
 
 public class SplashActivity extends AppCompatActivity {
-
+    AmplifyInitializer amplifyInitializer;
     Handler handler;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+
+        this.amplifyInitializer= new AmplifyInitializer(getApplicationContext());
 
         //setTitle("Welcome To Clean Land");
 
