@@ -22,40 +22,33 @@ public class Details extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         Intent intent = getIntent();
-        final View propLayout = findViewById(R.id.constraintLayout2);
-        final View jacketLayout = findViewById(R.id.constraintLayout3jacket);
-        final View pantiesLayout = findViewById(R.id.constraintLayout3panties);
-        final View suitesLayout = findViewById(R.id.constraintLayout3Suites);
-        final View othersLayout = findViewById(R.id.constraintLayout3Others);
-
-        if (intent.getExtras().getString("shirt").equals("0"))
-            propLayout.setVisibility(View.INVISIBLE);
-
-        if (intent.getExtras().getString("jacket").equals("0"))
-            jacketLayout.setVisibility(View.INVISIBLE);
-
-        if (intent.getExtras().getString("panties").equals("0"))
-            pantiesLayout.setVisibility(View.INVISIBLE);
-
-        if (intent.getExtras().getString("suites").equals("0"))
-            suitesLayout.setVisibility(View.INVISIBLE);
-
-        if (intent.getExtras().getString("underWare").equals("0"))
-            othersLayout.setVisibility(View.INVISIBLE);
 
         TextView shirtsQuantity = findViewById(R.id.shirtsQuantityDetails);
         TextView jacketsQuantity = findViewById(R.id.jacketQuantityDetails);
         TextView pantsQuantity = findViewById(R.id.pantiesQuantityDetails);
         TextView suitesQuantity = findViewById(R.id.suitesQuantityDetails);
         TextView underWare = findViewById(R.id.underWareQuantityDetails);
+        TextView pickUpDate = findViewById(R.id.pickUpDateDetails);
+        TextView deliveryDate = findViewById(R.id.quantityDileveryDetail);
+        TextView stateItem = findViewById(R.id.stateItemDetails);
+        TextView totalText = findViewById(R.id.totalPriceDetails);
+
 
         shirtsQuantity.setText(intent.getExtras().getString("shirt"));
         jacketsQuantity.setText(intent.getExtras().getString("jacket"));
         pantsQuantity.setText(intent.getExtras().getString("panties"));
         suitesQuantity.setText(intent.getExtras().getString("suites"));
         underWare.setText(intent.getExtras().getString("underWare"));
-
-
+        pickUpDate.setText(intent.getExtras().getString("pickupDate"));
+        deliveryDate.setText(intent.getExtras().getString("DeliveryDate"));
+        stateItem.setText(intent.getExtras().getString("state"));
+        Integer shirtPrice=Integer.valueOf(intent.getExtras().getString("shirt"));
+        Integer jacketPrice=Integer.valueOf(intent.getExtras().getString("jacket"));
+        Integer pantiesPrice=Integer.valueOf(intent.getExtras().getString("panties"));
+        Integer underWarePrice=Integer.valueOf(intent.getExtras().getString("underWare"));
+        Integer suitesPrice=Integer.valueOf(intent.getExtras().getString("suites"));
+        double total =(shirtPrice*.5)+(jacketPrice)+(pantiesPrice*.75)+(underWarePrice*.25)+(suitesPrice*2);
+        totalText.setText(total+"");
     }
 
 

@@ -13,7 +13,6 @@ import com.amplifyframework.datastore.generated.model.Orders;
 import com.example.cleanland.R;
 
 
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -88,9 +87,9 @@ public class ViewAdapter extends RecyclerView.Adapter<ViewAdapter.OrdersViewHold
 
         if(localDataSet.get(position).getOthersQuantity()!=null)
             sum+=localDataSet.get(position).getOthersQuantity();
-        TextView allItem =  viewHolder.itemView.findViewById(R.id.quantityItemFragment);
-        TextView pickUpDate =viewHolder.itemView.findViewById(R.id.pickUpDateFragment);
-        TextView status =viewHolder.itemView.findViewById(R.id.stateItemFragment);
+        TextView allItem =  viewHolder.itemView.findViewById(R.id.quantityDileveryDetail);
+        TextView pickUpDate =viewHolder.itemView.findViewById(R.id.pickUpDateDetails);
+        TextView status =viewHolder.itemView.findViewById(R.id.stateItemDetails);
 
         allItem.setText(sum+"");
        pickUpDate.setText(localDataSet.get(position).getPickupDate());

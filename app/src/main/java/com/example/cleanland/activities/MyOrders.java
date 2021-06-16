@@ -101,6 +101,9 @@ public class MyOrders extends AppCompatActivity implements ViewAdapter.OnInterac
         intent.putExtra("panties", ordersTable.getPantiesQuantity()+"");
         intent.putExtra("suites", ordersTable.getSuitesQuantity()+"");
         intent.putExtra("underWare", ordersTable.getUnderWaresQuantity()+"");
+        intent.putExtra("pickupDate", ordersTable.getPickupDate()+"");
+        intent.putExtra("DeliveryDate", ordersTable.getDeliveryDate()+"");
+        intent.putExtra("state", ordersTable.getState()+"");
         this.startActivity(intent);
 
     }
