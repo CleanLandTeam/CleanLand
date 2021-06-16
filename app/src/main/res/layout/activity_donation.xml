@@ -24,23 +24,22 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center">
+                android:layout_gravity="center"
+                app:cardCornerRadius="6dp">
 
                 <TextView
                     style="@style/viewParent.headerText"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginBottom="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
                     android:gravity="center"
                     android:text="Donate here"
                     android:textColor="#61c9ef" />
             </androidx.cardview.widget.CardView>
 
-            <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:app="http://schemas.android.com/apk/res-auto"
-                xmlns:tools="http://schemas.android.com/tools"
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
@@ -81,8 +80,8 @@
 
                             <Button
                                 android:id="@+id/donation_tShirtMinus"
-                                android:layout_width="35dp"
-                                android:layout_height="35dp"
+                                android:layout_width="25dp"
+                                android:layout_height="25dp"
                                 android:background="@drawable/minus"
                                 android:onClick="decreaseInteger"
                                 app:backgroundTint="#FF0000	"
@@ -97,7 +96,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="0"
-                                android:textSize="50sp"
+                                android:textSize="24sp"
                                 android:textStyle="bold"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintEnd_toStartOf="@+id/donation_tShirtMinus"
@@ -108,8 +107,8 @@
 
                             <Button
                                 android:id="@+id/donation_tShirtPlus"
-                                android:layout_width="34dp"
-                                android:layout_height="34dp"
+                                android:layout_width="25dp"
+                                android:layout_height="25dp"
                                 android:background="@drawable/plusicon"
                                 android:onClick="increaseInteger"
                                 app:backgroundTint="#61c9ef"
@@ -179,8 +178,8 @@
 
                             <Button
                                 android:id="@+id/donation_jacketsMinus"
-                                android:layout_width="35dp"
-                                android:layout_height="35dp"
+                                android:layout_width="25dp"
+                                android:layout_height="25dp"
                                 android:background="@drawable/minus"
                                 android:onClick="decreaseIntegerOne"
                                 app:backgroundTint="#FF0000	"
@@ -195,7 +194,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="0"
-                                android:textSize="50sp"
+                                android:textSize="24sp"
                                 android:textStyle="bold"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintEnd_toStartOf="@+id/donation_jacketsMinus"
@@ -206,8 +205,8 @@
 
                             <Button
                                 android:id="@+id/donation_jacketsPlus"
-                                android:layout_width="34dp"
-                                android:layout_height="34dp"
+                                android:layout_width="25dp"
+                                android:layout_height="25dp"
                                 android:background="@drawable/plusicon"
                                 android:onClick="increaseIntegerOne"
                                 android:textSize="8sp"
@@ -276,8 +275,8 @@
 
                             <Button
                                 android:id="@+id/donation_suitMinus"
-                                android:layout_width="35dp"
-                                android:layout_height="35dp"
+                                android:layout_width="25dp"
+                                android:layout_height="25dp"
                                 android:background="@drawable/minus"
                                 android:onClick="decreaseIntegerThree"
                                 app:backgroundTint="#FF0000	"
@@ -292,7 +291,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="0"
-                                android:textSize="50sp"
+                                android:textSize="24sp"
                                 android:textStyle="bold"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintEnd_toStartOf="@+id/donation_suitMinus"
@@ -303,8 +302,8 @@
 
                             <Button
                                 android:id="@+id/donation_suitPlus"
-                                android:layout_width="34dp"
-                                android:layout_height="34dp"
+                                android:layout_width="25dp"
+                                android:layout_height="25dp"
                                 android:background="@drawable/plusicon"
                                 android:onClick="increaseIntegerThree"
                                 android:textSize="8sp"
@@ -372,8 +371,8 @@
 
                             <Button
                                 android:id="@+id/donation_pantiesMinus"
-                                android:layout_width="35dp"
-                                android:layout_height="35dp"
+                                android:layout_width="25dp"
+                                android:layout_height="25dp"
                                 android:background="@drawable/minus"
                                 android:onClick="decreaseIntegerFour"
                                 app:backgroundTint="#FF0000	"
@@ -388,7 +387,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="0"
-                                android:textSize="50sp"
+                                android:textSize="24sp"
                                 android:textStyle="bold"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintEnd_toStartOf="@+id/donation_pantiesMinus"
@@ -399,8 +398,8 @@
 
                             <Button
                                 android:id="@+id/donation_pantiesPlus"
-                                android:layout_width="34dp"
-                                android:layout_height="34dp"
+                                android:layout_width="25dp"
+                                android:layout_height="25dp"
                                 android:background="@drawable/plusicon"
                                 android:onClick="increaseIntegerFour"
                                 android:textSize="8sp"
@@ -430,7 +429,7 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 tools:context=".activities.OrderPage">
 
                 <androidx.cardview.widget.CardView
@@ -438,15 +437,18 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
                     android:layout_marginBottom="5dp"
-                    app:cardBackgroundColor="#F86358"
-                    app:cardCornerRadius="16dp"
+                    app:cardCornerRadius="6dp"
                     app:cardElevation="2dp">
 
                     <TextView
                         style="@style/viewParent.headerText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="Pick The Suitable Date For You"
-                        android:textColor="#000000"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:text="Pick Date "
+                        android:textColor="#04202B"
                         android:textSize="25dp" />
 
                 </androidx.cardview.widget.CardView>
@@ -483,11 +485,11 @@
 
                         <EditText
                             android:id="@+id/donation_date"
-                            android:layout_width="200dp"
+                            android:layout_width="171dp"
                             android:layout_height="wrap_content"
                             android:layout_alignParentStart="true"
                             android:layout_alignParentLeft="true"
-                            android:layout_alignParentTop="true"
+                            android:layout_alignParentTop="false"
                             android:clickable="false"
 
                             android:cursorVisible="false"
@@ -515,7 +517,7 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 tools:context=".activities.OrderPage">
 
                 <androidx.cardview.widget.CardView
@@ -523,15 +525,16 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
                     android:layout_marginBottom="5dp"
-                    app:cardBackgroundColor="#F86358"
-                    app:cardCornerRadius="16dp"
+                    app:cardCornerRadius="6dp"
                     app:cardElevation="2dp">
 
                     <TextView
                         style="@style/viewParent.headerText"
+                        android:layout_width="wrap_content"
                         android:layout_gravity="center"
-                        android:text="Pick The Delivery Location"
-                        android:textColor="#000000"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:text="Pick  Location"
                         android:textSize="25dp" />
 
                 </androidx.cardview.widget.CardView>
@@ -563,6 +566,8 @@
 
                         <TextView
                             style="@style/viewParent.headerText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
                             android:text="Location"
                             android:textColor="#61c9ef" />
 
@@ -570,17 +575,18 @@
                             android:id="@+id/locationViewDonation"
 
                             style="@style/viewParent.headerText"
-                            android:textColor="#61c9ef" />
+                            android:textSize="12sp" />
 
                         <Button
                             android:id="@+id/locationDonation"
                             style="@style/loginButton"
+
                             android:layout_width="149dp"
                             android:layout_height="wrap_content"
                             android:text="Location"
 
 
-                            />
+                            android:textSize="12sp" />
 
 
                     </LinearLayout>
@@ -631,8 +637,8 @@
 
                         <Spinner
                             android:id="@+id/spinner"
-                            android:layout_width="200dp"
-                            android:layout_height="47dp"
+                            android:layout_width="131dp"
+                            android:layout_height="wrap_content"
                             android:entries="@array/condition" />
 
 
