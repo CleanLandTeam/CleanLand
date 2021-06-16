@@ -22,6 +22,7 @@ public class PointsActivity extends AppCompatActivity {
     TextView ordersPoint;
     TextView donationsPoint;
     TextView ordersAndDonationsPoint;
+
     int ordersShirtsPointsCounter =0;
     int ordersJacketsPointsCounter=0;
     int ordersPantsPointsCounter=0;
@@ -68,6 +69,7 @@ public class PointsActivity extends AppCompatActivity {
 
                     }
                     summationOfAllOrderPoints = ordersShirtsPointsCounter* 10 + ordersJacketsPointsCounter * 15 + ordersPantsPointsCounter *10 + ordersSuitesPointsCounter*20 + ordersUnderwearPointsCounter* 5;
+                    setSummationOfAllOrderPoints(summationOfAllOrderPoints);
                     ordersPoint.setText(Integer.toString(summationOfAllOrderPoints));
                 },
                 failure -> Log.e("Tutorial", "Could not query DataStore", failure)
@@ -91,13 +93,35 @@ public class PointsActivity extends AppCompatActivity {
 
                     }
                     summationOfAllDonationPoints = donationShirtsPointsCounter* 15 +donationJacketsPointsCounter * 20 + donationPantsPointsCounter* 15 +donationSuitesPointsCounter* 25;
-
+                    setSummationOfAllDonationPoints(summationOfAllDonationPoints);
 
                     donationsPoint.setText( Integer.toString(summationOfAllDonationPoints));
-                    ordersAndDonationsPoint.setText(Integer.toString(summationOfAllOrderPoints+summationOfAllDonationPoints));
                 },
                 failure -> Log.e("Tutorial", "Could not query DataStore", failure)
         );
+        try {
+            Thread.sleep(500);
+            ordersAndDonationsPoint.setText(Integer.toString(getSummationOfAllOrderPoints()+getSummationOfAllDonationPoints()));
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
+
+    }
+
+    public int getSummationOfAllOrderPoints() {
+        return summationOfAllOrderPoints;
+    }
+
+    public void setSummationOfAllOrderPoints(int summationOfAllOrderPoints) {
+        this.summationOfAllOrderPoints = summationOfAllOrderPoints;
+    }
+
+    public int getSummationOfAllDonationPoints() {
+        return summationOfAllDonationPoints;
+    }
+
+    public void setSummationOfAllDonationPoints(int summationOfAllDonationPoints) {
+        this.summationOfAllDonationPoints = summationOfAllDonationPoints;
     }
 }
