@@ -556,7 +556,6 @@
                         <TextView
                             android:id="@+id/locationViewDonation"
                             style="@style/viewParent.headerText"
-                            android:textSize="17dp"
                             android:textColor="#61c9ef" />
                         <Button
                             android:id="@+id/locationDonation"

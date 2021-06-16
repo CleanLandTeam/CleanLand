@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.amazonaws.mobile.client.AWSMobileClient;
 import com.amazonaws.mobileconnectors.cognitoauth.Auth;
@@ -43,7 +44,7 @@ public class ProfileActivity extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-      setTitle("My Profile");
+        setTitle("My Profile");
 
 
         Button button = (Button) findViewById(R.id.edit_profile);
@@ -55,30 +56,53 @@ public class ProfileActivity extends AppCompatActivity {
         EditText birthday = findViewById(R.id.birthdate_profile);
         EditText address = findViewById(R.id.address_profile);
         Spinner gender = findViewById(R.id.gender_profile);
+
+        Toast failed = Toast.makeText(getApplicationContext(), "Please fill all the field", Toast.LENGTH_LONG);
+        Toast succeeded = Toast.makeText(getApplicationContext(), "Updated successfully ", Toast.LENGTH_LONG);
+
+
         Amplify.Auth.fetchUserAttributes(
 
                 attributes -> {
 
                     ContextCompat.getMainExecutor(getApplicationContext()).execute(() -> {
-
-                        address.setText(attributes.get(1).getValue());
-
-                        if(attributes.get(2).getValue().equals("01/01/1950"))
+                        if (attributes.get(1).getValue().equals("null")) {
+                            address.setText("");
+                        } else {
+                            address.setText(attributes.get(1).getValue());
+                        }
+                        if (attributes.get(2).getValue().equals("01/01/1950"))
                             birthday.setText("");
                         else
                             birthday.setText(attributes.get(2).getValue().toString());
 
+
                         gender.setSelection(gen(attributes.get(4).getValue()));
-                        middleName.setText(attributes.get(7).getValue().toString());
-                        firstName.setText(attributes.get(9).getValue().toString());
 
-                        if(attributes.get(10).getValue().equals("+96270000000"))
+                        if (attributes.get(7).getValue().equals("null")) {
+                            middleName.setText("");
+                        } else {
+                            middleName.setText(attributes.get(7).getValue().toString());
+                        }
+
+                        if (attributes.get(9).getValue().equals("null")) {
+                            firstName.setText("");
+                        } else {
+                            firstName.setText(attributes.get(9).getValue().toString());
+                        }
+
+                        if (attributes.get(10).getValue().equals("+96270000000"))
                             phoneNumber.setText("");
-                        else
-                        phoneNumber.setText(attributes.get(10).getValue().toString());
-
-                        familyName.setText(attributes.get(11).getValue().toString());
-
+                        else if (attributes.get(10).getValue().equals("null")) {
+                            phoneNumber.setText("");
+                        } else {
+                            phoneNumber.setText(attributes.get(10).getValue().toString());
+                        }
+                        if (attributes.get(11).getValue().equals("null")) {
+                            familyName.setText("");
+                        } else {
+                            familyName.setText(attributes.get(11).getValue().toString());
+                        }
                         Log.i("AuthDemo", "User attributes = " + attributes.toString());
                     });
 
@@ -102,8 +126,8 @@ public class ProfileActivity extends AppCompatActivity {
                 attributes.add(new AuthUserAttribute(AuthUserAttributeKey.gender(), gender.getSelectedItem().toString()));
 
                 Amplify.Auth.updateUserAttributes(attributes,
-                        result -> Log.i("AuthDemo", "Updated user attribute = " + result.toString()),
-                        error -> Log.e("AuthDemo", "Failed to update user attribute.", error)
+                        result -> succeeded.show(),
+                        error -> failed.show()
                 );
                 finish();
             }
@@ -111,7 +135,7 @@ public class ProfileActivity extends AppCompatActivity {
 
 
         edittextOne = findViewById(R.id.birthdate_profile);
-        edittext =  findViewById(R.id.birthdate_profile);
+        edittext = findViewById(R.id.birthdate_profile);
         DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
 
             @Override
@@ -137,6 +161,7 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
     }
+
     private void updateLabel() {
         String myFormat = "MM/dd/yy"; //In which you need put here
         SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
@@ -145,8 +170,8 @@ public class ProfileActivity extends AppCompatActivity {
 
     }
 
-    public int gen(String str ){
-        if(str.equals("Male"))
+    public int gen(String str) {
+        if (str.equals("Male"))
             return 0;
 
         return 1;
