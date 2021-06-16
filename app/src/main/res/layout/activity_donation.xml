@@ -344,7 +344,7 @@
 
                         <TextView
                             style="@style/viewParent.headerText"
-                            android:text="Panties"
+                            android:text="Pants"
                             android:textColor="#61c9ef"/>
 
                         <androidx.constraintlayout.widget.ConstraintLayout

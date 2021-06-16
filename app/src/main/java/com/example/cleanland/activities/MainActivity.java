@@ -56,7 +56,6 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    AmplifyInitializer amplifyInitializer;
     UserAuthentication userAuthentication ;
 
 
@@ -67,7 +66,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         setTitle("Welcome To Clean Land");
        // getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.actionBarColor)));
-       this.amplifyInitializer= new AmplifyInitializer(getApplicationContext());
 
 
 
@@ -136,7 +134,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         RelativeLayout goToPointsSystemActivity =  MainActivity.this.findViewById(R.id.pointsSystem);
-        goToOffersActivity.setOnClickListener(new View.OnClickListener() {
+        goToPointsSystemActivity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, PointsActivity.class);
@@ -161,7 +159,7 @@ public class MainActivity extends AppCompatActivity {
         Amplify.Auth.fetchAuthSession(
                 result -> {
                     if (!result.isSignedIn()) {
-                       // Log.d("ActivityContextlog", "inside userauth check"+ ActivityContext);
+                        Log.d("---log---", "inside not sign in check"+result);
                         Intent loginIntent = new Intent(this, LoginActivity.class);
                         startActivity(loginIntent);
                     }
@@ -189,7 +187,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         RelativeLayout goToPointsSystemActivity =  MainActivity.this.findViewById(R.id.pointsSystem);
-        goToOffersActivity.setOnClickListener(new View.OnClickListener() {
+        goToPointsSystemActivity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, PointsActivity.class);
