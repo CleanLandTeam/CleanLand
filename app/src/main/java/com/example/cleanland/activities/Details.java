@@ -48,7 +48,7 @@ public class Details extends AppCompatActivity {
         Integer underWarePrice=Integer.valueOf(intent.getExtras().getString("underWare"));
         Integer suitesPrice=Integer.valueOf(intent.getExtras().getString("suites"));
         double total =(shirtPrice*.5)+(jacketPrice)+(pantiesPrice*.75)+(underWarePrice*.25)+(suitesPrice*2);
-        totalText.setText(total+"");
+        totalText.setText(total+"JD");
     }
 
 
