@@ -4,17 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#EEF8FA"
     tools:context=".activities.Details">
-
-
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#EEF8FA"
         android:orientation="vertical"
         android:padding="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         tools:context=".activities.userDonations">
 
 
@@ -56,21 +58,19 @@
 
 
             <ImageView
-                android:id="@+id/rowItemImageView"
+                android:id="@+id/rowItemImageViewDetail"
                 android:layout_width="72dp"
                 android:layout_height="62dp"
-                android:layout_marginStart="16dp"
                 android:layout_marginLeft="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
                 android:background="@drawable/laundry"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.0" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/textView3"
+                android:id="@+id/textViewPickDate"
                 android:layout_width="wrap_content"
                 android:layout_height="21dp"
                 android:layout_marginStart="20dp"
@@ -80,7 +80,7 @@
                 android:text="Picking Date:"
                 android:textSize="15sp"
                 android:textStyle="bold"
-                app:layout_constraintStart_toEndOf="@+id/rowItemImageView"
+                app:layout_constraintStart_toEndOf="@+id/rowItemImageViewDetail"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
@@ -100,11 +100,11 @@
                 android:layout_marginStart="4dp"
                 android:layout_marginLeft="4dp"
                 android:textStyle="bold"
-                app:layout_constraintBaseline_toBaselineOf="@+id/textView4"
-                app:layout_constraintStart_toEndOf="@+id/textView4" />
+                app:layout_constraintBaseline_toBaselineOf="@+id/textViewDeliveryDate"
+                app:layout_constraintStart_toEndOf="@+id/textViewDeliveryDate" />
 
             <TextView
-                android:id="@+id/textView4"
+                android:id="@+id/textViewDeliveryDate"
                 android:layout_width="wrap_content"
                 android:layout_height="25dp"
                 android:layout_marginStart="20dp"
@@ -114,8 +114,8 @@
                 android:text="Delivery Date"
                 android:textSize="15sp"
                 android:textStyle="bold"
-                app:layout_constraintStart_toEndOf="@+id/rowItemImageView"
-                app:layout_constraintTop_toBottomOf="@+id/textView3" />
+                app:layout_constraintStart_toEndOf="@+id/rowItemImageViewDetail"
+                app:layout_constraintTop_toBottomOf="@+id/textViewPickDate" />
 
             <TextView
                 android:id="@+id/pickUpDateDetails"
@@ -124,8 +124,8 @@
                 android:layout_marginStart="4dp"
                 android:layout_marginLeft="4dp"
                 android:textStyle="bold"
-                app:layout_constraintBaseline_toBaselineOf="@+id/textView3"
-                app:layout_constraintStart_toEndOf="@+id/textView3" />
+                app:layout_constraintBaseline_toBaselineOf="@+id/textViewPickDate"
+                app:layout_constraintStart_toEndOf="@+id/textViewPickDate" />
 
             <TextView
                 android:id="@+id/stateTextView"
@@ -136,36 +136,33 @@
                 android:layout_marginTop="8dp"
                 android:text="State:"
                 android:textStyle="bold"
-                app:layout_constraintStart_toEndOf="@+id/rowItemImageView"
-                app:layout_constraintTop_toBottomOf="@+id/textView4" />
+                app:layout_constraintStart_toEndOf="@+id/rowItemImageViewDetail"
+                app:layout_constraintTop_toBottomOf="@+id/textViewDeliveryDate" />
 
             <TextView
                 android:id="@+id/textView9"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="28dp"
-                android:layout_marginLeft="28dp"
-                android:layout_marginTop="12dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
                 android:text="Total Cost :"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/stateItemDetails"
-                app:layout_constraintTop_toBottomOf="@+id/quantityDileveryDetail"
-                app:layout_constraintVertical_bias="0.0" />
+                app:layout_constraintStart_toEndOf="@+id/rowItemImageViewDetail"
+                app:layout_constraintTop_toBottomOf="@+id/stateTextView"
+                app:layout_constraintVertical_bias="1.0" />
 
             <TextView
                 android:id="@+id/totalPriceDetails"
                 android:layout_width="50dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="4dp"
-                android:layout_marginLeft="4dp"
-                android:layout_marginTop="70dp"
-                android:layout_marginBottom="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/textView9"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintBaseline_toBaselineOf="@+id/textView9"
+                app:layout_constraintStart_toEndOf="@+id/textView9" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -458,7 +455,7 @@
             android:layout_marginTop="10dp"
             android:background="@drawable/others_donation_background"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.526"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/constraintLayout3Suites"
             tools:context=".fragments.MyOrderFragment">
@@ -520,7 +517,7 @@
                 app:layout_constraintStart_toEndOf="@+id/textView4Others" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
