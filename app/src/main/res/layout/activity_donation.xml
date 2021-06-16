@@ -2,31 +2,48 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    style="@style/parent.contentLayout"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".activities.DonationActivity">
+    tools:context=".activities.DonationActivity"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:paddingHorizontal="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <TextView
-                style="@style/viewParent.headerText"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="20dp"
-                android:text="Donate here"
-                android:textColor="#61c9ef"/>
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center">
+
+                <TextView
+                    style="@style/viewParent.headerText"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:gravity="center"
+                    android:text="Donate here"
+                    android:textColor="#61c9ef" />
+            </androidx.cardview.widget.CardView>
 
             <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 xmlns:app="http://schemas.android.com/apk/res-auto"
                 xmlns:tools="http://schemas.android.com/tools"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
                 tools:context=".activities.OrderPage">
 
                 <androidx.cardview.widget.CardView
@@ -51,8 +68,7 @@
                         <TextView
                             style="@style/viewParent.headerText"
                             android:text="T-shirt"
-                            android:textColor="#61c9ef"
-                            />
+                            android:textColor="#61c9ef" />
 
                         <androidx.constraintlayout.widget.ConstraintLayout
                             android:layout_width="match_parent"
@@ -67,15 +83,14 @@
                                 android:id="@+id/donation_tShirtMinus"
                                 android:layout_width="35dp"
                                 android:layout_height="35dp"
+                                android:background="@drawable/minus"
                                 android:onClick="decreaseInteger"
                                 app:backgroundTint="#FF0000	"
-                                android:background="@drawable/minus"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintEnd_toStartOf="@+id/donation_integer_number"
                                 app:layout_constraintHorizontal_bias="0.5"
                                 app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent"
-                                />
+                                app:layout_constraintTop_toTopOf="parent" />
 
                             <TextView
                                 android:id="@+id/donation_integer_number"
@@ -97,9 +112,9 @@
                                 android:layout_height="34dp"
                                 android:background="@drawable/plusicon"
                                 android:onClick="increaseInteger"
+                                app:backgroundTint="#61c9ef"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintEnd_toEndOf="parent"
-                                app:backgroundTint="#61c9ef"
                                 app:layout_constraintHorizontal_bias="0.5"
                                 app:layout_constraintStart_toEndOf="@+id/donation_integer_number"
                                 app:layout_constraintTop_toTopOf="parent"
@@ -151,7 +166,7 @@
                         <TextView
                             style="@style/viewParent.headerText"
                             android:text="Jackets"
-                            android:textColor="#61c9ef"/>
+                            android:textColor="#61c9ef" />
 
                         <androidx.constraintlayout.widget.ConstraintLayout
                             android:layout_width="match_parent"
@@ -219,7 +234,6 @@
 
 
             </RelativeLayout>
-
 
 
             <RelativeLayout
@@ -345,7 +359,7 @@
                         <TextView
                             style="@style/viewParent.headerText"
                             android:text="Pants"
-                            android:textColor="#61c9ef"/>
+                            android:textColor="#61c9ef" />
 
                         <androidx.constraintlayout.widget.ConstraintLayout
                             android:layout_width="match_parent"
@@ -413,6 +427,7 @@
 
 
             </RelativeLayout>
+
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -436,6 +451,7 @@
 
                 </androidx.cardview.widget.CardView>
             </RelativeLayout>
+
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -466,22 +482,19 @@
                             android:textColor="#61c9ef" />
 
                         <EditText
+                            android:id="@+id/donation_date"
                             android:layout_width="200dp"
                             android:layout_height="wrap_content"
-                            android:inputType="text"
-                            android:hint="Date"
-                            android:layout_alignParentTop="true"
-                            android:layout_alignParentLeft="true"
                             android:layout_alignParentStart="true"
-
-                            android:id="@+id/donation_date"
+                            android:layout_alignParentLeft="true"
+                            android:layout_alignParentTop="true"
                             android:clickable="false"
+
                             android:cursorVisible="false"
                             android:focusable="false"
                             android:focusableInTouchMode="false"
-                            />
-
-
+                            android:hint="Date"
+                            android:inputType="text" />
 
 
                     </LinearLayout>
@@ -499,6 +512,7 @@
 
 
             </RelativeLayout>
+
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -522,6 +536,7 @@
 
                 </androidx.cardview.widget.CardView>
             </RelativeLayout>
+
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -556,6 +571,7 @@
 
                             style="@style/viewParent.headerText"
                             android:textColor="#61c9ef" />
+
                         <Button
                             android:id="@+id/locationDonation"
                             style="@style/loginButton"
@@ -568,8 +584,6 @@
 
 
                     </LinearLayout>
-
-
 
 
                 </androidx.cardview.widget.CardView>
@@ -625,8 +639,6 @@
                     </LinearLayout>
 
 
-
-
                 </androidx.cardview.widget.CardView>
 
 
@@ -647,10 +659,9 @@
                 android:layout_gravity="right"
                 android:layout_marginTop="@dimen/loginViewsMargin"
                 android:minWidth="88dip"
-                android:text="Donate"/>
+                android:text="Donate" />
 
         </LinearLayout>
-
 
 
     </androidx.core.widget.NestedScrollView>
