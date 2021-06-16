@@ -3,6 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/parent.contentLayout"
+    android:id="@+id/up"
+
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".activities.DonationActivity">
 
@@ -553,8 +555,8 @@
 
                         <TextView
                             android:id="@+id/locationViewDonation"
-
                             style="@style/viewParent.headerText"
+                            android:textSize="17dp"
                             android:textColor="#61c9ef" />
                         <Button
                             android:id="@+id/locationDonation"

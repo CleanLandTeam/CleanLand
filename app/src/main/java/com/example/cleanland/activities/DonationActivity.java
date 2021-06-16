@@ -177,15 +177,15 @@ public class DonationActivity extends AppCompatActivity {
     }
 
     public Condition condition (String str){
-        if(str.equals("A"))
+        if(str.equals("Excellent"))
             return Condition.A;
 
-        if(str.equals("B"))
+        if(str.equals("Very Good"))
             return  Condition.B;
 
-        if(str.equals("C"))
+        if(str.equals("Good"))
             return Condition.C;
-        if(str.equals("D"))
+        if(str.equals("Fine"))
             return Condition.D;
 
         return null;

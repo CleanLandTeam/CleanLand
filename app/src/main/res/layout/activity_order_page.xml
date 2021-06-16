@@ -773,8 +773,9 @@
                         <TextView
                             android:id="@+id/locationView"
                             style="@style/viewParent.headerText"
-                            android:textSize="15dp"
-                            android:textColor="#0F1415" />
+                            android:textSize="17dp"
+                            android:textColor="#61c9ef"
+                            />
                         <Button
                             android:id="@+id/location"
                             style="@style/loginButton"

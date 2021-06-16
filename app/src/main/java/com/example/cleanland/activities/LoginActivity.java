@@ -64,8 +64,9 @@ public class LoginActivity extends AppCompatActivity {
                             editor.apply();
 
 
-                        finish();
+                            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
 
+                            startActivity(intent);
 
 
 //                            SharedPreferences spref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
