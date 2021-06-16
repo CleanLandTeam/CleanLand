@@ -9,7 +9,11 @@
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -20,6 +24,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
                 app:cardCornerRadius="15dp"
                 app:cardPreventCornerOverlap="true">
 
@@ -28,10 +33,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@drawable/home_gradient_maths"
-                    android:minHeight="100dp"
-                    android:padding="10dp"
                     android:gravity="center"
-                    >
+                    android:minHeight="100dp"
+                    android:padding="10dp">
 
                     <TextView
                         style="@style/viewParent.headerText"
@@ -48,16 +52,25 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                tools:context=".activities.OrderPage"
                 android:layout_marginTop="4dp"
-                android:background="@drawable/card_edge">
+                android:background="@drawable/card_edge"
+                tools:context=".activities.OrderPage">
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginLeft="0dp"
                     android:layout_marginTop="5dp"
-                    android:layout_marginRight="2dp"
-                    android:layout_marginBottom="5dp"
+                    android:layout_marginEnd="0dp"
+                    android:layout_marginRight="0dp"
+                    android:layout_marginBottom="0dp"
                     android:minHeight="120dp"
                     app:cardBackgroundColor="#CBE1F3"
                     app:cardCornerRadius="16dp"
@@ -79,8 +92,8 @@
                         android:src="@drawable/tee" />
 
                     <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_width="271dp"
+                        android:layout_height="93dp"
                         android:layout_gravity="center"
                         android:layout_marginLeft="50dp"
                         android:orientation="vertical">
@@ -148,17 +161,14 @@
                 </androidx.cardview.widget.CardView>
 
 
-
-
-
             </RelativeLayout>
 
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                tools:context=".activities.OrderPage"
-                android:background="@drawable/card_edge">
+                android:background="@drawable/card_edge"
+                tools:context=".activities.OrderPage">
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
@@ -254,18 +264,14 @@
                 </androidx.cardview.widget.CardView>
 
 
-
-
-
             </RelativeLayout>
-
 
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                tools:context=".activities.OrderPage"
-                android:background="@drawable/card_edge">
+                android:background="@drawable/card_edge"
+                tools:context=".activities.OrderPage">
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
@@ -361,18 +367,14 @@
                 </androidx.cardview.widget.CardView>
 
 
-
-
-
             </RelativeLayout>
-
 
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                tools:context=".activities.OrderPage"
-                android:background="@drawable/card_edge">
+                android:background="@drawable/card_edge"
+                tools:context=".activities.OrderPage">
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
@@ -470,8 +472,8 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                tools:context=".activities.OrderPage"
-                android:background="@drawable/card_edge">
+                android:background="@drawable/card_edge"
+                tools:context=".activities.OrderPage">
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
@@ -592,8 +594,8 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                tools:context=".activities.OrderPage"
-                android:background="@drawable/card_edge">
+                android:background="@drawable/card_edge"
+                tools:context=".activities.OrderPage">
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
@@ -620,21 +622,18 @@
                             android:textColor="#61c9ef" />
 
                         <EditText
+                            android:id="@+id/in_date"
                             android:layout_width="200dp"
                             android:layout_height="wrap_content"
-                            android:inputType="text"
-                            android:hint="Date"
-                            android:layout_alignParentTop="true"
-                            android:layout_alignParentLeft="true"
                             android:layout_alignParentStart="true"
-                            android:id="@+id/in_date"
+                            android:layout_alignParentLeft="true"
+                            android:layout_alignParentTop="true"
                             android:clickable="false"
                             android:cursorVisible="false"
                             android:focusable="false"
                             android:focusableInTouchMode="false"
-                            />
-
-
+                            android:hint="Date"
+                            android:inputType="text" />
 
 
                     </LinearLayout>
@@ -648,7 +647,7 @@
                     android:layout_height="60dp"
                     android:layout_centerVertical="true"
                     android:elevation="13dp"
-                    android:src="@drawable/calendar"/>
+                    android:src="@drawable/calendar" />
 
 
             </RelativeLayout>
@@ -656,8 +655,8 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                tools:context=".activities.OrderPage"
-                android:background="@drawable/card_edge">
+                android:background="@drawable/card_edge"
+                tools:context=".activities.OrderPage">
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
@@ -684,20 +683,18 @@
                             android:textColor="#61c9ef" />
 
                         <EditText
+                            android:id="@+id/in_delivery_date"
                             android:layout_width="200dp"
                             android:layout_height="wrap_content"
-                            android:inputType="text"
-                            android:hint="Date"
-                            android:layout_alignParentTop="true"
-                            android:layout_alignParentLeft="true"
                             android:layout_alignParentStart="true"
-                            android:id="@+id/in_delivery_date"
+                            android:layout_alignParentLeft="true"
+                            android:layout_alignParentTop="true"
                             android:clickable="false"
                             android:cursorVisible="false"
                             android:focusable="false"
                             android:focusableInTouchMode="false"
-                            />
-
+                            android:hint="Date"
+                            android:inputType="text" />
 
 
                     </LinearLayout>
@@ -743,8 +740,8 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                tools:context=".activities.OrderPage"
-                android:background="@drawable/card_edge">
+                android:background="@drawable/card_edge"
+                tools:context=".activities.OrderPage">
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
@@ -773,9 +770,11 @@
                         <TextView
                             android:id="@+id/locationView"
                             style="@style/viewParent.headerText"
-                            android:textSize="17dp"
-                            android:textColor="#61c9ef"
-                            />
+
+                            android:textColor="#0F1415"
+                            android:textSize="15dp" />
+
+
                         <Button
                             android:id="@+id/location"
                             style="@style/loginButton"
@@ -788,8 +787,6 @@
 
 
                     </LinearLayout>
-
-
 
 
                 </androidx.cardview.widget.CardView>
@@ -812,8 +809,7 @@
                 android:layout_gravity="right"
                 android:layout_marginTop="@dimen/loginViewsMargin"
                 android:minWidth="88dip"
-                android:text="Add"
-                />
+                android:text="Add" />
 
         </LinearLayout>
 
