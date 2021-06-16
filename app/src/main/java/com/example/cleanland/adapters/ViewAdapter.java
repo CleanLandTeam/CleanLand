@@ -6,21 +6,22 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.amplifyframework.datastore.generated.model.Orders;
 import com.example.cleanland.R;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 
 
-public class ViewAdapter extends RecyclerView.Adapter<ViewAdapter.ViewHolder> {
+public class ViewAdapter extends RecyclerView.Adapter<ViewAdapter.OrdersViewHolder> {
 
     private List<Orders> localDataSet;
     public OnInteractingWithTaskListener listener;
-
 
     public ViewAdapter(List<Orders> ordersTables, OnInteractingWithTaskListener listener) {
         localDataSet = ordersTables;
@@ -28,28 +29,34 @@ public class ViewAdapter extends RecyclerView.Adapter<ViewAdapter.ViewHolder> {
     }
 
 
-    public static class ViewHolder extends RecyclerView.ViewHolder {
+    public static class OrdersViewHolder extends RecyclerView.ViewHolder {
         public Orders ordersTable;
-        TextView allItem ;
-        TextView pickUpDate ;
-        TextView status;
+        public View itemView;
 
 
-
-
-        public ViewHolder(View view) {
+        public OrdersViewHolder(@NonNull View view) {
             super(view);
-            // Define click listener for the ViewHolder's View
-
-            allItem = (TextView) view.findViewById(R.id.quantityItemFragment);
-            pickUpDate = (TextView) view.findViewById(R.id.pickUpDateFragment);
-            status = (TextView) view.findViewById(R.id.stateItemFragment);
+            this.itemView = view;
 
         }
+    }
 
-        public TextView getTextView() {
-            return allItem;
-        }
+    @NonNull
+    @Override
+    public OrdersViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int viewType) {
+        View view = LayoutInflater.from(viewGroup.getContext())
+                .inflate(R.layout.fragment_my_order, viewGroup, false);
+
+        final OrdersViewHolder viewHolder = new OrdersViewHolder(view);
+
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                System.out.println(" this is the task title on click " + viewHolder.ordersTable);
+                listener.taskListener(viewHolder.ordersTable);
+            }
+        });
+        return  viewHolder;
     }
     public void CustomAdapter(List<Orders> dataSet ) {
         localDataSet = dataSet;
@@ -58,22 +65,9 @@ public class ViewAdapter extends RecyclerView.Adapter<ViewAdapter.ViewHolder> {
         public void taskListener(Orders ordersTable);
     }
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
-        View view = LayoutInflater.from(viewGroup.getContext())
-                .inflate(R.layout.fragment_my_order, viewGroup, false);
+    public void onBindViewHolder(@NonNull ViewAdapter.OrdersViewHolder viewHolder, final int position) {
+        viewHolder.ordersTable = localDataSet.get(position);
 
-        final ViewHolder viewHolder = new ViewHolder(view);
-
-        view.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                listener.taskListener(viewHolder.ordersTable);
-            }
-        });
-        return new ViewHolder(view);
-    }
-    @Override
-    public void onBindViewHolder(ViewHolder viewHolder, final int position) {
         Integer sum=0;
          // for OrdersName
         if(localDataSet.get(position).getShirtsQuantity()!=null)
@@ -94,10 +88,13 @@ public class ViewAdapter extends RecyclerView.Adapter<ViewAdapter.ViewHolder> {
 
         if(localDataSet.get(position).getOthersQuantity()!=null)
             sum+=localDataSet.get(position).getOthersQuantity();
+        TextView allItem =  viewHolder.itemView.findViewById(R.id.quantityItemFragment);
+        TextView pickUpDate =viewHolder.itemView.findViewById(R.id.pickUpDateFragment);
+        TextView status =viewHolder.itemView.findViewById(R.id.stateItemFragment);
 
-        viewHolder.allItem.setText(sum+"");
-        viewHolder.pickUpDate.setText(localDataSet.get(position).getPickupDate());
-        viewHolder.status.setText(localDataSet.get(position).getState().toString());
+        allItem.setText(sum+"");
+       pickUpDate.setText(localDataSet.get(position).getPickupDate());
+       status.setText(localDataSet.get(position).getState().toString());
     }
 
     @Override
