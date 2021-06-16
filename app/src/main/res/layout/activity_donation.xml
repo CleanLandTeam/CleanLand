@@ -262,7 +262,7 @@
 
                         <TextView
                             style="@style/viewParent.headerText"
-                            android:text="Suit"
+                            android:text="Suite"
                             android:textColor="#61c9ef" />
 
                         <androidx.constraintlayout.widget.ConstraintLayout
