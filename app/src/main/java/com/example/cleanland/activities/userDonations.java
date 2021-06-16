@@ -1,24 +1,16 @@
 package com.example.cleanland.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.widget.TextView;
 
-import com.amplifyframework.AmplifyException;
 import com.amplifyframework.core.Amplify;
-import com.amplifyframework.datastore.AWSDataStorePlugin;
-import com.amplifyframework.datastore.generated.model.Condition;
 import com.amplifyframework.datastore.generated.model.Donate;
-import com.amplifyframework.datastore.generated.model.Orders;
 import com.example.cleanland.R;
-import com.example.cleanland.adapters.ViewAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -71,11 +63,13 @@ public class userDonations extends AppCompatActivity {
 
 
                         }
+
                         TextView shirtsQuantity=findViewById(R.id.shirtsQuantityDonations);
                         TextView jacketsQuantity=findViewById(R.id.jacketQuantityDonations);
                         TextView pantsQuantity=findViewById(R.id.pantiesQuantityDonations);
                         TextView suitesQuantity=findViewById(R.id.suitesQuantityDonations);
                         TextView totalDonationsPoint=findViewById(R.id.totalDonationsPoint);
+
                         shirtsQuantity.setText(shirt+"");
                         jacketsQuantity.setText(jacket+"");
                         pantsQuantity.setText(panties+"");

@@ -1,4 +1,3 @@
-
 package com.example.cleanland.activities;
 
 import android.app.DatePickerDialog;
@@ -45,7 +44,7 @@ public class DonationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_donation);
 
-            setTitle("Place a Donation");
+        setTitle("Place a Donation");
 
 
         edittext = (EditText) findViewById(R.id.donation_date);
@@ -134,27 +133,27 @@ public class DonationActivity extends AppCompatActivity {
 
                 Log.d("email is", "onClick:+ " +UserEmail);
 
-                    if (checkOne&&checkTwo&&checkThree) {
+                if (checkOne&&checkTwo&&checkThree) {
 
-                        Donate item = Donate.builder()
-                                .pickupDate(pickUpDate.getText().toString())
-                                .longitude(getLongitude()).latitude(getLatitude())
-                                .shirtsQuantity(Integer.valueOf(shirtsQuantity.getText().toString()))
-                                .jacketsQuantity(Integer.valueOf(jacketsQuantity.getText().toString()))
-                                .pantiesQuantity(Integer.valueOf(pantiesQuantity.getText().toString()))
-                                .suitesQuantity(Integer.valueOf(suitsQuantity.getText().toString()))
-                                .condition(condition(spinner.getSelectedItem().toString()))
-                                .userId(UserEmail)
-                                .build();
-                        Amplify.DataStore.save(item,
-                                success -> Log.i("Tutorial", "Saved item: " + success.item().getPickupDate()),
-                                error -> Log.e("Tutorial", "Could not save item to DataStore", error)
-                        );
-                        Log.i("Tutorial", "Initialized Amplify");
+                    Donate item = Donate.builder()
+                            .pickupDate(pickUpDate.getText().toString())
+                            .longitude(getLongitude()).latitude(getLatitude())
+                            .shirtsQuantity(Integer.valueOf(shirtsQuantity.getText().toString()))
+                            .jacketsQuantity(Integer.valueOf(jacketsQuantity.getText().toString()))
+                            .pantiesQuantity(Integer.valueOf(pantiesQuantity.getText().toString()))
+                            .suitesQuantity(Integer.valueOf(suitsQuantity.getText().toString()))
+                            .condition(condition(spinner.getSelectedItem().toString()))
+                            .userId(UserEmail)
+                            .build();
+                    Amplify.DataStore.save(item,
+                            success -> Log.i("Tutorial", "Saved item: " + success.item().getPickupDate()),
+                            error -> Log.e("Tutorial", "Could not save item to DataStore", error)
+                    );
+                    Log.i("Tutorial", "Initialized Amplify");
 
 
-                        startActivity(intent);
-                    }
+                    startActivity(intent);
+                }
 
 
 
@@ -177,7 +176,7 @@ public class DonationActivity extends AppCompatActivity {
 
     }
 
-public Condition condition (String str){
+    public Condition condition (String str){
         if(str.equals("A"))
             return Condition.A;
 
@@ -191,7 +190,7 @@ public Condition condition (String str){
 
         return null;
 
-}
+    }
     private void updateLabel() {
         String myFormat = "dd/MM/yyyy"; //In which you need put here
         SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
@@ -222,7 +221,7 @@ public Condition condition (String str){
 
     }public void decreaseIntegerOne(View view) {
         if(mintegerOne>0)
-        mintegerOne = mintegerOne - 1;
+            mintegerOne = mintegerOne - 1;
         displayOne(mintegerOne);
     }public void increaseIntegerThree(View view) {
         mintegerThree = mintegerThree + 1;
@@ -230,7 +229,7 @@ public Condition condition (String str){
 
     }public void decreaseIntegerThree(View view) {
         if(mintegerThree>0)
-        mintegerThree = mintegerThree - 1;
+            mintegerThree = mintegerThree - 1;
         displayThree(mintegerThree);
     }public void increaseIntegerFour(View view) {
         mintegerFour = mintegerFour + 1;
@@ -238,7 +237,7 @@ public Condition condition (String str){
 
     }public void decreaseIntegerFour(View view) {
         if(mintegerFour>0)
-        mintegerFour = mintegerFour - 1;
+            mintegerFour = mintegerFour - 1;
         displayFour(mintegerFour);
 
     }
@@ -283,4 +282,3 @@ public Condition condition (String str){
         this.latitude = latitude;
     }
 }
-

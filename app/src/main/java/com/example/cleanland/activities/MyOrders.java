@@ -32,6 +32,8 @@ import java.util.List;
 
 public class MyOrders extends AppCompatActivity implements ViewAdapter.OnInteractingWithTaskListener {
     public  List<com.amplifyframework.datastore.generated.model.Orders> ordersTables = new ArrayList<>();
+    List<Orders> ordersToView = new ArrayList<>();
+
     RecyclerView recyclerView;
     ViewAdapter orderAdpater;
     @Override
@@ -42,7 +44,6 @@ public class MyOrders extends AppCompatActivity implements ViewAdapter.OnInterac
 
     }
     private void handleRViewShow(){
-        List<Orders> ordersToView = new ArrayList<>();
         try {
             Amplify.DataStore.query(Orders.class,
                     AllOrders -> {
@@ -91,9 +92,18 @@ public class MyOrders extends AppCompatActivity implements ViewAdapter.OnInterac
 
     }
 
+
     @Override
     public void taskListener(Orders ordersTable) {
-        Intent intent = new Intent(MyOrders.this, OrderPage.class);
+        Intent intent = new Intent(MyOrders.this, Details.class);
+        intent.putExtra("shirt",  ordersTable.getShirtsQuantity()+"");
+        intent.putExtra("jacket", ordersTable.getJacketsQuantity()+"");
+        intent.putExtra("panties", ordersTable.getPantiesQuantity()+"");
+        intent.putExtra("suites", ordersTable.getSuitesQuantity()+"");
+        intent.putExtra("underWare", ordersTable.getUnderWaresQuantity()+"");
+        intent.putExtra("pickupDate", ordersTable.getPickupDate()+"");
+        intent.putExtra("DeliveryDate", ordersTable.getDeliveryDate()+"");
+        intent.putExtra("state", ordersTable.getState()+"");
         this.startActivity(intent);
 
     }
