@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.Spinner;
 
 import com.amazonaws.mobile.client.AWSMobileClient;
 import com.amazonaws.mobileconnectors.cognitoauth.Auth;
@@ -21,6 +22,7 @@ import com.amplifyframework.auth.AuthUserAttributeKey;
 import com.amplifyframework.auth.options.AuthSignUpOptions;
 import com.amplifyframework.core.Amplify;
 import com.example.cleanland.R;
+import com.google.android.material.textfield.TextInputLayout;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -30,6 +32,7 @@ import java.util.Locale;
 
 public class ProfileActivity extends AppCompatActivity {
     EditText edittext;
+    EditText edittextOne;
 
     final Calendar myCalendar = Calendar.getInstance();
 
@@ -51,7 +54,7 @@ public class ProfileActivity extends AppCompatActivity {
         EditText phoneNumber = findViewById(R.id.phone_number_profile);
         EditText birthday = findViewById(R.id.birthdate_profile);
         EditText address = findViewById(R.id.address_profile);
-        EditText gender = findViewById(R.id.gender_profile);
+        Spinner gender = findViewById(R.id.gender_profile);
         Amplify.Auth.fetchUserAttributes(
 
                 attributes -> {
@@ -65,7 +68,7 @@ public class ProfileActivity extends AppCompatActivity {
                         else
                             birthday.setText(attributes.get(2).getValue().toString());
 
-                        gender.setText(attributes.get(4).getValue().toString());
+                        gender.setSelection(gen(attributes.get(4).getValue()));
                         middleName.setText(attributes.get(7).getValue().toString());
                         firstName.setText(attributes.get(9).getValue().toString());
 
@@ -96,7 +99,7 @@ public class ProfileActivity extends AppCompatActivity {
                 attributes.add(new AuthUserAttribute(AuthUserAttributeKey.phoneNumber(), phoneNumber.getText().toString()));
                 attributes.add(new AuthUserAttribute(AuthUserAttributeKey.birthdate(), birthday.getText().toString()));
                 attributes.add(new AuthUserAttribute(AuthUserAttributeKey.address(), address.getText().toString()));
-                attributes.add(new AuthUserAttribute(AuthUserAttributeKey.gender(), gender.getText().toString()));
+                attributes.add(new AuthUserAttribute(AuthUserAttributeKey.gender(), gender.getSelectedItem().toString()));
 
                 Amplify.Auth.updateUserAttributes(attributes,
                         result -> Log.i("AuthDemo", "Updated user attribute = " + result.toString()),
@@ -107,8 +110,8 @@ public class ProfileActivity extends AppCompatActivity {
         });
 
 
-
-        edittext = (EditText) findViewById(R.id.birthdate_profile);
+        edittextOne = findViewById(R.id.birthdate_profile);
+        edittext =  findViewById(R.id.birthdate_profile);
         DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
 
             @Override
@@ -139,6 +142,13 @@ public class ProfileActivity extends AppCompatActivity {
         SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
 
         edittext.setText(sdf.format(myCalendar.getTime()));
+
     }
 
+    public int gen(String str ){
+        if(str.equals("Male"))
+            return 0;
+
+        return 1;
+    }
 }
