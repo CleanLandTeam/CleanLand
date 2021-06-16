@@ -40,15 +40,19 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
         android:layout_marginTop="10dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
         android:layout_weight="1"
         android:fontFamily="serif"
         android:gravity="center"
         android:text="You will gain points as the Follow"
         android:textColor="@color/black"
-        android:textSize="27dp"
+        android:textSize="22dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -117,7 +121,7 @@
                 android:gravity="center"
                 android:text="Shirt"
                 android:textColor="@color/black"
-                android:textSize="19dp"
+                android:textSize="17dp"
                 android:textStyle="bold" />
 
             <TextView
@@ -127,7 +131,7 @@
                 android:gravity="center"
                 android:text="10 points"
                 android:textColor="@color/black"
-                android:textSize="19dp" />
+                android:textSize="17dp" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -151,7 +155,7 @@
                 android:gravity="center"
                 android:text="Jacket"
                 android:textColor="@color/black"
-                android:textSize="19dp"
+                android:textSize="17dp"
                 android:textStyle="bold" />
 
             <TextView
@@ -161,7 +165,7 @@
                 android:gravity="center"
                 android:text="15 points"
                 android:textColor="@color/black"
-                android:textSize="19dp" />
+                android:textSize="17dp" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -170,7 +174,7 @@
                 android:gravity="center"
                 android:text="20 points"
                 android:textColor="@color/black"
-                android:textSize="19dp" />
+                android:textSize="17dp" />
         </TableRow>
 
         <TableRow
@@ -184,7 +188,7 @@
                 android:gravity="center"
                 android:text="Suite"
                 android:textColor="@color/black"
-                android:textSize="19dp"
+                android:textSize="17dp"
                 android:textStyle="bold" />
 
             <TextView
@@ -194,7 +198,7 @@
                 android:gravity="center"
                 android:text="20 points"
                 android:textColor="@color/black"
-                android:textSize="19dp" />
+                android:textSize="17dp" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -203,7 +207,7 @@
                 android:gravity="center"
                 android:text="25 points"
                 android:textColor="@color/black"
-                android:textSize="19dp" />
+                android:textSize="17dp" />
         </TableRow>
 
         <TableRow
@@ -218,7 +222,7 @@
                 android:gravity="center"
                 android:text="Pants"
                 android:textColor="@color/black"
-                android:textSize="19dp"
+                android:textSize="17dp"
                 android:textStyle="bold" />
 
             <TextView
@@ -228,7 +232,7 @@
                 android:gravity="center"
                 android:text="10 points"
                 android:textColor="@color/black"
-                android:textSize="19dp" />
+                android:textSize="17dp" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -237,7 +241,7 @@
                 android:gravity="center"
                 android:text="15 points"
                 android:textColor="@color/black"
-                android:textSize="19dp" />
+                android:textSize="17dp" />
         </TableRow>
 
         <TableRow
@@ -251,7 +255,7 @@
                 android:gravity="center"
                 android:text="Underwear"
                 android:textColor="@color/black"
-                android:textSize="19dp"
+                android:textSize="17dp"
                 android:textStyle="bold" />
 
             <TextView
@@ -261,7 +265,7 @@
                 android:gravity="center"
                 android:text="5 points"
                 android:textColor="@color/black"
-                android:textSize="19dp" />
+                android:textSize="17dp" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -270,7 +274,7 @@
                 android:gravity="center"
                 android:text="---"
                 android:textColor="@color/black"
-                android:textSize="19dp" />
+                android:textSize="17dp" />
         </TableRow>
 
     </TableLayout>
@@ -279,13 +283,17 @@
         android:id="@+id/textView5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
         android:background="@drawable/home_gradient_maths"
         android:fontFamily="serif"
         android:gravity="center"
         android:text="Current Balance"
         android:textColor="@color/white"
-        android:textSize="27dp"
+        android:textSize="22dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -299,15 +307,14 @@
         android:layout_marginHorizontal="10dp"
         android:layout_marginStart="10dp"
         android:layout_marginLeft="10dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="10dp"
         android:layout_marginRight="10dp"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5"
-        app:layout_constraintVertical_bias="0.108">
+        app:layout_constraintTop_toBottomOf="@+id/textView5">
 
         <TextView
             android:layout_width="wrap_content"
@@ -323,7 +330,7 @@
 
         <TextView
             android:id="@+id/ordersPoint"
-            android:layout_width="wrap_content"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:background="@drawable/single_point_counter_background"
@@ -342,13 +349,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="24dp"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
-        app:layout_constraintVertical_bias="0.131">
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
 
         <TextView
             android:layout_width="wrap_content"
@@ -364,40 +370,43 @@
 
         <TextView
             android:id="@+id/donationPoint"
-            android:layout_width="wrap_content"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:paddingHorizontal="30dp"
             android:background="@drawable/single_point_counter_background"
             android:gravity="center"
+            android:paddingHorizontal="30dp"
             android:text="0"
-            android:textSize="20dp"
             android:textColor="#ffff"
+            android:textSize="20dp"
             android:textStyle="bold"
             tools:layout_editor_absoluteX="83dp"
             tools:layout_editor_absoluteY="516dp" />
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="10dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         android:background="@drawable/points_background"
         android:orientation="horizontal"
+        android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:layout_weight="1"
+            android:layout_weight="0.5"
             android:text="Total points"
+            android:gravity="center"
             android:textColor="#FFFFFF"
-            android:textSize="30dp"
+            android:textSize="22dp"
             android:textStyle="bold"
             tools:layout_editor_absoluteX="83dp"
             tools:layout_editor_absoluteY="516dp" />
@@ -406,11 +415,11 @@
             android:id="@+id/ordersAndDonationsPoint"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_weight="0.5"
             android:gravity="center"
             android:text="0"
             android:textColor="#FFFFFF"
-            android:textSize="30sp"
+            android:textSize="22sp"
             android:textStyle="bold"
             tools:layout_editor_absoluteX="83dp"
             tools:layout_editor_absoluteY="516dp" />

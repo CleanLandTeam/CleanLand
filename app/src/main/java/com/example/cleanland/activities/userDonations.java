@@ -1,3 +1,4 @@
+
 package com.example.cleanland.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -33,35 +34,49 @@ public class userDonations extends AppCompatActivity {
                         Integer jacket=0;
                         Integer panties=0;
                         Integer suites=0;
+                        Integer total=0;
                         while (donates.hasNext()) {
                             Donate donate = donates.next();
                             donateToView.add(donate);
 
-                            if(donate.getShirtsQuantity()!=0)
-                                shirt+=donate.getShirtsQuantity();
+                            if(donate.getShirtsQuantity()!=0) {
+                                shirt += donate.getShirtsQuantity();
+                                total+=donate.getShirtsQuantity();
+                            }
 
-                            if(donate.getJacketsQuantity()!=0)
+                            if(donate.getJacketsQuantity()!=0){
                                 jacket+=donate.getJacketsQuantity();
+                                total+=donate.getJacketsQuantity();
+                            }
 
-                            if(donate.getPantiesQuantity()!=0)
-                                panties+=donate.getPantiesQuantity();
+                            if(donate.getPantiesQuantity()!=0) {
+                                panties += donate.getPantiesQuantity();
+                                total+=donate.getPantiesQuantity();
+                            }
 
-                            if(donate.getSuitesQuantity()!=0)
-                                suites+=donate.getSuitesQuantity();
+                            if(donate.getSuitesQuantity()!=0) {
+                                suites += donate.getSuitesQuantity();
+                                total+=donate.getSuitesQuantity();
+                            }
 
                             if(donate.getPickupDate()!=null)
                                 pickUp=donate.getPickupDate();
 
 
                         }
+
                         TextView shirtsQuantity=findViewById(R.id.shirtsQuantityDonations);
                         TextView jacketsQuantity=findViewById(R.id.jacketQuantityDonations);
                         TextView pantsQuantity=findViewById(R.id.pantiesQuantityDonations);
                         TextView suitesQuantity=findViewById(R.id.suitesQuantityDonations);
+                        TextView totalDonationsPoint=findViewById(R.id.totalDonationsPoint);
+
                         shirtsQuantity.setText(shirt+"");
                         jacketsQuantity.setText(jacket+"");
                         pantsQuantity.setText(panties+"");
                         suitesQuantity.setText(suites+"");
+                        if(total!=0)
+                        totalDonationsPoint.setText(Integer.toString(total));
                     },
                     failure -> Log.e("Tutorial", "Could not query DataStore", failure)
 
@@ -99,4 +114,5 @@ public class userDonations extends AppCompatActivity {
         return true;
 
     }
+
 }

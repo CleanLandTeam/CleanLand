@@ -40,8 +40,7 @@ public class PointsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_points);
-        setTitle("Points System");
-//        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.actionBarColor)));
+        setTitle("Point System");
 
         ordersPoint = (TextView) findViewById(R.id.ordersPoint);
         donationsPoint = (TextView) findViewById(R.id.donationPoint);
@@ -69,7 +68,7 @@ public class PointsActivity extends AppCompatActivity {
 
                     }
                     summationOfAllOrderPoints = ordersShirtsPointsCounter* 10 + ordersJacketsPointsCounter * 15 + ordersPantsPointsCounter *10 + ordersSuitesPointsCounter*20 + ordersUnderwearPointsCounter* 5;
-                    ordersPoint.setText(summationOfAllOrderPoints);
+                    ordersPoint.setText(Integer.toString(summationOfAllOrderPoints));
                 },
                 failure -> Log.e("Tutorial", "Could not query DataStore", failure)
         );
@@ -92,8 +91,10 @@ public class PointsActivity extends AppCompatActivity {
 
                     }
                     summationOfAllDonationPoints = donationShirtsPointsCounter* 15 +donationJacketsPointsCounter * 20 + donationPantsPointsCounter* 15 +donationSuitesPointsCounter* 25;
-                    donationsPoint.setText(summationOfAllDonationPoints);
-                    ordersAndDonationsPoint.setText(summationOfAllOrderPoints+summationOfAllDonationPoints);
+
+
+                    donationsPoint.setText( Integer.toString(summationOfAllDonationPoints));
+                    ordersAndDonationsPoint.setText(Integer.toString(summationOfAllOrderPoints+summationOfAllDonationPoints));
                 },
                 failure -> Log.e("Tutorial", "Could not query DataStore", failure)
         );

@@ -13,7 +13,6 @@ public class OffersActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.offers_layout);
         setTitle("Offers");
-         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.actionBarColor)));
 
     }
 }
