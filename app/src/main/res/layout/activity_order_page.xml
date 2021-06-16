@@ -13,7 +13,9 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="#F4F4F4">
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -23,29 +25,19 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                app:cardCornerRadius="15dp"
-                app:cardPreventCornerOverlap="true">
+                android:layout_gravity="center"
+                app:cardCornerRadius="6dp">
 
-                <RelativeLayout
-                    android:id="@+id/orders"
+                <TextView
+                    style="@style/viewParent.headerText"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/home_gradient_maths"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
                     android:gravity="center"
-                    android:minHeight="100dp"
-                    android:padding="10dp">
-
-                    <TextView
-                        style="@style/viewParent.headerText"
-                        android:layout_marginTop="20dp"
-                        android:layout_marginBottom="20dp"
-                        android:text="Add your order"
-                        android:textColor="#FAFAFA" />
-
-
-                </RelativeLayout>
+                    android:text="Place Your Order"
+                    android:textColor="#61c9ef" />
             </androidx.cardview.widget.CardView>
 
 
@@ -53,7 +45,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
-                android:background="@drawable/card_edge"
                 tools:context=".activities.OrderPage">
 
                 <androidx.cardview.widget.CardView
@@ -65,6 +56,7 @@
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentRight="true"
                     android:layout_alignParentBottom="true"
+                    android:layout_margin="5dp"
                     android:layout_marginStart="0dp"
                     android:layout_marginLeft="0dp"
                     android:layout_marginTop="5dp"
@@ -72,13 +64,13 @@
                     android:layout_marginRight="0dp"
                     android:layout_marginBottom="0dp"
                     android:minHeight="120dp"
-                    app:cardBackgroundColor="#CBE1F3"
                     app:cardCornerRadius="16dp"
                     app:cardElevation="2dp">
 
                     <TextView
                         style="@style/viewParent.headerText"
-                        android:layout_marginLeft="10dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="5dp"
                         android:text="T-shirt"
                         android:textColor="#000000" />
 
@@ -86,13 +78,13 @@
                         android:layout_width="70dp"
                         android:layout_height="70dp"
                         android:layout_centerVertical="true"
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginTop="35dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="40dp"
                         android:elevation="13dp"
                         android:src="@drawable/tee" />
 
                     <LinearLayout
-                        android:layout_width="271dp"
+                        android:layout_width="match_parent"
                         android:layout_height="93dp"
                         android:layout_gravity="center"
                         android:layout_marginLeft="50dp"
@@ -167,23 +159,23 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/card_edge"
                 tools:context=".activities.OrderPage">
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
                     android:layout_marginTop="5dp"
                     android:layout_marginRight="2dp"
                     android:layout_marginBottom="5dp"
                     android:minHeight="120dp"
-                    app:cardBackgroundColor="#CBE1F3"
                     app:cardCornerRadius="16dp"
                     app:cardElevation="2dp">
 
                     <TextView
                         style="@style/viewParent.headerText"
-                        android:layout_marginLeft="10dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="5dp"
                         android:text="Jackets"
                         android:textColor="#000000" />
 
@@ -191,8 +183,8 @@
                         android:layout_width="70dp"
                         android:layout_height="70dp"
                         android:layout_centerVertical="true"
-                        android:layout_marginLeft="25dp"
-                        android:layout_marginTop="35dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="40dp"
                         android:elevation="13dp"
                         android:src="@drawable/jacket1" />
 
@@ -270,23 +262,23 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/card_edge"
                 tools:context=".activities.OrderPage">
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
                     android:layout_marginTop="5dp"
                     android:layout_marginRight="2dp"
                     android:layout_marginBottom="5dp"
                     android:minHeight="120dp"
-                    app:cardBackgroundColor="#CBE1F3"
                     app:cardCornerRadius="16dp"
                     app:cardElevation="2dp">
 
                     <TextView
                         style="@style/viewParent.headerText"
                         android:layout_marginLeft="5dp"
+                        android:layout_marginTop="5dp"
                         android:text="Underwear"
                         android:textColor="#000000" />
 
@@ -294,8 +286,8 @@
                         android:layout_width="70dp"
                         android:layout_height="70dp"
                         android:layout_centerVertical="true"
-                        android:layout_marginLeft="25dp"
-                        android:layout_marginTop="35dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="40dp"
                         android:elevation="13dp"
                         android:src="@drawable/underwear1" />
 
@@ -373,33 +365,31 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/card_edge"
                 tools:context=".activities.OrderPage">
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
                     android:layout_marginTop="5dp"
                     android:layout_marginRight="2dp"
                     android:layout_marginBottom="5dp"
                     android:minHeight="120dp"
-                    app:cardBackgroundColor="#CBE1F3"
                     app:cardCornerRadius="16dp"
                     app:cardElevation="2dp">
 
                     <TextView
                         style="@style/viewParent.headerText"
-                        android:layout_marginLeft="29dp"
-                        android:text="Suit"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="5dp"
+                        android:text="Suite"
                         android:textColor="#000000" />
 
                     <ImageView
                         android:layout_width="70dp"
                         android:layout_height="70dp"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="25dp"
-                        android:layout_marginTop="35dp"
-                        android:elevation="13dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="40dp"
                         android:src="@drawable/suitbw" />
 
                     <LinearLayout
@@ -472,23 +462,24 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/card_edge"
                 tools:context=".activities.OrderPage">
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
                     android:layout_marginTop="5dp"
                     android:layout_marginRight="2dp"
                     android:layout_marginBottom="5dp"
                     android:minHeight="120dp"
-                    app:cardBackgroundColor="#CBE1F3"
                     app:cardCornerRadius="16dp"
-                    app:cardElevation="2dp">
+                    app:cardElevation="2dp"
+                    android:padding="15dp">
 
                     <TextView
                         style="@style/viewParent.headerText"
-                        android:layout_marginLeft="10dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="5dp"
                         android:text="Pants"
                         android:textColor="#000000" />
 
@@ -496,8 +487,8 @@
                         android:layout_width="70dp"
                         android:layout_height="70dp"
                         android:layout_centerVertical="true"
-                        android:layout_marginLeft="25dp"
-                        android:layout_marginTop="35dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="40dp"
                         android:elevation="13dp"
                         android:src="@drawable/trousers" />
 
@@ -570,31 +561,34 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                tools:context=".activities.OrderPage">
+                tools:context=".activities.OrderPage"
+                android:padding="6dp">
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="5dp"
-                    app:cardBackgroundColor="#F86358"
-                    app:cardCornerRadius="16dp"
-                    app:cardElevation="2dp">
+
+
+                    app:cardCornerRadius="10dp">
 
                     <TextView
                         style="@style/viewParent.headerText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="Pick The Suitable Date For You"
-                        android:textColor="#000000"
-                        android:textSize="25sp" />
-
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:gravity="center"
+                        android:text="Pick Dates" />
                 </androidx.cardview.widget.CardView>
             </RelativeLayout>
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/card_edge"
+                android:layout_margin="5dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginLeft="5dp"
                 tools:context=".activities.OrderPage">
 
                 <androidx.cardview.widget.CardView
@@ -618,16 +612,16 @@
 
                         <TextView
                             style="@style/viewParent.headerText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
                             android:text="Pickup date"
-                            android:textColor="#61c9ef" />
+                            android:textColor="#61c9ef"
+                            android:textSize="24sp" />
 
                         <EditText
                             android:id="@+id/in_date"
                             android:layout_width="200dp"
                             android:layout_height="wrap_content"
-                            android:layout_alignParentStart="true"
-                            android:layout_alignParentLeft="true"
-                            android:layout_alignParentTop="true"
                             android:clickable="false"
                             android:cursorVisible="false"
                             android:focusable="false"
@@ -655,7 +649,7 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/card_edge"
+                android:layout_margin="5dp"
                 tools:context=".activities.OrderPage">
 
                 <androidx.cardview.widget.CardView
@@ -679,16 +673,17 @@
 
                         <TextView
                             style="@style/viewParent.headerText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
                             android:text="Delivery date"
-                            android:textColor="#61c9ef" />
+                            android:textColor="#61c9ef"
+                            android:textSize="24sp" />
 
                         <EditText
                             android:id="@+id/in_delivery_date"
                             android:layout_width="200dp"
                             android:layout_height="wrap_content"
-                            android:layout_alignParentStart="true"
-                            android:layout_alignParentLeft="true"
-                            android:layout_alignParentTop="true"
+
                             android:clickable="false"
                             android:cursorVisible="false"
                             android:focusable="false"
@@ -716,31 +711,34 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                tools:context=".activities.OrderPage">
+                tools:context=".activities.OrderPage"
+                android:padding="10dp"
+                android:elevation="10dp">
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="5dp"
-                    app:cardBackgroundColor="#F86358"
-                    app:cardCornerRadius="16dp"
-                    app:cardElevation="2dp">
+                    android:layout_gravity="center"
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="2dp"
+                    >
 
                     <TextView
                         style="@style/viewParent.headerText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="Pick The Delivery Location"
-                        android:textColor="#000000"
-                        android:textSize="25sp" />
-
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:gravity="center"
+                        android:text="Pick a Location" />
                 </androidx.cardview.widget.CardView>
             </RelativeLayout>
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/card_edge"
+                android:layout_margin="5dp"
                 tools:context=".activities.OrderPage">
 
                 <androidx.cardview.widget.CardView
@@ -764,15 +762,18 @@
 
                         <TextView
                             style="@style/viewParent.headerText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
                             android:text="Location"
-                            android:textColor="#61c9ef" />
+                            android:textColor="#61c9ef"
+                            android:textSize="24sp" />
 
                         <TextView
                             android:id="@+id/locationView"
                             style="@style/viewParent.headerText"
 
                             android:textColor="#0F1415"
-                            android:textSize="15dp" />
+                            android:textSize="14sp" />
 
 
                         <Button
